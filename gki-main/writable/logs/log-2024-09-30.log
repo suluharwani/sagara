@@ -1,0 +1,59 @@
+CRITICAL - 2024-09-30 12:21:54 --> Error: Class "App\Models\Users" not found
+[Method: POST, Route: sign]
+in APPPATH\Controllers\Authentication.php on line 19.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Authentication->loginAct()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Authentication))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-30 12:23:03 --> Error: Call to a member function where() on null
+[Method: POST, Route: sign]
+in APPPATH\Models\UsersModel.php on line 24.
+ 1 APPPATH\Controllers\Authentication.php(24): App\Models\UsersModel->get_data(null, null)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Authentication->loginAct()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Authentication))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-30 12:23:20 --> ErrorException: Trying to access array offset on value of type null
+[Method: POST, Route: sign]
+in APPPATH\Controllers\Authentication.php on line 26.
+ 1 APPPATH\Controllers\Authentication.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\gereja\\app\\Controllers\\Authentication.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Authentication->loginAct()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Authentication))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-30 12:41:40 --> ErrorException: Trying to access array offset on value of type null
+[Method: POST, Route: sign]
+in APPPATH\Controllers\Authentication.php on line 26.
+ 1 APPPATH\Controllers\Authentication.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\gereja\\app\\Controllers\\Authentication.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Authentication->loginAct()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Authentication))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-30 12:41:52 --> ErrorException: Trying to access array offset on value of type null
+[Method: POST, Route: sign]
+in APPPATH\Controllers\Authentication.php on line 26.
+ 1 APPPATH\Controllers\Authentication.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\gereja\\app\\Controllers\\Authentication.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Authentication->loginAct()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Authentication))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-09-30 12:44:30 --> ErrorException: Trying to access array offset on value of type null
+[Method: POST, Route: sign]
+in APPPATH\Controllers\Authentication.php on line 26.
+ 1 APPPATH\Controllers\Authentication.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\laragon\\www\\gereja\\app\\Controllers\\Authentication.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Authentication->loginAct()
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Authentication))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
