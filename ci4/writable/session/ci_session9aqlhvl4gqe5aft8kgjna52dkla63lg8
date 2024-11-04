@@ -1,0 +1,17 @@
+__ci_last_regenerate|i:1730448806;profile|a:1:{i:0;a:11:{s:2:"id";s:1:"1";s:10:"nama_depan";s:5:"Suluh";s:13:"nama_belakang";s:6:"Arwani";s:8:"password";s:0:"";s:5:"email";s:24:"suluharwani007@gmail.com";s:15:"profile_picture";s:88:"https://lh3.googleusercontent.com/a/AEdFTp6N5mXIFVr46yJYYt7H97EGO3Zt9nFc_23gyavOsg=s96-c";s:5:"level";s:1:"1";s:6:"status";s:1:"1";s:10:"updated_at";s:19:"2023-01-16 21:41:03";s:10:"deleted_at";N;s:10:"created_at";s:19:"2023-01-16 21:41:03";}}logged|b:1;auth|a:7:{s:2:"id";s:1:"1";s:10:"nama_depan";s:5:"Suluh";s:5:"level";s:1:"1";s:13:"nama_belakang";s:6:"Arwani";s:4:"name";s:12:"Suluh Arwani";s:5:"email";s:24:"suluharwani007@gmail.com";s:7:"picture";s:88:"https://lh3.googleusercontent.com/a/AEdFTp6N5mXIFVr46yJYYt7H97EGO3Zt9nFc_23gyavOsg=s96-c";}_ci_previous_url|s:22:"http://sgr.test/client";logoutButton|s:1295:"
+ <div class="dropdown">
+  <button class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Cliet Area
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" disabled">Suluh Arwani</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/client">Dashboard</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/client/services">Services</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/client/billing">Billing</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/client/support">Support</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/client/promotion">Promotion</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/client/program">Program</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://sgr.test/clientlogout">Log out</a></li>
+  </ul>
+</div>
+";login_error|a:1:{s:9:"recaptcha";s:19:"Recaptcha not valid";}__ci_vars|a:1:{s:11:"login_error";s:3:"new";}
