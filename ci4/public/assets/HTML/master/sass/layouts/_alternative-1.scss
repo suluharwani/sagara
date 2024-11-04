@@ -1,0 +1,50 @@
+/* Theme Alternative Style */
+html.alternative-style-1 {
+
+	// General
+	.text-alternative-style {
+		font-weight: 300;
+	    letter-spacing: -0.2px;
+	}
+
+	// Top Sub Title
+	.top-sub-title {
+		font-size: 0.70rem !important;
+		font-weight: 500;
+		color: #999;
+	}
+
+	.font-alternative {
+		font-family: "Poppins", sans-serif !important;
+	}
+	
+	// Base
+	body {
+		font-family: "Poppins", sans-serif;
+	}
+
+	// Header
+	#header {
+		&.header-effect-shrink {
+			.header-container {
+				min-height: 120px;
+			}
+		}
+	}
+	@media(min-width: 992px) {
+		#header {
+			.header-nav-main {
+				nav {
+					> ul {
+						> li {
+							> a {
+								font-size: 0.95rem;
+							    font-weight: 500;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

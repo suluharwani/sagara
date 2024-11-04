@@ -1,0 +1,20 @@
+/* Tables */
+.table-active {
+	color: #fff;
+	> {
+		td, th {
+			color: #fff;
+		}
+	}
+}
+
+/* Table Dark */
+.table-dark>td, 
+.table-dark>th {
+	background: transparent;
+	border-color: #e7e7e7;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-bottom-color: #e7e7e7;
+}

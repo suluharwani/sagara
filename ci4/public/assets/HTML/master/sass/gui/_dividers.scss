@@ -1,0 +1,141 @@
+/* Dividers */
+hr {
+	padding: 0 !important;
+	&.divider {
+		margin: auto;
+		border-style: solid;
+		opacity: 1;
+	}
+	/* Divider Width */
+	&.divider-w-1 {
+		width: 50px;	
+	}
+	&.divider-w-2 {
+		width: 100px;	
+	}
+	&.divider-w-3 {
+		width: 150px;	
+	}
+	&.divider-w-4 {
+		width: 200px;	
+	}
+	&.divider-w-5 {
+		width: 250px;	
+	}
+
+	/* Divider Size */
+	&.divider-size-1 {
+		border-width: 1px;
+	}
+	&.divider-size-2 {
+		border-width: 2px;
+	}
+	&.divider-size-3 {
+		border-width: 4px;
+	}
+	&.divider-size-4 {
+		border-width: 6px;
+	}
+	&.divider-size-5 {
+		border-width: 8px;
+	}
+
+}
+
+/* Custom Dividers */
+.custom-divider-1 {
+	background: #ccc;
+	width: 30px;
+	height: 1px;
+}
+
+/* Divider Borders */
+@media(min-width: 1200px) {
+	.divider-top-border-xl {
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-bottom-border-xl {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-left-border-xl {
+		border-left: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-right-border-xl {
+		border-right: 1px solid rgba(0, 0, 0, 0.06);
+	}
+}
+
+@media(min-width: 992px) {
+	.divider-top-border-lg {
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-bottom-border-lg {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-left-border-lg {
+		border-left: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-right-border-lg {
+		border-right: 1px solid rgba(0, 0, 0, 0.06);
+	}
+}
+
+@media(min-width: 768px) {
+	.divider-top-border-md {
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-bottom-border-md {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-left-border-md {
+		border-left: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-right-border-md {
+		border-right: 1px solid rgba(0, 0, 0, 0.06);
+	}
+}
+
+@media(min-width: 576px) {
+	.divider-top-border-sm {
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-bottom-border-sm {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-left-border-sm {
+		border-left: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-right-border-sm {
+		border-right: 1px solid rgba(0, 0, 0, 0.06);
+	}
+}
+
+@media(min-width: 1px) {
+	.divider-top-border-xs {
+		border-top: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-bottom-border-xs {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-left-border-xs {
+		border-left: 1px solid rgba(0, 0, 0, 0.06);
+	}
+
+	.divider-right-border-xs {
+		border-right: 1px solid rgba(0, 0, 0, 0.06);
+	}
+}
