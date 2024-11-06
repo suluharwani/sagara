@@ -30,7 +30,6 @@
                     <th>Gambar</th>
                     <th>Nama Produk</th>
                     <th>Harga</th>
-   
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +41,6 @@
                             </td>
                             <td><?= esc($product['product_name']) ?></td>
                             <td>Rp <?= number_format($product['price'], 0, ',', '.') ?></td>
-                
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -66,7 +64,6 @@
 
         <!-- Form pemesan produk -->
         <form action="/order/save" method="post">
-
             <input type="hidden" name="id_order" value="<?= $id_order ?>">
              <div class="mb-3">
                 <label for="product" class="form-label">Pilih Produk</label>
@@ -101,6 +98,7 @@
                 <select class="form-select" id="keterangan" name="keterangan" required>
                     <option value="player">Player</option>
                     <option value="keeper">Keeper</option>
+                    <option value="official">Official</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Tambah</button>
@@ -116,7 +114,8 @@
                     <th>Nama</th>
                     <th>Ukuran</th>
                     <th>Nomor Punggung</th>
-                    <th>Keterangan</th>
+                    <th>Kategori</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,11 +126,18 @@
                             <td><?= esc($order['ukuran']) ?></td>
                             <td><?= esc($order['nomor_punggung']) ?></td>
                             <td><?= esc($order['keterangan']) ?></td>
+                            <td>
+                                <form action="/order/deleteListOrder" method="post" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?');">
+                                    <input type="hidden" name="id_order" value="<?= $id_order ?>">
+                                    <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
+                                    <button type="submit" name="hapus" value="hapus" class="btn btn-danger btn-sm">Hapus</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="4" class="text-center">Belum ada pesanan untuk Order ID: <?= $id_order ?></td>
+                        <td colspan="5" class="text-center">Belum ada pesanan untuk Order ID: <?= $id_order ?></td>
                     </tr>
                 <?php endif; ?>
             </tbody>

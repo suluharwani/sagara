@@ -85,4 +85,101 @@ class Home extends BaseController
       $data = $mdl->where('deleted_at',null)->get()->getResult();
       return json_encode($data);
   }
+    public function client($orderId){
+     { 
+        $orderModel = new \App\Models\MdlOrderTable();
+        $Mdl = new \App\Models\MdlOrder();
+        $MdlSize = new \App\Models\MdlSize();
+
+        
+        // Ambil data order yang terkait dengan orderId
+       // $orders = $orderModel->getOrdersWithParent($orderId);
+        $orders = $orderModel->where('id_order',$orderId)->findAll();
+        $pesanan = $Mdl->where('kode',$orderId)->find();
+        $ukuran = $MdlSize->findAll();
+        $orderDetail = $Mdl->getOrderDetail($orderId);
+
+        return view('admin/content/order_form', ['ukuran'=>$ukuran,'orderDetail' => $orderDetail,'orders' => $orders, 'id_order' => $orderId, 'pesanan'=>$pesanan[0]]);
+  }
+}
+    public function save()
+    {
+        $orderModel = new \App\Models\MdlOrderTable();
+
+        $data = [
+            'id_order'      => $this->request->getPost('id_order'),
+            'nama'          => $this->request->getPost('nama'),
+            'ukuran'        => $this->getSize($this->request->getPost('size')),
+            'id_product'        => $this->request->getPost('product'),
+            'id_size'        => $this->request->getPost('size'),
+            'nomor_punggung' => $this->request->getPost('nomor_punggung'),
+            'keterangan'    => $this->request->getPost('keterangan'),
+        ];
+
+        $orderModel->insert($data);
+
+        return redirect()->to('/order/' . $this->request->getPost('id_order'));
+    }
+        public function showLogo($filename)
+{
+    $path = WRITEPATH . 'uploads/logo_tim/' . $filename;
+    if (file_exists($path)) {
+        header('Content-Type: ' . mime_content_type($path));
+        header('Content-Length: ' . filesize($path));
+        readfile($path);
+        exit;
+    } else {
+        // Jika file tidak ditemukan, tampilkan gambar default
+        header("Content-Type: image/png");
+        readfile(FCPATH . 'images/default-logo.png'); // Tempatkan gambar default di public/images
+        exit;
+    }
+}
+
+   function getSize($id){
+         $MdlSize = new \App\Models\MdlSize();
+         $ukuran = $MdlSize->where('id',$id)->find();
+         $size = $ukuran[0]['kategori']."-".$ukuran[0]['ukuran'];
+         return $size;
+    }
+      public function deleteListOrder()
+    {
+       $orderId = $this->request->getPost('order_id');
+
+        // Memastikan hanya menerima request POST
+        if ($_POST['hapus'] == 'hapus') {
+            // Ambil order_id dari form
+            $orderId = $this->request->getPost('order_id');
+
+            // Pastikan order_id ada
+            if ($orderId) {
+                // Load model Order
+                $orderModel = new \App\Models\MdlOrderTable();
+
+                // Cek apakah pesanan dengan ID tersebut ada
+                $order = $orderModel->where('id',$orderId)->delete();
+                
+                if ($order) {
+                    // Hapus pesanan
+                    if ($orderModel->delete($orderId)) {
+                        // Set pesan sukses
+                        session()->setFlashdata('success', 'Pesanan berhasil dihapus.');
+                    } else {
+                        // Set pesan error jika gagal menghapus
+                        session()->setFlashdata('error', 'Gagal menghapus pesanan.');
+                    }
+                } else {
+                    // Set pesan error jika pesanan tidak ditemukan
+                    session()->setFlashdata('error', 'Pesanan tidak ditemukan.');
+                }
+            } else {
+                // Set pesan error jika order_id tidak valid
+                session()->setFlashdata('error', 'ID Pesanan tidak valid.');
+            }
+        }
+
+        // Redirect kembali ke halaman sebelumnya
+        return redirect()->to('/order/' . $this->request->getPost('id_order'));
+    }
+
 }

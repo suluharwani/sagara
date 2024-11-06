@@ -113,6 +113,7 @@ $routes->get('/client/sendmail', 'Client::sendEmail');
 $routes->get('/clientlogout', 'Client::clientlogout');
 $routes->get('/client/verify/(:any)', 'Client::verify/$1');
 $routes->get('/client/verifikasi/(:any)', 'Client::verifikasi/$1');
+$routes->get('/client/getOrder', 'Client::getOrder');
 
 //homepage
 $routes->post('/home/getContactUs', 'Home::getContactUs');
@@ -140,6 +141,7 @@ $routes->post('/admin/order/saveOrderProducts', 'Order::saveOrderProducts'); // 
 $routes->get('/admin/order/detail/(:num)', 'Order::orderDetail/$1'); // Rute untuk menampilkan detail order berdasarkan ID order
 $routes->post('admin/order/deleteProduct', 'Order::deleteProduct'); // Rute untuk menghapus produk dari order
 
-$routes->get('/order/(:any)', 'Order::client/$1'); // Rute untuk menampilkan detail order berdasarkan ID order
-$routes->post('/order/save', 'Order::save'); // Rute untuk menampilkan detail order berdasarkan ID order
+$routes->get('/order/(:any)', 'Home::client/$1'); // Rute untuk menampilkan detail order berdasarkan ID order
+$routes->post('/order/save', 'Home::save'); // Rute untuk menampilkan detail order berdasarkan ID order
 $routes->get('order/showLogo/(:any)', 'Order::showLogo/$1');
+$routes->post('order/deleteListOrder', 'Home::deleteListOrder');

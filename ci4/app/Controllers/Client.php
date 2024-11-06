@@ -366,5 +366,10 @@ function verifikasi($email = null){
    $data['content'] = view('home/content/verifikasi');
    return view('home/index', $data);
  }
+ function getOrder(){
+  $userInfo = $_SESSION['auth'];
+  $mdl = new \App\Models\MdlOrder();
+  return json_encode($mdl->where('id_client',$userInfo['id'])->findAll());
+ }
 
     }

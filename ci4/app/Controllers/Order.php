@@ -41,47 +41,7 @@ class Order extends BaseController
     $check = new \App\Controllers\CheckAccess();
     $check->access($_SESSION['auth']['id'],$page);
   }
-  public function client($orderId){
-     {
-        $orderModel = new \App\Models\MdlOrderTable();
-        $Mdl = new \App\Models\MdlOrder();
-        $MdlSize = new \App\Models\MdlSize();
 
-        
-        // Ambil data order yang terkait dengan orderId
-       // $orders = $orderModel->getOrdersWithParent($orderId);
-        $orders = $orderModel->where('id_order',$orderId)->findAll();
-        $pesanan = $Mdl->where('kode',$orderId)->find();
-        $ukuran = $MdlSize->findAll();
-        $orderDetail = $Mdl->getOrderDetail($orderId);
-
-        return view('admin/content/order_form', ['ukuran'=>$ukuran,'orderDetail' => $orderDetail,'orders' => $orders, 'id_order' => $orderId, 'pesanan'=>$pesanan[0]]);
-  }
-}
-   function getSize($id){
-         $MdlSize = new \App\Models\MdlSize();
-         $ukuran = $MdlSize->where('id',$id)->find();
-         $size = $ukuran[0]['kategori']."-".$ukuran[0]['ukuran'];
-         return $size;
-    }
-    public function save()
-    {
-        $orderModel = new \App\Models\MdlOrderTable();
-
-        $data = [
-            'id_order'      => $this->request->getPost('id_order'),
-            'nama'          => $this->request->getPost('nama'),
-            'ukuran'        => $this->getSize($this->request->getPost('size')),
-            'id_product'        => $this->request->getPost('product'),
-            'id_size'        => $this->request->getPost('size'),
-            'nomor_punggung' => $this->request->getPost('nomor_punggung'),
-            'keterangan'    => $this->request->getPost('keterangan'),
-        ];
-
-        $orderModel->insert($data);
-
-        return redirect()->to('/order/' . $this->request->getPost('id_order'));
-    }
     public function index()
     {
         $this->access('administrator');
@@ -345,21 +305,6 @@ public function saveOrderProducts()
         }
     }
 
-    public function showLogo($filename)
-{
-    $path = WRITEPATH . 'uploads/logo_tim/' . $filename;
-    if (file_exists($path)) {
-        header('Content-Type: ' . mime_content_type($path));
-        header('Content-Length: ' . filesize($path));
-        readfile($path);
-        exit;
-    } else {
-        // Jika file tidak ditemukan, tampilkan gambar default
-        header("Content-Type: image/png");
-        readfile(FCPATH . 'images/default-logo.png'); // Tempatkan gambar default di public/images
-        exit;
-    }
-}
 
 
 

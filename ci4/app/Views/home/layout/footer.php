@@ -3,9 +3,7 @@
 
 					<div class="row">
 						<div class="col-lg-2 align-self-center text-center mb-5 mb-lg-0">
-							<a href="index.html" class="logo">
-								<img src="<?=base_url('assets/logo/image.png')?>" class="img-fluid mb-lg-5" height="100" alt="PT.Cendrawasih Digikarya Pertama">
-							</a>
+					
 						</div>
 	
 			
