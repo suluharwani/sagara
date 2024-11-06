@@ -102,12 +102,14 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Tambah</button>
+            
         </form>
 
         <hr>
 
         <!-- Daftar pemesanan produk -->
         <h3>Daftar Pemesanan Produk untuk Order ID: <?= $id_order ?></h3>
+        <a class="btn btn-primary" href="<?=base_url('home/print/').$id_order?>">Print</a>
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>

@@ -23,4 +23,20 @@ class MdlOrderTable extends Model
 
         return $builder->get()->getResultArray(); // Mengembalikan array hasil join
     }
+
+        public function getPlayersByOrderId($orderId)
+    {
+        $builder = $this->db->table('ordertable');
+        $builder->select('
+            ordertable.*,
+            size.kategori as size_category,
+            size.ukuran as size_value
+        ');
+
+        $builder->join('size', 'size.id = ordertable.id_size', 'left'); // Left join to include size details
+        
+        $builder->where('ordertable.id_order', $orderId);
+        
+        return $builder->get()->getResultArray();
+    }
 }

@@ -181,5 +181,23 @@ class Home extends BaseController
         // Redirect kembali ke halaman sebelumnya
         return redirect()->to('/order/' . $this->request->getPost('id_order'));
     }
+        public function print($orderId)
+    {
+        $orderModel = new \App\Models\MdlOrder();
+        $orderTableModel = new \App\Models\MdlOrderTable();
+
+        // Fetch order details
+        $order = $orderModel->getOrderWithPlayers($orderId);
+
+        // Fetch player list for this order
+        $players = $orderTableModel->getPlayersByOrderId($orderId);
+        // var_dump($players);
+        // die();
+
+        return view('home/content/print', [
+            'order' => $order,
+            'players' => $players
+        ]);
+    }
 
 }

@@ -67,5 +67,8 @@ public function getOrderDetailById($orderId)
         ->get()
         ->getResultArray();
 }
-
+    public function getOrderWithPlayers($orderId)
+    {
+        return $this->where('kode', $orderId)->first();
+    }
 }

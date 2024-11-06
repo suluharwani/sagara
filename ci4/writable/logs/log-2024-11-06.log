@@ -275,3 +275,130 @@ INFO - 2024-11-06 07:10:14 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2024-11-06 07:10:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-06 07:10:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2024-11-06 07:12:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-06 07:40:26 --> ErrorException: Undefined array key 0
+[Method: GET, Route: order/print/uq98szad7]
+in APPPATH\Controllers\Home.php on line 102.
+ 1 APPPATH\Controllers\Home.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Controllers\\Home.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('print', 'uq98szad7')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:41:15 --> ErrorException: Undefined array key 0
+[Method: GET, Route: order/print/uq98szad7]
+in APPPATH\Controllers\Home.php on line 102.
+ 1 APPPATH\Controllers\Home.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Controllers\\Home.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('print', 'uq98szad7')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:41:16 --> ErrorException: Undefined array key 0
+[Method: GET, Route: order/print/uq98szad7]
+in APPPATH\Controllers\Home.php on line 102.
+ 1 APPPATH\Controllers\Home.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Controllers\\Home.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('print', 'uq98szad7')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:41:17 --> ErrorException: Undefined array key 0
+[Method: GET, Route: order/print/uq98szad7]
+in APPPATH\Controllers\Home.php on line 102.
+ 1 APPPATH\Controllers\Home.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Controllers\\Home.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('print', 'uq98szad7')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:41:18 --> ErrorException: Undefined array key 0
+[Method: GET, Route: order/print/uq98szad7]
+in APPPATH\Controllers\Home.php on line 102.
+ 1 APPPATH\Controllers\Home.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Controllers\\Home.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('print', 'uq98szad7')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:42:05 --> ErrorException: Undefined array key 0
+[Method: GET, Route: order/print/uq98szad7]
+in APPPATH\Controllers\Home.php on line 102.
+ 1 APPPATH\Controllers\Home.php(102): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 0', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Controllers\\Home.php', 102)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('print', 'uq98szad7')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:42:58 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "order_view.php"
+[Method: GET, Route: home/print/uq98szad7]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 41.
+ 1 SYSTEMPATH\View\View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('order_view.php')
+ 2 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('order_view', [], true)
+ 3 APPPATH\Controllers\Home.php(196): view('order_view', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('uq98szad7')
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 07:43:55 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: home/print/uq98szad7]
+in APPPATH\Views\home\content\print.php on line 38.
+ 1 APPPATH\Views\home\content\print.php(38): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Views\\home\\content\\print.php', 38)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(196): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('uq98szad7')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 08:43:32 --> ErrorException: Undefined array key "Dewasa"
+[Method: GET, Route: home/print/uq98szad7]
+in APPPATH\Views\home\content\print.php on line 88.
+ 1 APPPATH\Views\home\content\print.php(88): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "Dewasa"', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Views\\home\\content\\print.php', 88)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(197): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('uq98szad7')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-06 08:45:19 --> ErrorException: Undefined array key "KIDS"
+[Method: GET, Route: home/print/uq98szad7]
+in APPPATH\Views\home\content\print.php on line 118.
+ 1 APPPATH\Views\home\content\print.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "KIDS"', 'C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Views\\home\\content\\print.php', 118)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\suluh\\Documents\\GitHub\\sag\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(197): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('uq98szad7')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-11-06 08:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-06 08:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

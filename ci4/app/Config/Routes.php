@@ -145,3 +145,4 @@ $routes->get('/order/(:any)', 'Home::client/$1'); // Rute untuk menampilkan deta
 $routes->post('/order/save', 'Home::save'); // Rute untuk menampilkan detail order berdasarkan ID order
 $routes->get('order/showLogo/(:any)', 'Order::showLogo/$1');
 $routes->post('order/deleteListOrder', 'Home::deleteListOrder');
+$routes->get('/home/print/(:any)', 'Home::print/$1');
