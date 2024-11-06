@@ -115,7 +115,8 @@ class Home extends BaseController
             'nomor_punggung' => $this->request->getPost('nomor_punggung'),
             'keterangan'    => $this->request->getPost('keterangan'),
         ];
-
+        // var_dump($data);
+        // die();
         $orderModel->insert($data);
 
         return redirect()->to('/order/' . $this->request->getPost('id_order'));
@@ -188,15 +189,16 @@ class Home extends BaseController
 
         // Fetch order details
         $order = $orderModel->getOrderWithPlayers($orderId);
-
+        $orderDetail =$orderModel->getOrderDetailByCode($orderId);
         // Fetch player list for this order
         $players = $orderTableModel->getPlayersByOrderId($orderId);
-        // var_dump($players);
+        // var_dump($orderDetail);
         // die();
 
         return view('home/content/print', [
             'order' => $order,
-            'players' => $players
+            'players' => $players,
+            'orderDetail'=> $orderDetail
         ]);
     }
 

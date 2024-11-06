@@ -28,11 +28,12 @@ class MdlOrderTable extends Model
     {
         $builder = $this->db->table('ordertable');
         $builder->select('
-            ordertable.*,
+            ordertable.*,product.*,
             size.kategori as size_category,
             size.ukuran as size_value
         ');
 
+        $builder->join('product', 'ordertable.id_product = product.id', 'left'); // Left join to include size details
         $builder->join('size', 'size.id = ordertable.id_size', 'left'); // Left join to include size details
         
         $builder->where('ordertable.id_order', $orderId);

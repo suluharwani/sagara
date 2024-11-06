@@ -56,6 +56,17 @@ public function getOrderDetailById($orderId)
             ->get()
             ->getResultArray();
     }
+    public function getOrderDetailByCode($code)
+    {
+        return $this->db->table('order')
+            ->select('product.picture as picture, product.id as product_id,order.id as order_id, order.kode, CONCAT(client.nama_depan, " ", client.nama_belakang) as client_name, product.nama as product_name, order_list.price, order_list.status')
+            ->join('client', 'client.id = order.id_client')  // Join ke tabel client, gabung nama depan dan nama belakang
+            ->join('order_list', 'order_list.id_order = order.id')  // Join ke tabel order_list
+            ->join('product', 'product.id = order_list.id_product') // Join ke tabel product
+            ->where('order.kode', $code)
+            ->get()
+            ->getResultArray();
+    }
     public function getOrderDetail($orderId)
 {
     return $this->db->table('order')

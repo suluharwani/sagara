@@ -35,17 +35,36 @@
         <!-- Header Section -->
         <div class="text-center mb-4">
             <h2>Order Overview</h2>
-            <p><strong>Date:</strong> <?= date('d/m/Y', strtotime($order['created_at'])) ?></p>
-            <p><strong>Match:</strong> SF X PERSEBAP IIIB</p>
+            <p><strong>Tanggal:</strong> <?= date('d/m/Y', strtotime($order['created_at'])) ?></p>
+            <p><strong>Team:</strong> <?= $order['nama_tim'] ?></p>
+            <img src="<?= base_url($order['logo_tim']) ?>" alt="Team Logo" class="jersey-image">
         </div>
 
-        <!-- Jersey Images and Player Numbers -->
-        <div class="jersey-group mb-5">
-            <div>
-                <img src="<?= base_url($order['logo_tim']) ?>" alt="Team Logo" class="jersey-image">
-                <p><?= $order['nama_tim'] ?></p>
+        <div class="container mt-5">
+    <h2>Product List</h2>
+    <div class="row">
+        <?php foreach ($orderDetail as $orderDet): ?>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <!-- Display the product image -->
+                    <img 
+                        src="<?= base_url('assets/upload/image/' . $orderDet['picture']) ?>" 
+                        class="card-img-top" 
+                        alt="<?= esc($orderDet['product_name']) ?>" 
+                        style="height: 200px; object-fit: cover;"
+                    >
+                    <div class="card-body">
+                        <!-- Display product details -->
+                        <h5 class="card-title"><?= esc($orderDet['product_name']) ?></h5>
+                        <p class="card-text"><strong>Price:</strong> Rp <?= number_format($orderDet['price'], 0, ',', '.') ?></p>
+                        <!-- <p class="card-text"><strong>Client:</strong> <?= esc($orderDet['client_name']) ?></p> -->
+                        <!-- <a href="<?= base_url('order/view/' . $orderDet['order_id']) ?>" class="btn btn-primary">View Order</a> -->
+                    </div>
+                </div>
             </div>
-        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
 
         <!-- Player List -->
         <div class="table-outer mb-5">
@@ -60,7 +79,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <?php foreach ($players as $player): ?>
                         <tr>
                             <td><?= ucfirst($player['keterangan']) ?></td>

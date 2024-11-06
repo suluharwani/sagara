@@ -67,7 +67,7 @@
             <input type="hidden" name="id_order" value="<?= $id_order ?>">
              <div class="mb-3">
                 <label for="product" class="form-label">Pilih Produk</label>
-                <select class="form-select" id="product" name="product_id" required>
+                <select class="form-select" id="product" name="product" required>
                     <?php foreach ($orderDetail as $product): ?>
                         <option value="<?= esc($product['product_id']) ?>">
                             <?= esc($product['product_name']) ?> - Rp <?= number_format($product['price'], 0, ',', '.') ?>
