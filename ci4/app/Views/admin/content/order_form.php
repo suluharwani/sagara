@@ -113,10 +113,12 @@
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>
+                    <th>Produk</th>
                     <th>Nama</th>
                     <th>Ukuran</th>
                     <th>Nomor Punggung</th>
                     <th>Kategori</th>
+                    <th>Harga</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -124,10 +126,12 @@
                 <?php if ($orders): ?>
                     <?php foreach ($orders as $order): ?>
                         <tr>
+                            <td><?= esc($order['nama_produk']) ?></td>
                             <td><?= esc($order['nama']) ?></td>
                             <td><?= esc($order['ukuran']) ?></td>
                             <td><?= esc($order['nomor_punggung']) ?></td>
                             <td><?= esc($order['keterangan']) ?></td>
+                            <td><?= esc($order['price']) ?></td>
                             <td>
                                 <form action="/order/deleteListOrder" method="post" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?');">
                                     <input type="hidden" name="id_order" value="<?= $id_order ?>">

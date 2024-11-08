@@ -94,7 +94,13 @@ class Home extends BaseController
         
         // Ambil data order yang terkait dengan orderId
        // $orders = $orderModel->getOrdersWithParent($orderId);
-        $orders = $orderModel->where('id_order',$orderId)->findAll();
+        $orders = $orderModel->select('ordertable.id as id,ordertable.id_order,ordertable.id_product,ordertable.id_size,ordertable.nama,ordertable.ukuran,ordertable.nomor_punggung,ordertable.keterangan, product.judul,product.id_group,product.nama as nama_produk,product.picture,product.slug,product.text,order_list.price')
+        ->join('product','product.id = ordertable.id_product')
+        ->join('order_list','product.id = order_list.id_product')
+                    ->where('ordertable.id_order',$orderId)
+                    ->findAll();
+        // var_dump($orders);
+        // die();
         $pesanan = $Mdl->where('kode',$orderId)->find();
         $ukuran = $MdlSize->findAll();
         $orderDetail = $Mdl->getOrderDetail($orderId);
@@ -203,3 +209,4 @@ class Home extends BaseController
     }
 
 }
+ 
