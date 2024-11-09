@@ -24,20 +24,28 @@ class MdlOrderTable extends Model
         return $builder->get()->getResultArray(); // Mengembalikan array hasil join
     }
 
-        public function getPlayersByOrderId($orderId)
-    {
-        $builder = $this->db->table('ordertable');
-        $builder->select('
-            ordertable.*,product.*,
-            size.kategori as size_category,
-            size.ukuran as size_value
-        ');
+       public function getPlayersByOrderId($orderId)
+{
+    $builder = $this->db->table('ordertable');
+    $builder->select('
+        ordertable.*, 
+        product.*, 
+        size.kategori as size_category, 
+        size.ukuran as size_value
+    ');
 
-        $builder->join('product', 'ordertable.id_product = product.id', 'left'); // Left join to include size details
-        $builder->join('size', 'size.id = ordertable.id_size', 'left'); // Left join to include size details
-        
-        $builder->where('ordertable.id_order', $orderId);
-        
-        return $builder->get()->getResultArray();
-    }
+    $builder->join('product', 'ordertable.id_product = product.id', 'left'); // Join ke tabel product
+    $builder->join('size', 'size.id = ordertable.id_size', 'left'); // Join ke tabel size
+
+    $builder->where('ordertable.id_order', $orderId);
+
+    // Tambahkan pengurutan sesuai role, size, dan nomor jersey
+    $builder->orderBy('ordertable.keterangan', 'ASC'); // Urutkan berdasarkan role
+    $builder->orderBy('size.kategori', 'ASC'); // Urutkan berdasarkan kategori size
+    $builder->orderBy('size.ukuran', 'ASC'); // Urutkan berdasarkan ukuran
+    $builder->orderBy('ordertable.nomor_punggung', 'ASC'); // Urutkan berdasarkan nomor punggung
+
+    return $builder->get()->getResultArray();
+}
+    
 }
