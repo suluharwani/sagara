@@ -42,4 +42,9 @@ class MdlSize extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+        public function getCategories()
+    {
+        return $this->distinct()->findColumn('kategori');
+    }
 }

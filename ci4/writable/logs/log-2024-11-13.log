@@ -1,0 +1,225 @@
+INFO - 2024-11-13 16:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-13 16:17:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-13 16:17:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-13 16:17:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-13 16:17:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-13 16:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-11-13 16:40:17 --> ErrorException: Undefined array key "price"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 92.
+ 1 APPPATH\Views\home\content\print.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "price"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 92)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(234): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 16:47:36 --> TypeError: Cannot access offset of type string on string
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 230.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 16:58:36 --> ErrorException: Undefined variable $orderDetail
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 204.
+ 1 APPPATH\Controllers\Home.php(204): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $orderDetail', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Controllers\\Home.php', 204)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:00:00 --> ErrorException: Undefined array key "product_id"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 225.
+ 1 APPPATH\Controllers\Home.php(225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Controllers\\Home.php', 225)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:03:12 --> ErrorException: Undefined array key "product_id"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 225.
+ 1 APPPATH\Controllers\Home.php(225): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_id"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Controllers\\Home.php', 225)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:06:52 --> ErrorException: Undefined variable $orderDetail
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 203.
+ 1 APPPATH\Controllers\Home.php(203): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $orderDetail', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Controllers\\Home.php', 203)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:08:28 --> ErrorException: Array to string conversion
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 121.
+ 1 APPPATH\Views\home\content\print.php(121): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 121)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(260): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:11:22 --> ErrorException: Undefined array key "product_name"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 233.
+ 1 APPPATH\Controllers\Home.php(233): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Controllers\\Home.php', 233)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:11:58 --> ErrorException: Undefined variable $sizeSummaryByProduct
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 104.
+ 1 APPPATH\Views\home\content\print.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $sizeSummaryByProduct', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 104)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:13:08 --> ErrorException: Undefined array key "product_name"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Controllers\Home.php on line 233.
+ 1 APPPATH\Controllers\Home.php(233): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Controllers\\Home.php', 233)
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:13:34 --> ErrorException: Undefined array key "product_name"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 106.
+ 1 APPPATH\Views\home\content\print.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:14:57 --> ErrorException: Undefined array key "product_name"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 106.
+ 1 APPPATH\Views\home\content\print.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:14:58 --> ErrorException: Undefined array key "product_name"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 106.
+ 1 APPPATH\Views\home\content\print.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:15:00 --> ErrorException: Undefined array key "product_name"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 106.
+ 1 APPPATH\Views\home\content\print.php(106): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "product_name"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 106)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:15:25 --> ErrorException: Undefined array key "nama_product"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 53.
+ 1 APPPATH\Views\home\content\print.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_product"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 53)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:15:59 --> ErrorException: Undefined array key "nama_product"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 53.
+ 1 APPPATH\Views\home\content\print.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_product"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 53)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:17:29 --> ErrorException: Undefined array key "nama_product"
+[Method: GET, Route: home/print/c7uqc05sf]
+in APPPATH\Views\home\content\print.php on line 53.
+ 1 APPPATH\Views\home\content\print.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama_product"', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php', 53)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\home\\content\\print.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/content/print', [], true)
+ 5 APPPATH\Controllers\Home.php(254): view('home/content/print', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-13 17:21:08 --> BadMethodCallException: Call to undefined method App\Models\MdlSize::getCategories
+[Method: GET, Route: home/print/c7uqc05sf]
+in SYSTEMPATH\Model.php on line 932.
+ 1 APPPATH\Controllers\Home.php(199): CodeIgniter\Model->__call('getCategories', [])
+ 2 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->print('c7uqc05sf')
+ 3 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))

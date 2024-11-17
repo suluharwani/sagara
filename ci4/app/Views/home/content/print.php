@@ -50,12 +50,12 @@
                     <img 
                         src="<?= base_url('assets/upload/image/' . $orderDet['picture']) ?>" 
                         class="card-img-top" 
-                        alt="<?= esc($orderDet['product_name']) ?>" 
+                        alt="<?= esc($orderDet['nama_product']) ?>" 
                         style="height: 200px; object-fit: cover;"
                     >
                     <div class="card-body">
                         <!-- Display product details -->
-                        <h5 class="card-title"><?= esc($orderDet['product_name']) ?></h5>
+                        <h5 class="card-title"><?= esc($orderDet['nama_product']) ?></h5>
                         <p class="card-text"><strong>Price:</strong> Rp <?= number_format($orderDet['price'], 0, ',', '.') ?></p>
                         <!-- <p class="card-text"><strong>Client:</strong> <?= esc($orderDet['client_name']) ?></p> -->
                         <!-- <a href="<?= base_url('order/view/' . $orderDet['order_id']) ?>" class="btn btn-primary">View Order</a> -->
@@ -65,7 +65,9 @@
         <?php endforeach; ?>
     </div>
 </div>
-
+<div class="text-end mt-3">
+        <h4>Total Harga: Rp <?= number_format($totalPrice, 0, ',', '.') ?></h4>
+    </div>
         <!-- Player List -->
         <div class="table-outer mb-5">
             <div class="section-title">Player List</div>
@@ -74,8 +76,10 @@
                     <tr>
                         <th>Role</th>
                         <th>Size</th>
-                        <th>Player Name</th>
+                        <th>Nama Punggung</th>
+                        <th>Jersey</th>
                         <th>Jersey Number</th>
+                        <th>Harga</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,80 +88,62 @@
                         <tr>
                             <td><?= ucfirst($player['keterangan']) ?></td>
                             <td><?= $player['ukuran'] ?></td>
-                            <td><?= $player['nama'] ?></td>
+                            <td><?= $player['nama_player'] ?></td>
+                            <td><?= $player['nama_product'] ?></td>
                             <td><?= $player['nomor_punggung'] ?></td>
+                            <td><?= $player['price'] ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
 
-        <!-- Size Summary -->
-        <?php
-// Initialize the summary array
-$sizeSummary = [
-    'Kids' => ['XS' => 0, 'S' => 0, 'M' => 0, 'L' => 0, 'total' => 0],
-    'Dewasa' => ['XS' => 0, 'S' => 0, 'M' => 0, 'L' => 0, 'total' => 0]
-];
-
-// Process each player and populate the summary array
-foreach ($players as $player) {
-
-    $category = $player['size_category'];
-    $size = $player['size_value'];
-// var_dump($sizeSummary[$category][$size]);
-
-    // Check if the category and size exist in the summary array
-    if (isset($sizeSummary[$category][$size])) {
-        $sizeSummary[$category][$size]++;
-        $sizeSummary[$category]['total']++;
-    }
-}
-
-// Calculate the overall total
-$totalAll = $sizeSummary['Kids']['total'] + $sizeSummary['Dewasa']['total'];
-?>
+<div class="table-outer mb-5">
+    <div class="section-title">Rincian Produksi</div>
+<!-- Jersey Details -->
 
 <div class="table-outer mb-5">
-    <div class="section-title">Size Summary</div>
-    <table class="table table-bordered table-custom">
-        <thead class="table-light">
-            <tr>
-                <th>Category</th>
-                <th>XS</th>
-                <th>S</th>
-                <th>M</th>
-                <th>L</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- KIDS Summary Row -->
-            <tr>
-                <td>KIDS</td>
-                <td><?= $sizeSummary['Kids']['XS'] > 0 ? $sizeSummary['Kids']['XS'] : '-' ?></td>
-                <td><?= $sizeSummary['Kids']['S'] > 0 ? $sizeSummary['Kids']['S'] : '-' ?></td>
-                <td><?= $sizeSummary['Kids']['M'] > 0 ? $sizeSummary['Kids']['M'] : '-' ?></td>
-                <td><?= $sizeSummary['Kids']['L'] > 0 ? $sizeSummary['Kids']['L'] : '-' ?></td>
-                <td><?= $sizeSummary['Kids']['total'] ?></td>
-            </tr>
-            <!-- DEWASA Summary Row -->
-            <tr>
-                <td>DEWASA</td>
-                <td><?= $sizeSummary['Dewasa']['XS'] > 0 ? $sizeSummary['Dewasa']['XS'] : '-' ?></td>
-                <td><?= $sizeSummary['Dewasa']['S'] > 0 ? $sizeSummary['Dewasa']['S'] : '-' ?></td>
-                <td><?= $sizeSummary['Dewasa']['M'] > 0 ? $sizeSummary['Dewasa']['M'] : '-' ?></td>
-                <td><?= $sizeSummary['Dewasa']['L'] > 0 ? $sizeSummary['Dewasa']['L'] : '-' ?></td>
-                <td><?= $sizeSummary['Dewasa']['total'] ?></td>
-            </tr>
-            <!-- Total Summary Row -->
-            <tr class="table-light">
-                <td><strong>TOTAL</strong></td>
-                <td colspan="4"></td>
-                <td><?= $totalAll ?></td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="section-title">Ringkasan Ukuran Berdasarkan Produk</div>
+    <?php foreach ($sizeSummary as $kategori => $ukuranList): ?>
+        <?php foreach ($ukuranList as $ukuran => $dataUkuran): ?>
+            <?php foreach ($dataUkuran['products'] as $produkId => $produk): ?>
+                <?php if (!isset($productsDisplayed[$produkId])): // Cegah duplikasi produk ?>
+                    <div class="table-outer mb-5">
+                        <div class="section-title">Ringkasan Jersey <?= esc($produk['nama_product']) ?></div>
+                        <div class="table-outer mb-3">
+                            <table class="table table-bordered table-custom">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th>Kategori Ukuran</th>
+                                        <th>Ukuran</th>
+                                        <th>Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($sizeSummary as $kategoriLoop => $ukuranLoopList): ?>
+                                        <?php foreach ($ukuranLoopList as $ukuranLoop => $dataUkuranLoop): ?>
+                                            <?php if (isset($dataUkuranLoop['products'][$produkId])): ?>
+                                                <tr>
+                                                    <td><?= ucfirst($kategoriLoop) ?></td>
+                                                    <td><?= esc($ukuranLoop) ?></td>
+                                                    <td><?= esc($dataUkuranLoop['products'][$produkId]['count']) ?></td>
+                                                </tr>
+                                            <?php endif; ?>
+                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <?php $productsDisplayed[$produkId] = true; ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</div>
+
+
+
 </div>
 
 
