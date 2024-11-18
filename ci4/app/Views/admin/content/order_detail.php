@@ -22,15 +22,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($orderDetails as $detail): ?>
-                        <tr id="order_product_<?= $detail['product_id'] ?>"> <!-- ID untuk menghapus baris ini setelah penghapusan -->
+                    <?php  foreach ($orderDetails as $detail): ?>
+                        <tr id="order_product_<?= $detail['id'] ?>"> <!-- ID untuk menghapus baris ini setelah penghapusan -->
                             <td><?= $detail['kode'] ?></td>
                             <td><?= $detail['client_name'] ?></td>
                             <td><?= $detail['product_name'] ?></td>
                             <td><?= number_format($detail['price'], 2) ?></td>
                             <td><?= $detail['status'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
                             <td>
-                                <button class="btn btn-danger btn-sm deleteProduct" data-id="<?= $detail['product_id'] ?>">Hapus</button> <!-- Tombol hapus -->
+                                <button class="btn btn-danger btn-sm deleteProduct" data-id="<?= $detail['id'] ?>">Hapus</button> <!-- Tombol hapus -->
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -69,7 +69,7 @@ var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
         if (result.isConfirmed) {
             $.ajax({
                 type: 'POST',
-                url: base_url+'admin/order/deleteProduct',
+                url: base_url+'admin/order/deleteProduct', 
                 data: { id: productId },
                 success: function (response) {
                     console.log('Produk berhasil dihapus'); // Debug hasil sukses

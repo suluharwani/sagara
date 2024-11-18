@@ -297,8 +297,7 @@ public function saveOrderProducts()
 
         $orderListModel = new \App\Models\MdlOrderList();
 
-        // Coba hapus produk dari tabel order_list
-        if ($orderListModel->delete($productId)) {
+        if ($orderListModel->where('id',$productId)->delete()) {
             return $this->response->setJSON(['message' => 'Produk berhasil dihapus']);
         } else {
             return $this->response->setStatusCode(500)->setJSON(['message' => 'Gagal menghapus produk']);

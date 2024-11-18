@@ -51,7 +51,7 @@
                         src="<?= base_url('assets/upload/image/' . $orderDet['picture']) ?>" 
                         class="card-img-top" 
                         alt="<?= esc($orderDet['nama_product']) ?>" 
-                        style="height: 200px; object-fit: cover;"
+                        style="height: auto; object-fit: cover;"
                     >
                     <div class="card-body">
                         <!-- Display product details -->
