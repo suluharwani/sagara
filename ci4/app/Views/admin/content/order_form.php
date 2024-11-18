@@ -77,7 +77,7 @@
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Punggung</label>
-                <input type="text" class="form-control" id="nama" name="nama" required>
+                <input type="text" class="form-control" id="nama" name="nama" >
             </div>
             <div class="mb-3">
                 <label for="ukuran" class="form-label">Ukuran</label>
@@ -91,11 +91,11 @@
             </div>
             <div class="mb-3">
                 <label for="nomor_punggung" class="form-label">Nomor Punggung</label>
-                <input type="number" class="form-control" id="nomor_punggung" name="nomor_punggung" required>
+                <input type="number" class="form-control" id="nomor_punggung" name="nomor_punggung" >
             </div>
             <div class="mb-3">
                 <label for="keterangan" class="form-label">Keterangan</label>
-                <select class="form-select" id="keterangan" name="keterangan" required>
+                <select class="form-select" id="keterangan" name="keterangan" >
                     <option value="player">Player</option>
                     <option value="keeper">Keeper</option>
                     <option value="official">Official</option>
