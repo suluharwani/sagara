@@ -97,7 +97,8 @@ class Home extends BaseController
         $orders = $orderModel->select('ordertable.id as id,ordertable.id_order,ordertable.id_product,ordertable.id_size,ordertable.nama,ordertable.ukuran,ordertable.nomor_punggung,ordertable.keterangan, product.judul,product.id_group,product.nama as nama_produk,product.picture,product.slug,product.text,order_list.price')
         ->join('product','product.id = ordertable.id_product')
         ->join('order_list','product.id = order_list.id_product')
-                    ->where('ordertable.id_order',$orderId)
+        ->join('order','order.id = order_list.id_order')
+                    ->where('order.kode',$orderId)
                     ->findAll();
         // var_dump($orders);
         // die();
@@ -218,7 +219,7 @@ public function print($orderId)
             ];
         }
     }
-
+ 
     // Fetch order details
     $order = $orderModel->getOrderWithPlayers($orderId);
     $orderDetail = $orderModel->getOrderDetailByCode($orderId); // Order details by product
@@ -227,6 +228,8 @@ public function print($orderId)
     $players = $orderTableModel->getPlayersByOrderId($orderId);
 
     // Process player data and aggregate size information
+    // var_dump($players);
+    // die();
     foreach ($players as $player) {
         $category = $player['size_category'];
         $size = $player['size_value'];

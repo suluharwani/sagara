@@ -37,8 +37,9 @@ class MdlOrderTable extends Model
     $builder->join('product', 'ordertable.id_product = product.id', 'left'); // Join ke tabel product
     $builder->join('size', 'size.id = ordertable.id_size', 'left'); // Join ke tabel size
     $builder->join('order_list', 'order_list.id_product = product.id', 'left'); // Join ke tabel size
+    $builder->join('order', 'order_list.id_order = order.id', 'left'); // Join ke tabel size
 
-    $builder->where('ordertable.id_order', $orderId);
+    $builder->where('order.kode', $orderId);
     // $builder->where('order_list.id_order', $orderId);
 
     // Tambahkan pengurutan sesuai role, size, dan nomor jersey
