@@ -32,6 +32,11 @@ $routes->post('/admin/product/tambahSize', 'Product::tambahSize');
 $routes->post('/admin/product/selectSize', 'Product::selectSize');
 $routes->post('/admin/product/purgeSize', 'Product::purgeSize');
 $routes->post('/admin/product/updateSize', 'Product::updateSize');
+$routes->post('/admin/product/deleteProduct', 'Product::deleteProduct');
+$routes->post('/admin/product/getProductDetail', 'Product::getProductDetail');
+$routes->post('/admin/product/updateProduct', 'Product::updateProduct');
+$routes->post('/admin/product/updateImage', 'Product::updateImage');
+
 
 //admin
 $routes->get('/admin', 'Admin::index' , ['as' => 'admin']);
@@ -146,3 +151,5 @@ $routes->post('/order/save', 'Home::save'); // Rute untuk menampilkan detail ord
 $routes->get('order/showLogo/(:any)', 'Order::showLogo/$1');
 $routes->post('order/deleteListOrder', 'Home::deleteListOrder');
 $routes->get('/home/print/(:any)', 'Home::print/$1');
+
+$routes->get('/exportExcel/(:any)', 'Order::exportExcel/$1');

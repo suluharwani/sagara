@@ -100,7 +100,7 @@ return json_encode($output);
     $row[] = $no;
     $row[] = $lists->id;
     $row[] = $lists->nama;
-    $row[] = $lists->status;
+    $row[] = $lists->picture;
     $data[] = $row;
 }
 $output = array(
@@ -400,4 +400,131 @@ function upload(){
         die(json_encode(array('message' => 'Tidak ada perubahan pada data', 'code' => 1)));
       }
      } 
+     public function getProductDetail()
+    {
+        $id = $this->request->getPost('id'); // Mengambil ID dari request POST
+
+        if (!$id) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid input: ID is required.',
+            ])->setStatusCode(400);
+        }
+
+        $model = new \App\Models\MdlProduct();
+        $product = $model->select('*, product_group.group as group')
+                   ->join('product_group', 'product.id_group = product_group.id')->find($id); // Mencari produk berdasarkan ID
+
+        if ($product) {
+            return $this->response->setJSON($product); // Mengembalikan data produk
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Product not found.',
+            ])->setStatusCode(404);
+        }
+    }
+
+public function updateProduct()
+{
+    $data = $this->request->getPost('data');
+    $productModel = new \App\Models\MdlProduct();
+
+    if ($productModel->update($data['id'], $data)) {
+        return $this->response->setJSON(['success' => true, 'message' => 'Produk berhasil diperbarui.']);
+    } else {
+        return $this->response->setJSON(['success' => false, 'message' => 'Gagal memperbarui produk.'], 500);
+    }
+}
+
+
+    public function deleteProduct()
+    {
+        $id = $this->request->getPost('id');
+
+        $model = new \App\Models\MdlProduct();
+
+        if (!$id) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid input.',
+            ])->setStatusCode(400);
+        }
+
+        $deleted = $model->delete($id);
+
+        if ($deleted) {
+            return $this->response->setJSON([
+                'success' => true,
+                'message' => 'Product deleted successfully.',
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Failed to delete product.',
+            ])->setStatusCode(500);
+        }
+    }
+public function updateImage()
+{
+    helper(['form', 'url']);
+
+    $id = $this->request->getPost('id');
+    $file = $this->request->getFile('image');
+
+    if ($file->isValid() && !$file->hasMoved()) {
+        $productModel = new \App\Models\MdlProduct();
+        $product = $productModel->find($id);
+
+        $newName = $file->getRandomName();
+
+        // Simpan gambar ke folder berbeda dengan manipulasi ukuran
+        $image = \Config\Services::image();
+
+        // Thumbnail
+        $image->withFile($file)
+            ->resize(100, 100, true, 'height')
+            ->save(FCPATH . 'assets/upload/thumb/' . $newName);
+
+        // Gambar ukuran 1000x1000
+        $image->withFile($file)
+            ->resize(1000, 1000, true, 'height')
+            ->save(FCPATH . 'assets/upload/1000/' . $newName);
+
+        // Gambar kualitas rendah
+        $image->withFile($file)
+            ->withResource()
+            ->save(FCPATH . 'assets/upload/low/' . $newName, 80);
+
+        // Gambar asli
+        $file->move(FCPATH . 'assets/upload/image', $newName);
+
+        // Hapus gambar lama jika ada
+        if ($product && $product['picture']) {
+            $oldFiles = [
+                FCPATH . 'assets/upload/image/' . $product['picture'],
+                FCPATH . 'assets/upload/1000/' . $product['picture'],
+                FCPATH . 'assets/upload/low/' . $product['picture'],
+                FCPATH . 'assets/upload/thumb/' . $product['picture'],
+            ];
+
+            foreach ($oldFiles as $oldFile) {
+                if (file_exists($oldFile)) {
+                    unlink($oldFile);
+                }
+            }
+        }
+
+        // Update gambar di database
+        $productModel->update($id, ['picture' => $newName]);
+
+        // Kembalikan respon sukses
+        return $this->response->setJSON(['success' => true, 'message' => 'Gambar produk berhasil diperbarui.']);
+    } else {
+        // Respon error jika gagal mengunggah file
+        return $this->response->setJSON(['success' => false, 'message' => 'Gagal mengunggah gambar.'], 400);
+    }
+}
+
+
 }

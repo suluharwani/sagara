@@ -79,6 +79,8 @@ $(document).ready(function() {
         <a href="javascript:void(0);" class="btn btn-info btn-sm PaymentHistory" data-id="${row[1]}">Riwayat Pembayaran</a>
        <a href="javascript:void(0);" class="btn btn-warning btn-sm Link" id="${row[1]}" link = "${row[7]}">Link</a>
        <a href="javascript:void(0);" class="btn btn-success btn-sm UbahStatus" id="${row[1]}" status = "${row[6]}">Ubah Status</a>
+       <a href="${base_url}exportExcel/${row[2]}" class="btn btn-success">Download Excel</a>
+
        <a href="javascript:void(0);" class="btn btn-danger btn-sm Delete" id="${row[1]}" >Delete</a>`; 
   	}}
   	],

@@ -120,17 +120,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php $jumlah =0?>
                                     <?php foreach ($sizeSummary as $kategoriLoop => $ukuranLoopList): ?>
                                         <?php foreach ($ukuranLoopList as $ukuranLoop => $dataUkuranLoop): ?>
                                             <?php if (isset($dataUkuranLoop['products'][$produkId])): ?>
+                                                <?php $jumlah +=$dataUkuranLoop['products'][$produkId]['count']?>
                                                 <tr>
                                                     <td><?= ucfirst($kategoriLoop) ?></td>
                                                     <td><?= esc($ukuranLoop) ?></td>
                                                     <td><?= esc($dataUkuranLoop['products'][$produkId]['count']) ?></td>
                                                 </tr>
                                             <?php endif; ?>
+
                                         <?php endforeach; ?>
                                     <?php endforeach; ?>
+                               <tr style="background-color: #f8d7da; color: #721c24;">
+        <td colspan="2"><strong>Total</strong></td>
+        <td><strong><?= $jumlah ?></strong></td>
+    </tr>
                                 </tbody>
                             </table>
                         </div>

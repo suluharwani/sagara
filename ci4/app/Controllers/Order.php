@@ -8,6 +8,10 @@ use AllowDynamicProperties;
 use Bcrypt\Bcrypt;
 use google\apiclient;
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
+
 class Order extends BaseController
 {
       protected $bcrypt;
@@ -305,6 +309,126 @@ public function saveOrderProducts()
     }
 
 
+public function exportExcel($orderId)
+{
+    // Load models
+    $orderModel = new \App\Models\MdlOrder();
+    $orderTableModel = new \App\Models\MdlOrderTable();
+    $mdlSize = new \App\Models\MdlSize();
+
+    // Fetch sizes from the database
+    $sizes = $mdlSize->findAll();
+    $sizeSummary = [];
+
+    foreach ($sizes as $size) {
+        $category = $size['kategori'];
+        $sizeValue = $size['ukuran'];
+        $sizeSummary[$category][$sizeValue] = [
+            'total' => 0,
+            'products' => []
+        ];
+    }
+
+    // Fetch order details
+    $order = $orderModel->getOrderWithPlayers($orderId);
+
+    $orderDetail = $orderModel->getOrderDetailByCode($orderId);
+    $players = $orderTableModel->getPlayersByOrderId($orderId);
+
+    foreach ($players as $player) {
+        $category = $player['size_category'];
+        $size = $player['size_value'];
+        $productId = $player['product_id'];
+        $productName = $player['nama_product'];
+
+        if (isset($sizeSummary[$category][$size])) {
+            $sizeSummary[$category][$size]['total']++;
+            if (!isset($sizeSummary[$category][$size]['products'][$productId])) {
+                $sizeSummary[$category][$size]['products'][$productId] = [
+                    'nama_product' => $productName,
+                    'count' => 0
+                ];
+            }
+            $sizeSummary[$category][$size]['products'][$productId]['count']++;
+        }
+    }
+
+    $totalPrice = array_sum(array_column($players, 'price'));
+
+    // Generate Excel
+    $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+    $sheet->setTitle('Order Overview');
+
+    // Header
+    $sheet->setCellValue('A1', 'Order Overview');
+    $sheet->mergeCells('A1:E1');
+    $sheet->getStyle('A1')->getFont()->setBold(true)->setSize(16);
+
+    $sheet->setCellValue('A3', 'Tanggal:');
+    $sheet->setCellValue('B3', $order['created_at']);
+    $sheet->setCellValue('A4', 'Team:');
+    $sheet->setCellValue('B4', $order['nama_tim']);
+
+    // Produk
+    $sheet->setCellValue('A6', 'No');
+    $sheet->setCellValue('B6', 'Nama Produk');
+    $sheet->setCellValue('C6', 'Harga');
+    $sheet->setCellValue('D6', 'Gambar');
+
+    $row = 7;
+    foreach ($orderDetail as $index => $detail) {
+        $sheet->setCellValue("A{$row}", $index + 1);
+        $sheet->setCellValue("B{$row}", $detail['nama_product']);
+        $sheet->setCellValue("C{$row}", $detail['price']);
+
+        // Add image
+        $imagePath = FCPATH . 'assets/upload/image/' . $detail['picture'];
+        if (file_exists($imagePath)) {
+            $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+            $drawing->setPath($imagePath);
+            $drawing->setCoordinates("D{$row}");
+            $drawing->setHeight(50);
+            $drawing->setWorksheet($sheet);
+        }
+        $row++;
+    }
+
+    // Player List
+    $sheet->setCellValue("A{$row}", 'Player List');
+    $sheet->mergeCells("A{$row}:E{$row}");
+    $sheet->getStyle("A{$row}")->getFont()->setBold(true);
+    $row++;
+
+    $sheet->setCellValue("A{$row}", 'Role');
+    $sheet->setCellValue("B{$row}", 'Size');
+    $sheet->setCellValue("C{$row}", 'Nama Punggung');
+    $sheet->setCellValue("D{$row}", 'Jersey');
+    $sheet->setCellValue("E{$row}", 'Harga');
+    $row++;
+
+    foreach ($players as $player) {
+        $sheet->setCellValue("A{$row}", ucfirst($player['keterangan']));
+        $sheet->setCellValue("B{$row}", $player['ukuran']);
+        $sheet->setCellValue("C{$row}", $player['nama_player']);
+        $sheet->setCellValue("D{$row}", $player['nama_product']);
+        $sheet->setCellValue("E{$row}", $player['price']);
+        $row++;
+    }
+
+    // Total
+    $sheet->setCellValue("D{$row}", 'Total:');
+    $sheet->setCellValue("E{$row}", $totalPrice);
+
+    // Save and Download
+    $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment;filename="Order_Overview.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    $writer->save('php://output');
+    exit;
+}
 
 
 }

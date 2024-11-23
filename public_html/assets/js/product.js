@@ -26,8 +26,7 @@ let base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
       }
   });
   }
-
-(()=> {
+$(document).ready(function () { 
   let dataTable = $('#tabelProduct').DataTable( {
     "processing" : true,
     "oLanguage": {
@@ -65,14 +64,18 @@ let base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
       return  row[2];
     }},
     {mRender: function (data, type, row) {
-      return   `${row[2]}`;
+      return   ` <img src="${base_url}assets/upload/image/${row[3]}"  alt="Gambar Produk" height = "60px">`;
 
     }},
    
 
     {mRender: function (data, type, row) {
-    return   '<a href="javascript:void(0);" class="btn btn-success btn-sm viewProduk"  id="'+row[1]+'"  nama = "'+row[2]+'" >View</a> <a href="javascript:void(0);" class="btn btn-warning btn-sm editPage"  id="'+row[1]+'"  nama = "'+row[2]+'" >Edit</a> <a href="javascript:void(0);" class="btn btn-danger btn-sm btn_hapus_menu" id="'+row[1]+'"  nama = "'+row[2]+'" >Hapus</a>';
-
+    return `
+                <a href="javascript:void(0);" class="btn btn-success btn-sm viewProduk" data-id="${row[1]}">View</a>
+                <a href="javascript:void(0);" class="btn btn-warning btn-sm editProduk" data-id="${row[1]}">Edit</a>
+                <a href="javascript:void(0);" class="btn btn-info btn-sm editImage" data-id="${row[1]}">Edit Gambar</a>
+                <a href="javascript:void(0);" class="btn btn-danger btn-sm btn_hapus_menu" data-id="${row[1]}">Delete</a>
+            `;
     }
   }
   ],
@@ -91,7 +94,160 @@ let base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
 });
 
 }
-)();
+)
+
+
+$(document).on('click', '.viewProduk', function() {
+    const id = $(this).data('id');
+    $.ajax({
+        type: "POST",
+        url: `${base_url}admin/product/getProductDetail`,
+        data: { id },
+        dataType: 'json',
+        success: function(data) {
+            Swal.fire({
+                title: 'Rincian Produk',
+                html: `
+                    <strong>Nama:</strong> ${data.nama}<br>
+                    <strong>Group:</strong> ${data.group}<br>
+                    <strong>Deskripsi:</strong> ${data.text}<br>
+                    <img src="${base_url}assets/upload/image/${data.picture}" height="300px;" alt="Gambar Produk">
+                `,
+                width: 600,
+                confirmButtonText: 'Close'
+            });
+        },
+        error: function(xhr) {
+            Swal.fire('Error', 'Gagal memuat data produk.', 'error');
+        }
+    });
+});
+
+$(document).on('click', '.editProduk', function () {
+    const id = $(this).data('id');
+
+    // Fetch data for the selected product
+    $.ajax({
+        type: 'POST',
+        url: `${base_url}admin/product/getProductDetail`,
+        data: { id: id },
+        dataType: 'json',
+        success: function (data) {
+            // Populate modal fields
+            $('#productId').val(data.id);
+            $('#namaUpdate').val(data.nama);
+            $('#textUpdate').summernote('code', data.text);
+            selectGroup(data.id_group);
+
+            // Show the modal
+            $('#modalUpdateProduct').modal('show');
+        },
+        error: function () {
+            Swal.fire('Error', 'Gagal memuat data produk.', 'error');
+        }
+    });
+});
+
+// Save changes
+$('.saveUpdate').on('click', function () {
+    const formData = {
+        id: $('#productId').val(),
+        nama: $('#namaUpdate').val(),
+        id_group: $('#groupUpdate').val(),
+        text: $('#textUpdate').summernote('code'),
+    };
+
+    // Send update request
+    $.ajax({
+        type: 'POST',
+        url: `${base_url}admin/product/updateProduct`,
+        data: { data: formData },
+        dataType: 'json',
+        success: function (response) {
+            Swal.fire('Berhasil!', response.message, 'success');
+            $('#modalUpdateProduct').modal('hide');
+            $('#tabelProduct').DataTable().ajax.reload();
+        },
+        error: function (xhr) {
+            Swal.fire('Gagal!', xhr.responseJSON.message, 'error');
+        }
+    });
+});
+
+// Function to fetch and populate group options
+$(document).on('click', '.editImage', function () {
+    const id = $(this).data('id');
+
+    // Fetch product details to display current image
+    $.ajax({
+        type: 'POST',
+        url: `${base_url}admin/product/getProductDetail`,
+        data: { id: id },
+        dataType: 'json',
+        success: function (data) {
+            // Populate modal fields
+            $('#productIdImage').val(data.id);
+            $('#currentImage').attr('src', `${base_url}assets/upload/image/${data.picture}`);
+            
+            // Show the modal
+            $('#modalEditImage').modal('show');
+        },
+        error: function () {
+            Swal.fire('Error', 'Gagal memuat data produk.', 'error');
+        }
+    });
+});
+
+// Save new image
+$('.saveImage').on('click', function () {
+    const formData = new FormData($('#formEditImage')[0]);
+
+    $.ajax({
+        type: 'POST',
+        url: `${base_url}admin/product/updateImage`,
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            Swal.fire('Berhasil!', response.message, 'success');
+            $('#modalEditImage').modal('hide');
+            $('#tabelProduct').DataTable().ajax.reload();
+        },
+        error: function (xhr) {
+            Swal.fire('Gagal!', xhr.responseJSON.message, 'error');
+        }
+    });
+});
+
+
+$(document).on('click', '.btn_hapus_menu', function() {
+    const id = $(this).data('id');
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: 'Produk ini akan dihapus!',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, hapus!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: 'POST',
+                url: base_url + 'admin/product/deleteProduct',
+                data: { id: id },
+                dataType: 'json',
+                success: function(res) {
+                    Swal.fire('Deleted!', res.message, 'success');
+                    $('#tabelProduct').DataTable().ajax.reload();
+                },
+                error: function(xhr) {
+                    Swal.fire('Oops...', xhr.responseJSON.message, 'error');
+                }
+            });
+        }
+    });
+});
 
 $('.tambahProduk').on('click',function(){
    selectGroup()
