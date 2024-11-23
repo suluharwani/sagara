@@ -361,7 +361,7 @@ public function exportExcel($orderId)
     $sheet->setTitle('Order Overview');
 
     // Header
-    $sheet->setCellValue('A1', 'Order Overview');
+    $sheet->setCellValue('A1', "Order kode: {$orderId}");
     $sheet->mergeCells('A1:E1');
     $sheet->getStyle('A1')->getFont()->setBold(true)->setSize(16);
 
@@ -403,22 +403,24 @@ public function exportExcel($orderId)
     $sheet->setCellValue("A{$row}", 'Role');
     $sheet->setCellValue("B{$row}", 'Size');
     $sheet->setCellValue("C{$row}", 'Nama Punggung');
-    $sheet->setCellValue("D{$row}", 'Jersey');
-    $sheet->setCellValue("E{$row}", 'Harga');
+    $sheet->setCellValue("D{$row}", 'Nomor Punggung');
+    $sheet->setCellValue("E{$row}", 'Jersey');
+    $sheet->setCellValue("F{$row}", 'Harga');
     $row++;
 
     foreach ($players as $player) {
         $sheet->setCellValue("A{$row}", ucfirst($player['keterangan']));
         $sheet->setCellValue("B{$row}", $player['ukuran']);
         $sheet->setCellValue("C{$row}", $player['nama_player']);
-        $sheet->setCellValue("D{$row}", $player['nama_product']);
-        $sheet->setCellValue("E{$row}", $player['price']);
+        $sheet->setCellValue("D{$row}", $player['nomor_punggung']);
+        $sheet->setCellValue("E{$row}", $player['nama_product']);
+        $sheet->setCellValue("F{$row}", $player['price']);
         $row++;
     }
 
     // Total
-    $sheet->setCellValue("D{$row}", 'Total:');
-    $sheet->setCellValue("E{$row}", $totalPrice);
+    $sheet->setCellValue("E{$row}", 'Total:');
+    $sheet->setCellValue("F{$row}", $totalPrice);
 
     // Save and Download
     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
