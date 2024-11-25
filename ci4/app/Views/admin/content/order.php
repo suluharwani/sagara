@@ -37,6 +37,7 @@
               <thead>
                 <tr  class="text-center">
                   <th style="width: 5%; text-align: center;">NO</th>
+                  <th style="width: 5%; text-align: center;">TEAM</th>
                   <th style="width: 5%; text-align: center;">KODE</th>
                   <th style="width: 5%; text-align: center;">CUSTOMER</th>
                   <th style="width: 5%; text-align: center;">DEADLINE</th>
@@ -47,6 +48,7 @@
               <tfoot>
                 <tr class="text-center">
                   <th style="width: 5%; text-align: center;">NO</th>
+                  <th style="width: 5%; text-align: center;">TEAM</th>
                   <th style="width: 5%; text-align: center;">KODE</th>
                   <th style="width: 5%; text-align: center;">CUSTOMER</th>
                   <th style="width: 5%; text-align: center;">DEADLINE</th>

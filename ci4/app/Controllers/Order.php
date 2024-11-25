@@ -72,14 +72,15 @@ class Order extends BaseController
           $where = ['order.id !=' => 0, 'order.deleted_at' => NULL];
   
           // Column Order Must Match Header Columns in View
-          $column_order = array(NULL,'order.kode','order.id_client','order.deadline','order.link','order.status'
+          $column_order = array(NULL,'order.nama_tim','order.kode','order.id_client','order.deadline','order.link','order.status'
           );
           $column_search = array(
               'order.kode', 
               'client.nama_depan', 
               'client.nama_belakang', 
+              'nama_tim'
           );
-          $order = array('order.id' => 'desc');
+          $order = array('order.deadline' => 'desc');
   
           // Call the method to get data with dynamic joins and select fields
           $list = $serverside_model->get_datatables('order', $select_columns, $joins, $column_order, $column_search, $order, $where);
@@ -101,6 +102,7 @@ class Order extends BaseController
           $row[] = $lists->deleted_at;
           $row[] = $lists->nama_depan;
           $row[] = $lists->nama_belakang;
+          $row[] = $lists->nama_tim;
 
               $data[] = $row;
           }
@@ -373,14 +375,14 @@ public function exportExcel($orderId)
     // Produk
     $sheet->setCellValue('A6', 'No');
     $sheet->setCellValue('B6', 'Nama Produk');
-    $sheet->setCellValue('C6', 'Harga');
+    // $sheet->setCellValue('C6', 'Harga');
     $sheet->setCellValue('D6', 'Gambar');
 
     $row = 7;
     foreach ($orderDetail as $index => $detail) {
         $sheet->setCellValue("A{$row}", $index + 1);
         $sheet->setCellValue("B{$row}", $detail['nama_product']);
-        $sheet->setCellValue("C{$row}", $detail['price']);
+        // $sheet->setCellValue("C{$row}", $detail['price']);
 
         // Add image
         $imagePath = FCPATH . 'assets/upload/image/' . $detail['picture'];
@@ -405,7 +407,7 @@ public function exportExcel($orderId)
     $sheet->setCellValue("C{$row}", 'Nama Punggung');
     $sheet->setCellValue("D{$row}", 'Nomor Punggung');
     $sheet->setCellValue("E{$row}", 'Jersey');
-    $sheet->setCellValue("F{$row}", 'Harga');
+    // $sheet->setCellValue("F{$row}", 'Harga');
     $row++;
 
     foreach ($players as $player) {
@@ -414,13 +416,13 @@ public function exportExcel($orderId)
         $sheet->setCellValue("C{$row}", $player['nama_player']);
         $sheet->setCellValue("D{$row}", $player['nomor_punggung']);
         $sheet->setCellValue("E{$row}", $player['nama_product']);
-        $sheet->setCellValue("F{$row}", $player['price']);
+        // $sheet->setCellValue("F{$row}", $player['price']);
         $row++;
     }
 
     // Total
     $sheet->setCellValue("E{$row}", 'Total:');
-    $sheet->setCellValue("F{$row}", $totalPrice);
+    // $sheet->setCellValue("F{$row}", $totalPrice);
 
     // Save and Download
     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);

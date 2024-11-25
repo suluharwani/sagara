@@ -43,6 +43,7 @@ class MdlOrderTable extends Model
     // $builder->where('order_list.id_order', $orderId);
 
     // Tambahkan pengurutan sesuai role, size, dan nomor jersey
+    $builder->orderBy('ordertable.id_product', 'ASC'); // Urutkan berdasarkan role
     $builder->orderBy('ordertable.keterangan', 'ASC'); // Urutkan berdasarkan role
     $builder->orderBy('size.kategori', 'ASC'); // Urutkan berdasarkan kategori size
     $builder->orderBy('size.ukuran', 'ASC'); // Urutkan berdasarkan ukuran

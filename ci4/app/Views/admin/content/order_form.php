@@ -22,7 +22,7 @@
                 <p><strong>Brand:</strong> <?= esc($pesanan['brand']) ?></p>
             </div>
         </div>
-        
+         
         <!-- Tabel Daftar Produk -->
         <table class="table table-bordered mt-3">
             <thead>
@@ -91,7 +91,7 @@
             </div>
             <div class="mb-3">
                 <label for="nomor_punggung" class="form-label">Nomor Punggung</label>
-                <input type="number" class="form-control" id="nomor_punggung" name="nomor_punggung" >
+                <input type="text" class="form-control" id="nomor_punggung" name="nomor_punggung" >
             </div>
             <div class="mb-3">
                 <label for="keterangan" class="form-label">Keterangan</label>
@@ -136,7 +136,11 @@
                                 <form action="/order/deleteListOrder" method="post" onsubmit="return confirm('Apakah Anda yakin ingin menghapus pesanan ini?');">
                                     <input type="hidden" name="id_order" value="<?= $id_order ?>">
                                     <input type="hidden" name="order_id" value="<?= $order['id'] ?>">
+                                    <?php if (esc($order['status_pembayaran'])>=1) {?>
+                                       Tidak dapat dihapus
+                                    <?php }else{?>
                                     <button type="submit" name="hapus" value="hapus" class="btn btn-danger btn-sm">Hapus</button>
+                                <?php } ?>
                                 </form>
                             </td>
                         </tr>
