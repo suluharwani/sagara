@@ -80,7 +80,7 @@ class Order extends BaseController
               'client.nama_belakang', 
               'nama_tim'
           );
-          $order = array('order.deadline' => 'desc');
+          $order = array('order.deadline' => 'asc');
   
           // Call the method to get data with dynamic joins and select fields
           $list = $serverside_model->get_datatables('order', $select_columns, $joins, $column_order, $column_search, $order, $where);
