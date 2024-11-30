@@ -51,6 +51,10 @@ $(document).ready(function() {
                 return formatTanggalIndonesia(row[4]);
             }},
             { mRender: function (data, type, row) {
+                // Format tanggal Indonesia
+                return row[13];
+            }},
+            { mRender: function (data, type, row) {
                 if (row[6] == 0) {
                     status = "Tidak Aktif";
                 } else if (row[6] == 1) {

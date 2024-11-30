@@ -1,0 +1,349 @@
+INFO - 2024-11-30 07:32:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 07:32:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 07:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 07:32:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:18:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:44:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:47:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:52:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:52:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-30 08:52:57 --> mysqli_sql_exception: Unknown column 'ordertable.id_oder' in 'on clause' in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-11-30 08:52:57 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ordertable.id_oder' in 'on clause'
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-30 08:52:57 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ordertable.id_oder' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-30 08:52:57 --> [Caused by] mysqli_sql_exception: Unknown column 'ordertable.id_oder' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-11-30 08:53:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:53:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-30 08:53:06 --> mysqli_sql_exception: Unknown column 'ordertable.id_oder' in 'on clause' in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-11-30 08:53:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ordertable.id_oder' in 'on clause'
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-30 08:53:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ordertable.id_oder' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-30 08:53:06 --> [Caused by] mysqli_sql_exception: Unknown column 'ordertable.id_oder' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-11-30 08:53:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:53:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-11-30 08:53:12 --> mysqli_sql_exception: Unknown column 'ordertable.id_oder' in 'on clause' in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-11-30 08:53:12 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ordertable.id_oder' in 'on clause'
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-30 08:53:12 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'ordertable.id_oder' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-11-30 08:53:12 --> [Caused by] mysqli_sql_exception: Unknown column 'ordertable.id_oder' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`, count(ordertable.id) as jumlah
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+LEFT JOIN `ordertable` ON `order`.`id` = `ordertable`.`id_oder`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(87): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-11-30 08:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:55:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-11-30 08:55:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

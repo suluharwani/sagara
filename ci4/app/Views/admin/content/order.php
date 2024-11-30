@@ -41,6 +41,7 @@
                   <th style="width: 5%; text-align: center;">KODE</th>
                   <th style="width: 5%; text-align: center;">CUSTOMER</th>
                   <th style="width: 5%; text-align: center;">DEADLINE</th>
+                  <th style="width: 5%; text-align: center;">QTY</th>
                   <th style="width: 5%; text-align: center;">STATUS</th>
                   <th style="width: 20%; text-align: center;">ACTION</th>
                 </tr>
@@ -52,6 +53,7 @@
                   <th style="width: 5%; text-align: center;">KODE</th>
                   <th style="width: 5%; text-align: center;">CUSTOMER</th>
                   <th style="width: 5%; text-align: center;">DEADLINE</th>
+                  <th style="width: 5%; text-align: center;">QTY</th>
                   <th style="width: 5%; text-align: center;">STATUS</th>
                   <th style="width: 20%; text-align: center;">ACTION</th>
                 </tr>
