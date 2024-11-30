@@ -105,7 +105,7 @@ class Order extends BaseController
           $row[] = $lists->nama_depan;
           $row[] = $lists->nama_belakang;
           $row[] = $lists->nama_tim;
-          $row[] = $MdlOrderTable->where('id_order', $lists->id)->countAllResults();
+          $row[] = $MdlOrderTable->where('id_order', $lists->kode)->countAllResults();
 
               $data[] = $row;
           }
