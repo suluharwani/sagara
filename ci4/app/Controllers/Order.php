@@ -60,16 +60,17 @@ class Order extends BaseController
           $request = \Config\Services::request();
           
           // Define the columns to select
-          $select_columns = 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang, count(ordertable.id) as jumlah';
+          $select_columns = 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang';
           
           // Define the joins (you can add more joins as needed)
           $joins = [
               ['client', 'order.id_client = client.id', 'left'],
-              ['ordertable', 'order.id = ordertable.id_order', 'left'],
+              // ['ordertable', 'order.id = ordertable.id_order', 'full'],
 
 
           ];
-  
+          $MdlOrderTable = new \App\Models\MdlOrderTable();
+          
           $where = ['order.id !=' => 0, 'order.deleted_at' => NULL];
   
           // Column Order Must Match Header Columns in View
@@ -104,7 +105,7 @@ class Order extends BaseController
           $row[] = $lists->nama_depan;
           $row[] = $lists->nama_belakang;
           $row[] = $lists->nama_tim;
-          $row[] = $lists->jumlah;
+          $row[] = $MdlOrderTable->where('id_order', $lists->id)->countAllResults();
 
               $data[] = $row;
           }
