@@ -416,7 +416,7 @@ public function exportExcel($orderId)
     foreach ($players as $player) {
         $sheet->setCellValue("A{$row}", ucfirst($player['keterangan']));
         $sheet->setCellValue("B{$row}", $player['ukuran']);
-        $sheet->setCellValue("C{$row}", $player['nama_player']);
+        $sheet->setCellValue("C{$row}", strtoupper($player['nama_player']));
         $sheet->setCellValue("D{$row}", $player['nomor_punggung']);
         $sheet->setCellValue("E{$row}", $player['nama_product']);
         // $sheet->setCellValue("F{$row}", $player['price']);
@@ -430,7 +430,7 @@ public function exportExcel($orderId)
     // Save and Download
     $writer = new \PhpOffice\PhpSpreadsheet\Writer\Xlsx($spreadsheet);
     header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-    header('Content-Disposition: attachment;filename="Order_Overview.xlsx"');
+    header('Content-Disposition: attachment;filename="'.$order['nama_tim'].'-'.$orderId.'.xlsx"');
     header('Cache-Control: max-age=0');
 
     $writer->save('php://output');

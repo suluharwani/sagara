@@ -62,13 +62,19 @@ $(document).ready(function() {
         },
         "columns": [
             { "data": "id", "title": "ID" },
-            { "data": "kode", "title": "Kode" },
+            { "data": "kode", "title": "Download",
+                     "render": function(data, type, row) {
+                    return '<a href="'+base_url+'exportExcel/'+data+'" class = "btn btn-success">' +data+ '</a>';
+
+                }},
             { "data": "deadline", "title": "Deadline" },
             {"data": "link",
                 "title": "link",
                 "render": function(data, type, row) {
                     return '<a href="'+data+'">' + data + '</a>';
+
                 }},
+
             { "data": "nama_tim", "title": "Nama Tim" },
             { "data": "brand", "title": "Brand" }
         ],
