@@ -115,11 +115,11 @@ class Home extends BaseController
 
         $data = [
             'id_order'      => $this->request->getPost('id_order'),
-            'nama'          => $this->request->getPost('nama'),
+            'nama'          => strtoupper($this->request->getPost('nama')),
             'ukuran'        => $this->getSize($this->request->getPost('size')),
             'id_product'        => $this->request->getPost('product'),
             'id_size'        => $this->request->getPost('size'),
-            'nomor_punggung' => $this->request->getPost('nomor_punggung'),
+            'nomor_punggung' => strtoupper($this->request->getPost('nomor_punggung')),
             'keterangan'    => $this->request->getPost('keterangan'),
         ];
         // var_dump($data);

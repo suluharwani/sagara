@@ -77,7 +77,7 @@
             </div>
             <div class="mb-3">
                 <label for="nama" class="form-label">Nama Punggung</label>
-                <input type="text" class="form-control" id="nama" name="nama" >
+                <input type="text" class="form-control" id="nama" name="nama" style="text-transform: uppercase">
             </div>
             <div class="mb-3">
                 <label for="ukuran" class="form-label">Ukuran</label>
