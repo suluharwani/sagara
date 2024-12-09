@@ -50,6 +50,10 @@ class Order extends Migration
         'constraint' => 200,
         'null' => true,
       ],
+      'deskripsi' => [
+        'type' => 'text',
+        'null' => true,
+      ],
       'brand' => [
         'type' => 'VARCHAR',
         'constraint' => 200,
@@ -58,7 +62,7 @@ class Order extends Migration
        'status' => [
         'type' => 'INT',
         'constraint' => 10,
-        'null' => true,
+        'default'=>0
       ],
       'updated_at' => [
         'type' => 'datetime',

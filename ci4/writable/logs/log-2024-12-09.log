@@ -1,0 +1,770 @@
+INFO - 2024-12-09 15:45:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:48:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:48:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:50:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:50:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:50:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:50:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:51:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:52:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:57:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 15:57:40 --> Error: Call to undefined method App\Controllers\Order::fail()
+[Method: POST, Route: admin/order/tambahOrder]
+in APPPATH\Controllers\Order.php on line 142.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->tambahOrder()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 15:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:58:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:58:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 15:58:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 15:58:14 --> Error: Call to undefined method App\Controllers\Order::fail()
+[Method: POST, Route: admin/order/tambahOrder]
+in APPPATH\Controllers\Order.php on line 142.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->tambahOrder()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:00:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:00:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:00:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:00:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:00:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:01:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:01:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 16:04:04 --> ErrorException: Undefined variable $deskripsi
+[Method: GET, Route: order/ssl4yykin]
+in APPPATH\Views\admin\content\order_form.php on line 25.
+ 1 APPPATH\Views\admin\content\order_form.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $deskripsi', 'C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\admin\\content\\order_form.php', 25)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\app\\Views\\admin\\content\\order_form.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('admin/content/order_form', [], true)
+ 5 APPPATH\Controllers\Home.php(109): view('admin/content/order_form', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->client('ssl4yykin')
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:07:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:09:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:10:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:10:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:10:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:11:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:11:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:14:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:14:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:14:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:14:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:15:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:15:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:15:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:15:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:15:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:15:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 16:15:36 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6 in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-12-09 16:15:36 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = :order.status !:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:15:36 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = :order.status !:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:15:36 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = 3
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `!` = :order.status !:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:16:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:16:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:16:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:16:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:16:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:17:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:17:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:17:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:18:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:18:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:18:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:18:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:18:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:18:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:19:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 16:21:21 --> ParseError: syntax error, unexpected token ";", expecting "]"
+[Method: GET, Route: admin/order]
+in APPPATH\Controllers\Order.php on line 74.
+ 1 VENDORPATH\composer\ClassLoader.php(427): Composer\Autoload\{closure}('C:\\Users\\Suluh\\Documents\\GitHub\\sagara\\sagara\\ci4\\vendor\\composer/../../app/Controllers/Order.php')
+ 2 [internal function]: Composer\Autoload\ClassLoader->loadClass('App\\Controllers\\Order')
+ 3 SYSTEMPATH\CodeIgniter.php(887): class_exists('\\App\\Controllers\\Order', true)
+ 4 SYSTEMPATH\CodeIgniter.php(496): CodeIgniter\CodeIgniter->startController()
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:21:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 16:21:33 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6 in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-12-09 16:21:33 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:21:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:21:33 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:21:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:21:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 16:21:38 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6 in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-12-09 16:21:38 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:21:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:21:38 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(88): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:22:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:22:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-09 16:22:15 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6 in C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`....', 0)
+#1 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`....')
+#2 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`....')
+#3 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`....', Array, false)
+#4 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\app\Controllers\Order.php(92): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order....', Array, Array, Array, Array, Array)
+#6 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+#7 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+#8 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\Suluh\Documents\GitHub\sagara\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\Suluh\Documents\GitHub\sagara\sagara\public_html\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2024-12-09 16:22:15 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+[Method: POST, Route: admin/order/getOrder]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 2 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH\Controllers\Order.php(92): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 4 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 5 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 6 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:22:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 4 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH\Controllers\Order.php(92): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2024-12-09 16:22:15 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '`IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10' at line 6
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != 0
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = (NULL,1,2)
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT `order`.*, `order`.`kode` as `kode`, `order`.`id_client` as `id_client`, `order`.`deadline` as `deadline`, `order`.`id_order_list` as `id_order_list`, `order`.`status` as `status`, `order`.`updated_at` as `updated_at`, `order`.`deleted_at` as `deleted_at`, `order`.`link` as `link`, `order`.`created_at` as `created_at`, `client`.`nama_depan` as `nama_depan`, `client`.`nama_belakang` as `nama_belakang`
+FROM `order`
+LEFT JOIN `client` ON `order`.`id_client` = `client`.`id`
+WHERE `order`.`id` != :order.id:
+AND `order`.`deleted_at` IS NULL
+AND `order`.`status` `IN` = :order.status IN:
+ORDER BY `order`.`deadline` ASC
+ LIMIT 10', [...], false)
+ 5 APPPATH\Models\MdlDatatableJoin.php(65): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Order.php(92): App\Models\MdlDatatableJoin->get_datatables('order', 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang', [...], [...], [...], [...], [...])
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->getOrder()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 16:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:24:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:24:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:26:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:30:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:31:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:32:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:32:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:32:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:32:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:34:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:36:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:36:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:38:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:38:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:38:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:38:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:38:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:39:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:39:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:39:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:39:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:39:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:41:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:41:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:41:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:41:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:41:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:42:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:43:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:43:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:45:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:47:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:47:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:48:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 16:48:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:31:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:31:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:31:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:36:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:36:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:38:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:39:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:39:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:39:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:39:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:47:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:47:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:50:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:51:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:52:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:52:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:53:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:53:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:53:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:53:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:53:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-12-09 17:53:56 --> Error: Class "App\Controllers\App\Models\MdlOrder" not found
+[Method: POST, Route: updateAddress]
+in APPPATH\Controllers\Order.php on line 323.
+ 1 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Order->updateAddress()
+ 2 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Order))
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2024-12-09 17:55:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:55:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-09 17:55:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -184,6 +184,10 @@ $('.tambahOrder').on('click', function () {
               <label for="deadline">Deadline</label>
               <input type="date" class="form-control" id="deadline" required>
             </div>
+            <div class="form-group">
+              <label for="deadline">Deskripsi Bahan</label>
+              <textarea class="form-control" rows="5" id="deskripsi" required style="width: 100%;"></textarea>
+            </div>
           </form>
         `,
         confirmButtonText: 'Confirm',
@@ -194,15 +198,16 @@ $('.tambahOrder').on('click', function () {
           const nama_tim = Swal.getPopup().querySelector('#nama_tim').value;
           const brand = Swal.getPopup().querySelector('#brand').value;
           const deadline = Swal.getPopup().querySelector('#deadline').value;
+          const deskripsi = Swal.getPopup().querySelector('#deskripsi').value;
           const logo_tim = Swal.getPopup().querySelector('#logo_tim').files[0]; // Mendapatkan file logo
 
-          if (!kode || !id_client || !nama_tim || !brand || !deadline || !logo_tim) {
+          if (!deskripsi||!kode || !id_client || !nama_tim || !brand || !deadline || !logo_tim) {
             Swal.showValidationMessage('Silakan lengkapi semua data');
           }
 
           const link = `${base_url}/order/${kode}`;
 
-          return { kode, id_client, nama_tim, brand, deadline, link, logo_tim };
+          return { deskripsi,kode, id_client, nama_tim, brand, deadline, link, logo_tim };
         },
       }).then((result) => {
         if (result.isConfirmed) {
@@ -213,6 +218,7 @@ $('.tambahOrder').on('click', function () {
           formData.append('brand', result.value.brand);
           formData.append('deadline', result.value.deadline);
           formData.append('link', result.value.link);
+          formData.append('deskripsi', result.value.deskripsi);
           formData.append('logo_tim', result.value.logo_tim); // Menambahkan logo ke formData
 
           $.ajax({

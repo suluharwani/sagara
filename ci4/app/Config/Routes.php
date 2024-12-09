@@ -152,4 +152,6 @@ $routes->get('order/showLogo/(:any)', 'Order::showLogo/$1');
 $routes->post('order/deleteListOrder', 'Home::deleteListOrder');
 $routes->get('/home/print/(:any)', 'Home::print/$1');
 
-$routes->get('/exportExcel/(:any)', 'Order::exportExcel/$1');
+$routes->get('/exportExcel/(:any)', 'Home::exportExcel/$1');
+$routes->post('updateAddress', 'Order::updateAddress');
+

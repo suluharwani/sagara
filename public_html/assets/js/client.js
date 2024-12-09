@@ -262,7 +262,7 @@ $('#tabel_serverside').on('click','.btn_hapus_user',function(){
 $('.tambah_user').on('click',function(){
 
   Swal.fire({
-    title: `Tambah admin `,
+    title: `Tambah Client `,
     // html: `<input type="text" id="password" class="swal2-input" placeholder="Password baru">`,
     html:`<form id="form_add_data">
     <div class="form-group">

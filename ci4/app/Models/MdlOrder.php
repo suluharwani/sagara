@@ -12,7 +12,7 @@ class MdlOrder extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["id","kode","id_client","deadline","id_order_list","status","updated_at","deleted_at","created_at","link","nama_tim","logo_tim","brand"
+    protected $allowedFields    = ["id","kode","id_client","deadline","id_order_list","status","updated_at","deleted_at","created_at","link","nama_tim","logo_tim","brand","deskripsi","alamat","kodepos"
 ];
 
 protected bool $allowEmptyInserts = false;

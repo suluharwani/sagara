@@ -157,15 +157,7 @@
         <!-- Jersey Details -->
         <div class="table-outer">
             <div class="section-title">Jersey Details</div>
-            <p><strong>Material:</strong> Milano Fullprint</p>
-            <p><strong>Design:</strong> Kerah F</p>
-            <p><strong>Color Codes:</strong></p>
-            <ul>
-                <li>GK: Purple</li>
-                <li>GK Alternate: Red</li>
-                <li>Top Only</li>
-                <li>Long Sleeve</li>
-            </ul>
+            <?=$order['deskripsi']?>
         </div>
     </div>
 

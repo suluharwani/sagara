@@ -21,6 +21,10 @@
                 <p><strong>Nama Tim:</strong> <?= esc($pesanan['nama_tim']) ?></p>
                 <p><strong>Brand:</strong> <?= esc($pesanan['brand']) ?></p>
             </div>
+            <div>
+                <p><strong>Deskripsi Bahan:</strong> <?= $pesanan['deskripsi'] ?></p>
+            
+            </div>
         </div>
          
         <!-- Tabel Daftar Produk -->
