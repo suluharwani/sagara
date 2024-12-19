@@ -105,8 +105,15 @@
                     <option value="official">Official</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Tambah</button>
-            
+             <?php 
+
+
+             if (esc($pesanan['status'])>=1) {?>
+                                       Tidak dapat ditambah
+                                    <?php }else{?>
+                                                <button type="submit" class="btn btn-primary">Tambah</button>
+                                    <?php } ?>
+
         </form>
 
         <hr>

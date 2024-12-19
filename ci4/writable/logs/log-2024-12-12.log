@@ -1,0 +1,19 @@
+CRITICAL - 2024-12-12 23:56:53 --> ErrorException: Undefined array key "company"
+[Method: GET, Route: /]
+in APPPATH\Views\home\layout\head.php on line 10.
+ 1 APPPATH\Views\home\layout\head.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company"', 'F:\\Github\\sagara\\ci4\\app\\Views\\home\\layout\\head.php', 10)
+ 2 SYSTEMPATH\View\View.php(234): include('F:\\Github\\sagara\\ci4\\app\\Views\\home\\layout\\head.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/layout/head.php', [], true)
+ 5 APPPATH\Views\home\index.php(2): view('home/layout/head.php')
+ 6 SYSTEMPATH\View\View.php(234): include('F:\\Github\\sagara\\ci4\\app\\Views\\home\\index.php')
+ 7 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/index', [], true)
+ 9 APPPATH\Controllers\Home.php(14): view('home/index', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('F:\\Github\\sagara\\ci4\\public\\index.php')

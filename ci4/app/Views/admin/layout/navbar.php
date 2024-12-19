@@ -67,6 +67,13 @@
                                             </li>
                                             <li
                                                 class="submenu-item  ">
+                                                <a href="<?=base_url('admin/orderSelesai')?>"
+                                                    class='submenu-link'>Customer Order Batal/Selesai</a>
+
+                                                
+                                            </li>
+                                            <li
+                                                class="submenu-item  ">
                                                 <a href="<?=base_url('admin/product')?>"
                                                     class='submenu-link'>Product</a>
 

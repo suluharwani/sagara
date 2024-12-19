@@ -131,8 +131,9 @@ $routes->post('/home/getOffer', 'Home::getOffer');
 $routes->post('/home/getGroupProduct', 'Home::getGroupProduct');
 
 $routes->post('/admin/order/getOrder', 'Order::getOrder');
+$routes->post('/admin/order/getOrderSelesai', 'Order::getOrderSelesai');
 $routes->get('/admin/order', 'Order::index');
-$routes->get('/admin/order', 'Order::index');
+$routes->get('/admin/orderSelesai', 'Order::orderSelesai');
 $routes->post('/admin/order/tambahOrder', 'Order::tambahOrder');
 $routes->post('/admin/order/ubahStatus', 'Order::ubahStatus');
 $routes->post('/admin/order/deleteOrder', 'Order::deleteOrder');
@@ -155,3 +156,4 @@ $routes->get('/home/print/(:any)', 'Home::print/$1');
 $routes->get('/exportExcel/(:any)', 'Home::exportExcel/$1');
 $routes->post('updateAddress', 'Order::updateAddress');
 
+$routes->get('/shipment/(:any)', 'Order::shipment/$1');

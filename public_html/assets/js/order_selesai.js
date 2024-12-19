@@ -30,7 +30,7 @@ $(document).ready(function() {
         "stateSave" : true,
         "scrollX": true,
         "ajax": {
-            "url" : base_url + "admin/order/getOrder", // json datasource
+            "url" : base_url + "admin/order/getOrderSelesai", // json datasource
             "type": "post",  // method, by default get
             "dataType": 'json',
             "data": {},
@@ -89,18 +89,12 @@ $(document).ready(function() {
         }],
     "rowCallback": function( row, data, index ) {
             // Mengambil tanggal dari row[4]
-            var rowDate = new Date(data[4]);
-            var currentDate = new Date();
-            var timeDiff = rowDate - currentDate ;
-            var daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24)); // Menghitung selisih hari
-            console.log(daysDiff)
-            if (daysDiff > 7) {
+            var status = data[6];
+
+            if (status == 3) {
                 // Lebih dari seminggu - Hijau pudar
                 $(row).css('background-color', 'rgba(0, 128, 0, 0.2)'); // hijau pudar
-            } else if (daysDiff <= 7 && daysDiff > 3) {
-                // Kurang dari seminggu - Kuning pudar
-                $(row).css('background-color', 'rgba(255, 255, 0, 0.3)'); // kuning pudar
-            } else if (daysDiff <= 3) {
+            } else{
                 // Kurang dari 3 hari - Merah pudar
                 $(row).css('background-color', 'rgba(255, 0, 0, 0.3)'); // merah pudar
             }
@@ -137,138 +131,6 @@ function formatTanggalIndonesia(datetime) {
     // Format: Hari, Tanggal Bulan Tahun Jam:Menit:Detik
     return `${hariNama}, ${tanggal} ${bulanNama} ${tahun} ${jam}:${menit}:${detik}`;
 }
-$('.tambahOrder').on('click', function () {
-  $.when(
-    $.ajax({
-      url: base_url + '/admin/user/getClient',
-      method: 'POST',
-      dataType: 'json', // Mengharapkan respons dalam format JSON
-    })
-  ).done(function (clientsResponse) {
-    const clientsData = clientsResponse;
-    if (Array.isArray(clientsData)) {
-      console.log(clientsData)
-      let clientOptions = clientsData.map(client => `<option value="${client.id}">${client.nama_depan} ${client.nama_belakang}</option>`).join('');
-
-      const generateHash = () => {
-        return Math.random().toString(36).substr(2, 9);
-      };
-
-      const kode = generateHash();
-
-      Swal.fire({
-        title: 'Tambah Order',
-        html: `
-          <form id="form_add_data" enctype="multipart/form-data">
-            <div class="form-group">
-              <label for="kode">Kode</label>
-              <input type="text" class="form-control" id="kode" value="${kode}" readonly>
-            </div>
-            <div class="form-group">
-              <label for="id_client">Client</label>
-              <select class="form-control" id="id_client" required>
-                ${clientOptions}
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="nama_tim">Nama Tim</label>
-              <input type="text" class="form-control" id="nama_tim" required>
-            </div>
-            <div class="form-group">
-              <label for="brand">Brand/Merk</label>
-              <input type="text" class="form-control" id="brand" required>
-            </div>
-            <div class="form-group">
-              <label for="logo_tim">Logo Tim</label>
-              <input type="file" class="form-control" id="logo_tim" accept="image/*" required>
-            </div>
-            <div class="form-group">
-              <label for="deadline">Deadline</label>
-              <input type="date" class="form-control" id="deadline" required>
-            </div>
-            <div class="form-group">
-              <label for="deadline">Deskripsi Bahan</label>
-              <textarea class="form-control" rows="5" id="deskripsi" required style="width: 100%;"></textarea>
-            </div>
-          </form>
-        `,
-        confirmButtonText: 'Confirm',
-        focusConfirm: false,
-        preConfirm: () => {
-          const kode = Swal.getPopup().querySelector('#kode').value;
-          const id_client = Swal.getPopup().querySelector('#id_client').value;
-          const nama_tim = Swal.getPopup().querySelector('#nama_tim').value;
-          const brand = Swal.getPopup().querySelector('#brand').value;
-          const deadline = Swal.getPopup().querySelector('#deadline').value;
-          const deskripsi = Swal.getPopup().querySelector('#deskripsi').value;
-          const logo_tim = Swal.getPopup().querySelector('#logo_tim').files[0]; // Mendapatkan file logo
-
-          if (!deskripsi||!kode || !id_client || !nama_tim || !brand || !deadline || !logo_tim) {
-            Swal.showValidationMessage('Silakan lengkapi semua data');
-          }
-
-          const link = `${base_url}/order/${kode}`;
-
-          return { deskripsi,kode, id_client, nama_tim, brand, deadline, link, logo_tim };
-        },
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const formData = new FormData();
-          formData.append('kode', result.value.kode);
-          formData.append('id_client', result.value.id_client);
-          formData.append('nama_tim', result.value.nama_tim);
-          formData.append('brand', result.value.brand);
-          formData.append('deadline', result.value.deadline);
-          formData.append('link', result.value.link);
-          formData.append('deskripsi', result.value.deskripsi);
-          formData.append('logo_tim', result.value.logo_tim); // Menambahkan logo ke formData
-
-          $.ajax({
-            type: 'POST',
-            url: base_url + 'admin/order/tambahOrder',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Order berhasil ditambahkan.',
-                showConfirmButton: false,
-                timer: 1500,
-              });
-              $('#tabel_serverside').DataTable().ajax.reload();
-            },
-            error: function (xhr) {
-              let d = JSON.parse(xhr.responseText);
-              Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: `${d.message}`,
-                footer: '<a href="">Why do I have this issue?</a>',
-              });
-            },
-          });
-        }
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Data client tidak dalam format yang diharapkan.',
-        footer: '<a href="">Why do I have this issue?</a>',
-      });
-    }
-  }).fail(function () {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error',
-      text: 'Gagal memuat data client.',
-      footer: '<a href="">Why do I have this issue?</a>',
-    });
-  });
-});
-
 $(document).on('click', '.UbahStatus', function () {
   const orderId = $(this).attr('id');
   const currentStatus = $(this).attr('status'); // Mengambil status saat ini dari elemen

@@ -52,6 +52,84 @@ class Order extends BaseController
           $data['content']=view('admin/content/order');
     return view('admin/index', $data);
     }
+    public function orderSelesai(){
+         $this->access('administrator');
+          $data['content']=view('admin/content/order_selesai');
+    return view('admin/index', $data);
+    }
+
+              public function getOrderSelesai()
+      {
+          $this->access('operator');
+          $serverside_model = new \App\Models\MdlDatatableJoin();
+          $request = \Config\Services::request();
+          
+          // Define the columns to select
+          $select_columns = 'order.*, order.kode as kode, order.id_client as id_client, order.deadline as deadline, order.id_order_list as id_order_list, order.status as status, order.updated_at as updated_at, order.deleted_at as deleted_at, order.link as link, order.created_at as created_at, client.nama_depan as nama_depan, client.nama_belakang as nama_belakang';
+          
+          // Define the joins (you can add more joins as needed)
+          $joins = [
+              ['client', 'order.id_client = client.id', 'left'],
+              // ['ordertable', 'order.id = ordertable.id_order', 'full'],
+
+
+          ];
+          $MdlOrderTable = new \App\Models\MdlOrderTable();
+          
+          $where = [
+    'order.id !=' => 0, 
+    'order.deleted_at' => NULL, 
+    // Use 'IN' for checking multiple possible values of order.status
+    'order.status >=' =>3 
+];
+          // Column Order Must Match Header Columns in View
+          $column_order = array(NULL,'order.nama_tim','order.kode','order.id_client','order.deadline','order.link','order.status'
+          );
+          $column_search = array(
+              'order.kode', 
+              'client.nama_depan', 
+              'client.nama_belakang', 
+              'nama_tim'
+          );
+          $order = array('order.deadline' => 'asc');
+  
+          // Call the method to get data with dynamic joins and select fields
+          $list = $serverside_model->get_datatables('order', $select_columns, $joins, $column_order, $column_search, $order, $where);
+          
+          $data = array();
+          $no = $request->getPost("start");
+          foreach ($list as $lists) {
+              $no++;
+          $row    = array();
+          $row[] = $no;
+          $row[] = $lists->id;
+          $row[] = $lists->kode;
+          $row[] = $lists->id_client;
+          $row[] = $lists->deadline;
+          $row[] = $lists->id_order_list;
+          $row[] = $lists->status;
+          $row[] = $lists->link;
+          $row[] = $lists->created_at;
+          $row[] = $lists->deleted_at;
+          $row[] = $lists->nama_depan;
+          $row[] = $lists->nama_belakang;
+          $row[] = $lists->nama_tim;
+          $row[] = $MdlOrderTable->where('id_order', $lists->kode)->countAllResults();
+
+              $data[] = $row;
+          }
+  
+          $output = array(
+              "draw" => $request->getPost("draw"),
+              "recordsTotal" => $serverside_model->count_all('order', $where),
+              "recordsFiltered" => $serverside_model->count_filtered('order', $select_columns, $joins, $column_order, $column_search, $order, $where),
+              "data" => $data,
+          );
+  
+        //   return $this->response->setJSON($output);
+        
+          return json_encode($output);
+      }
 
           public function getOrder()
       {
@@ -362,7 +440,12 @@ public function updateAddress()
             ]);
         }
     }
-
+  public function shipment($id){
+    $this->access('administrator');
+          $orderModel = new \App\Models\MdlOrder;
+          $data['order']= $orderModel->where('id',$id)->find();
+    return view('admin/content/shipment_form', $data);
+  }
 
 
 }
