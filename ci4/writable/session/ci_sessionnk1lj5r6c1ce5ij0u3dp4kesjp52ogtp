@@ -1,0 +1,17 @@
+__ci_last_regenerate|i:1735272753;_ci_previous_url|s:28:"http://localhost:8080/client";c_profile|a:1:{i:0;a:10:{s:2:"id";s:1:"5";s:10:"nama_depan";s:6:"Sagara";s:13:"nama_belakang";s:16:"Jersey & Apparel";s:8:"password";N;s:5:"email";s:29:"sagarajerseyapparel@gmail.com";s:15:"profile_picture";s:97:"https://lh3.googleusercontent.com/a/ACg8ocJhEzY3F_-ryq7o5WWTeV5A-jxxJE3ABEtteV9mZbMbEqoYeQA=s96-c";s:6:"status";s:1:"1";s:10:"updated_at";s:19:"2024-11-09 13:53:42";s:10:"deleted_at";N;s:10:"created_at";s:19:"2024-11-09 13:53:42";}}c_logged|b:1;auth|a:6:{s:2:"id";s:1:"5";s:10:"nama_depan";s:6:"Sagara";s:13:"nama_belakang";s:16:"Jersey & Apparel";s:4:"name";s:23:"Sagara Jersey & Apparel";s:5:"email";s:29:"sagarajerseyapparel@gmail.com";s:7:"picture";s:97:"https://lh3.googleusercontent.com/a/ACg8ocJhEzY3F_-ryq7o5WWTeV5A-jxxJE3ABEtteV9mZbMbEqoYeQA=s96-c";}logoutButton|s:1348:"
+ <div class="dropdown">
+  <button class="btn btn-outline btn-rounded btn-primary btn-4 btn-icon-effect-1 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Cliet Area
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <li><a class="dropdown-item" disabled">Sagara Jersey & Apparel</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/client">Dashboard</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/client/services">Services</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/client/billing">Billing</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/client/support">Support</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/client/promotion">Promotion</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/client/program">Program</a></li>
+    <li><a class="btn btn-outline btn-rounded btn-primary dropdown-item" href="http://localhost:8080/clientlogout">Log out</a></li>
+  </ul>
+</div>
+";

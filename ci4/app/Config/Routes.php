@@ -158,3 +158,6 @@ $routes->get('/exportExcel/(:any)', 'Home::exportExcel/$1');
 $routes->post('updateAddress', 'Order::updateAddress');
 
 $routes->get('/shipment/(:any)', 'Order::shipment/$1');
+
+$routes->get('home/getOrder/(:num)', 'Home::getOrder/$1');
+$routes->post('home/saveOrder', 'Home::saveOrder');

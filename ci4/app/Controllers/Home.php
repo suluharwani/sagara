@@ -529,16 +529,68 @@ public function exportExcel($orderId)
     $writer->save('php://output');
     exit;
 }
-function updateAddress(){
-    $orderModel = new \App\Models\MdlOrder();
-    $id = $_POST['id'];
-    $data['alamat'] = $_POST['alamat'];
-    $data['kodepos'] = $_POST['kodepos'];
-    
-
-}
 
 
+public function getOrder($id)
+    {
+        $orderModel = new \App\Models\MdlOrder();
+        $orderDetail = $orderModel->getOrderDetailById($id);
+        
+        if ($orderDetail) {
+            return $this->response->setJSON([
+                'success' => true,
+                'data' => $orderDetail[0]
+            ]);
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Order tidak ditemukan'
+            ]);
+        }
+    }
+
+    // Method untuk menyimpan atau memperbarui data order
+    public function saveOrder()
+    {
+        $orderModel = new \App\Models\MdlOrder();
+        $data = $this->request->getPost();
+
+        // Validasi data yang diterima
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'kode' => 'required',
+            'id_client' => 'required',
+            'alamat' => 'required',
+            'kodepos' => 'required',
+            'brand' => 'required',
+            'nama_tim' => 'required',
+            'logo_tim' => 'required',
+            // Tambahkan aturan validasi lainnya sesuai kebutuhan
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return $this->response->setJSON([
+                'success' => false,
+                'errors' => $validation->getErrors()
+            ]);
+        }
+
+        // Simpan atau perbarui data
+        if (isset($data['id'])) {
+            // Update data
+            $orderModel->update($data['id'], $data);
+            $message = 'Data berhasil diperbarui!';
+        } else {
+            // Insert data baru
+            $orderModel->insert($data);
+            $message = 'Data berhasil disimpan!';
+        }
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => $message
+        ]);
+    }
 
 
 }

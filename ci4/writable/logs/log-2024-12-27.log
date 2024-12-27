@@ -1,0 +1,603 @@
+CRITICAL - 2024-12-27 01:05:35 --> ErrorException: Undefined array key "company"
+[Method: GET, Route: /]
+in APPPATH\Views\home\layout\head.php on line 10.
+ 1 APPPATH\Views\home\layout\head.php(10): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "company"', 'C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\app\\Views\\home\\layout\\head.php', 10)
+ 2 SYSTEMPATH\View\View.php(234): include('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\app\\Views\\home\\layout\\head.php')
+ 3 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/layout/head.php', [], true)
+ 5 APPPATH\Views\home\index.php(2): view('home/layout/head.php')
+ 6 SYSTEMPATH\View\View.php(234): include('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\app\\Views\\home\\index.php')
+ 7 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('home/index', [], true)
+ 9 APPPATH\Controllers\Home.php(14): view('home/index', [...])
+10 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->index()
+11 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+12 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+ERROR - 2024-12-27 01:16:38 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'lqbilbsg_sagara'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'lqbilbsg_sagara', Object(SensitiveParameterValue), 'lqbilbsg_sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(19): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->menu()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(19): CodeIgniter\Model->__call('get', Array)
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->menu()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#12 {main}
+CRITICAL - 2024-12-27 01:16:38 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: home/menu]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `page`
+WHERE `id` != :id:
+AND `deleted_at` IS NULL', [...], false)
+ 3 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(19): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->menu()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+ERROR - 2024-12-27 01:16:41 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'lqbilbsg_sagara'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'lqbilbsg_sagara', Object(SensitiveParameterValue), 'lqbilbsg_sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(56): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getSlider()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(56): CodeIgniter\Model->__call('get', Array)
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getSlider()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#12 {main}
+CRITICAL - 2024-12-27 01:16:41 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: home/getSlider]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `slider`
+WHERE `status` = :status:
+AND `deleted_at` IS NULL', [...], false)
+ 3 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(56): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->getSlider()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+ERROR - 2024-12-27 01:16:43 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'lqbilbsg_sagara'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'lqbilbsg_sagara', Object(SensitiveParameterValue), 'lqbilbsg_sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(85): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getGroupProduct()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(85): CodeIgniter\Model->__call('get', Array)
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getGroupProduct()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#12 {main}
+CRITICAL - 2024-12-27 01:16:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: home/getGroupProduct]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `product_group`
+WHERE `deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(85): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->getGroupProduct()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+ERROR - 2024-12-27 01:20:14 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(19): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->menu()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(19): CodeIgniter\Model->__call('get', Array)
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->menu()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#12 {main}
+CRITICAL - 2024-12-27 01:20:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: home/menu]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `page`
+WHERE `id` != :id:
+AND `deleted_at` IS NULL', [...], false)
+ 3 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(19): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->menu()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+ERROR - 2024-12-27 01:20:17 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(56): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getSlider()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(56): CodeIgniter\Model->__call('get', Array)
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getSlider()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#12 {main}
+CRITICAL - 2024-12-27 01:20:17 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: home/getSlider]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `slider`
+WHERE `status` = :status:
+AND `deleted_at` IS NULL', [...], false)
+ 3 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(56): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->getSlider()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+INFO - 2024-12-27 01:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-27 01:20:19 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+CRITICAL - 2024-12-27 01:20:19 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: altlogin]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user`
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+ERROR - 2024-12-27 01:20:22 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(85): CodeIgniter\Model->__call('get', Array)
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getGroupProduct()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Home.php(85): CodeIgniter\Model->__call('get', Array)
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Home->getGroupProduct()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#12 {main}
+CRITICAL - 2024-12-27 01:20:22 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: POST, Route: home/getGroupProduct]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `product_group`
+WHERE `deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(930): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(85): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Home->getGroupProduct()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+INFO - 2024-12-27 01:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-27 01:20:45 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+CRITICAL - 2024-12-27 01:20:45 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: altlogin]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user`
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+INFO - 2024-12-27 01:20:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-27 01:20:52 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+CRITICAL - 2024-12-27 01:20:52 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: altlogin]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user`
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+INFO - 2024-12-27 01:21:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-12-27 01:21:14 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:186
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(186): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'sagara', 3306, '', 0)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(421): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 C:\Users\suluh\Documents\GitHub\sagara\ci4\app\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+#6 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+#7 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+#8 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(325): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\suluh\Documents\GitHub\sagara\ci4\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\suluh\Documents\GitHub\sagara\ci4\vendor\codeigniter4\framework\system\rewrite.php(44): require_once('C:\\Users\\suluh\\...')
+#13 {main}
+CRITICAL - 2024-12-27 01:21:14 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+[Method: GET, Route: altlogin]
+in SYSTEMPATH\Database\BaseConnection.php on line 467.
+ 1 SYSTEMPATH\Database\BaseConnection.php(616): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1644): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user`
+ LIMIT 1', [], false)
+ 3 SYSTEMPATH\Model.php(330): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH\Controllers\Login.php(269): CodeIgniter\BaseModel->first('*')
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Login->altlogin()
+ 7 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Login))
+ 8 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(325): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\suluh\\Documents\\GitHub\\sagara\\ci4\\public\\index.php')
+INFO - 2024-12-27 01:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:22:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:29:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:29:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:29:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:29:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:29:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:43:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:43:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:48:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 01:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:02:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:02:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:03:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:04:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:04:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:05:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:05:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:08:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:09:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:09:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:10:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:10:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:11:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:11:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:11:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:11:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:11:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:12:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 02:12:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:26:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:40:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:40:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:41:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:41:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:42:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:42:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:42:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:46:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 03:46:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:06:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:06:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:06:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:06:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:12:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:12:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:16:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:16:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:18:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:18:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:19:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:19:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:19:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:19:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:19:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:19:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:20:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:20:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:24:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-12-27 04:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -74,10 +74,14 @@ $(document).ready(function() {
             },
             { "data": "kode", "title": "Download",
                 "render": function(data, type, row) {
-                    return '<a href="'+base_url+'exportExcel/'+data+'" class="btn btn-success">' + data + '</a>';
+                    return '<a href="'+base_url+'exportExcel/'+data+'" class="btn btn-success">Pesanan</a> <a href="'+base_url+'exportExcel/'+data+'" class="btn btn-warning">Invoice</a> <a href="'+base_url+'exportExcel/'+data+'" class="btn btn-secondary">Resi</a>';
                 }
             },
-            { "data": "deadline", "title": "Deadline" },
+            { "data": "deadline", "title": "Deadline",
+                "render": function(data, type, row) {
+                    return '<a href="'+data+'" target="_blank">' + formatTanggalSaja(data) + '</a>';
+                }
+             },
             {"data": "link", "title": "Link",
                 "render": function(data, type, row) {
                     return '<a href="'+data+'" target="_blank">' + data + '</a>';
@@ -114,66 +118,181 @@ $(document).ready(function() {
     });
 });
 
+function formatTanggalSaja(dateString) {
+    // Mengonversi string tanggal ke objek Date
+    const date = new Date(dateString);
+    
+    // Memeriksa apakah objek Date valid
+ 
+    // Daftar nama bulan dalam bahasa Indonesia
+    const months = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ];
+
+    // Mendapatkan tanggal, bulan, dan tahun
+    const dateNum = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    // Mengembalikan string tanggal dalam format "DD Bulan YYYY"
+    return `${dateNum} ${month} ${year}`;
+}
 // Function to show the SweetAlert2 input form for address and postal code
 function showAddressForm(id) {
+    // Mengambil data alamat jika ID diberikan
+    if (id) {
+        $.ajax({
+            url: `home/getOrder/${id}`, // Ganti dengan endpoint yang sesuai untuk mendapatkan data
+            method: 'GET',
+            success: function(response) {
+                if (response.success) {
+                    // Menampilkan form dengan data yang diambil
+                    displayForm(response.data);
+                } else {
+                    Swal.fire('Gagal', response.message, 'error');
+                }
+            },
+            error: function() {
+                Swal.fire('Gagal', 'Terjadi kesalahan saat mengambil data', 'error');
+            }
+        });
+    } else {
+        // Jika tidak ada ID, tampilkan form kosong
+        displayForm({});
+    }
+}
+
+function displayForm(data) {
     Swal.fire({
         title: 'Input Alamat dan Kodepos',
         html: `
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" id="alamat" class="swal2-input" placeholder="Masukkan alamat">
-            </div>
-            <div class="form-group">
-                <label for="kodepos">Kodepos</label>
-                <input type="text" id="kodepos" class="swal2-input" placeholder="Masukkan kodepos">
-            </div>
+            <form id="addressForm">
+                <div class="form-group">
+                    <label for="brand">Brand</label>
+                    <input type="text" id="brand" class="form-control" placeholder="Masukkan brand" value="${data.brand || ''}">
+                </div>
+                <div class="form-group">
+                    <label for="namaPengirim">Nama Pengirim</label>
+                    <input type="text" id="namaPengirim" class="form-control" placeholder="Masukkan nama pengirim" value="${data.nama_pengirim || ''}">
+                </div>
+                <div class="form-group">
+                    <label for="noTeleponPengirim">No Telepon Pengirim</label>
+                    <input type="text" id="noTeleponPengirim" class="form-control" placeholder="Masukkan no telepon pengirim" value="${data.no_telepon_pengirim || ''}">
+                </div>
+                <div class="form-group">
+                    <label for="alamatTujuan">Alamat Tujuan</label>
+                    <textarea id="alamatTujuan" class="form-control" placeholder="Masukkan alamat tujuan">${data.alamat || ''}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="penerima">Penerima</label>
+                    <input type="text" id="penerima" class="form-control" placeholder="Masukkan nama penerima" value="${data.penerima || ''}">
+                </div>
+                <div class="form-group">
+                    <label for="kodepos">Kodepos</label>
+                    <input type="text" id="kodepos" class="form-control" placeholder="Masukkan kodepos" value="${data.kodepos || ''}">
+                </div>
+                <div class="form-group">
+                    <label for="noTeleponPenerima">No Telepon Penerima</label>
+                    <input type="text" id="noTeleponPenerima" class="form-control" placeholder="Masukkan no telepon penerima" value="${data.no_telepon_penerima || ''}">
+                </div>
+                <input type="hidden" id="orderId" value="${data.id || ''}"> <!-- Menyimpan ID untuk update -->
+            </form>
         `,
         confirmButtonText: 'Simpan',
         showCancelButton: true,
         cancelButtonText: 'Batal',
         preConfirm: () => {
-            const alamat = document.getElementById('alamat').value;
-            const kodepos = document.getElementById('kodepos').value;
+            const orderData = {
+                id: document.getElementById('orderId').value,
+                brand: document.getElementById('brand').value,
+                nama_pengirim: document.getElementById('namaPengirim').value,
+                no_telepon_pengirim: document.getElementById('noTeleponPengirim').value,
+                alamat: document.getElementById('alamatTujuan').value,
+                penerima: document.getElementById('penerima').value,
+                kodepos: document.getElementById('kodepos').value,
+                no_telepon_penerima: document.getElementById('noTeleponPenerima').value
+            };
 
-            // Validate the inputs
-            if (!alamat || !kodepos) {
-                Swal.showValidationMessage('Alamat dan Kodepos harus diisi');
-                return false;
+            // Validasi input
+            for (const key in orderData) {
+                if (!orderData[key]) {
+                    Swal.showValidationMessage(`${key.replace(/_/g, ' ')} harus diisi`);
+                    return false;
+                }
             }
 
-            // Make AJAX call to save the data
-            $.ajax({
-                url: 'home/updateAddress', // Replace with your server endpoint
+            // Mengirim data ke server
+            return $.ajax({
+                url: 'order/save', // Ganti dengan endpoint yang sesuai untuk menyimpan data
                 method: 'POST',
-                data: {
-                    id: id,      // Send the ID of the item being updated
-                    alamat: alamat,
-                    kodepos: kodepos
-                },
-                success: function(response) {
-                    if (response.success) {
-                        // If success, update the DataTable with the new data
-                        var table = $('#myTable').DataTable();
-                        var row = table.row(function(idx, data, node) {
-                            return data.id === id; // Find the row by ID
-                        });
-
-                        // Update the row with new alamat and kodepos
-                        row.data().alamat = alamat;
-                        row.data().kodepos = kodepos;
-                        table.row(row).invalidate().draw(); // Invalidate the row and redraw the table
-
-                        Swal.fire('Data berhasil disimpan!', '', 'success');
-                    } else {
-                        Swal.fire('Gagal', 'Terjadi kesalahan saat menyimpan data', 'error');
-                    }
-                },
-                error: function(xhr, status, error) {
-                    Swal.fire('Gagal', 'Terjadi kesalahan saat menyimpan data', 'error');
-                }
+                data: orderData
             });
+        }
+    }).then((result ) => {
+        if (result.isConfirmed) {
+            if (result.value.success) {
+                Swal.fire('Sukses', result.value.message, 'success');
+                // Refresh atau update tampilan jika perlu
+            } else {
+                Swal.fire('Gagal', result.value.errors.join(', '), 'error');
+            }
+        }
+    });
+}
+// Mengambil data order untuk diupdate
+function fetchOrderData(orderId) {
+    $.ajax({
+        url: `home/getOrder/${orderId}`,
+        method: 'GET',
+        success: function(response) {
+            if (response.success) {
+                // Isi form dengan data yang diterima
+                $('#brand').val(response.data.brand);
+                $('#namaPengirim').val(response.data.nama_pengirim);
+                $('#noTeleponPengirim').val(response.data.no_telepon_pengirim);
+                $('#alamatTujuan').val(response.data.alamat);
+                $('#penerima').val(response.data.penerima);
+                $('#kodepos').val(response.data.kodepos);
+                $('#noTeleponPenerima').val(response.data.no_telepon_penerima);
+            } else {
+                Swal.fire('Gagal', response.message, 'error');
+            }
+        },
+        error: function() {
+            Swal.fire('Gagal', 'Terjadi kesalahan saat mengambil data', 'error');
         }
     });
 }
 
+function saveOrderData() {
+    const orderData = {
+        id: $('#orderId').val(), // ID yang akan diupdate
+        kode: $('#kode').val(),
+        id_client: $('#id_client').val(),
+        alamat: $('#alamat').val(),
+        kodepos: $('#kodepos').val(),
+        brand: $('#brand').val(),
+        nama_tim: $('#nama_tim').val(),
+        logo_tim: $('#logo_tim').val(),
+        // Tambahkan field lain sesuai kebutuhan
+    };
+
+    $.ajax({
+        url: 'home/saveOrder',
+        method: 'POST',
+        data: orderData,
+        success: function(response) {
+            if (response.success) {
+                Swal.fire('Sukses', response.message, 'success');
+                // Refresh atau update tampilan jika perlu
+            } else {
+                Swal.fire('Gagal', response.errors.join(', '), 'error');
+            }
+        },
+        error: function() {
+            Swal.fire('Gagal', 'Terjadi kesalahan saat menyimpan data', 'error');
+        }
+    });
+}
 </script>

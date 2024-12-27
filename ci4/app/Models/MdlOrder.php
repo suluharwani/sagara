@@ -12,7 +12,27 @@ class MdlOrder extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ["id","kode","id_client","deadline","id_order_list","status","updated_at","deleted_at","created_at","link","nama_tim","logo_tim","brand","deskripsi","alamat","kodepos"
+    protected $allowedFields    = ["id",
+                                    "kode",
+                                    "id_client",
+                                    "deadline",
+                                    "id_order_list",
+                                    "status",
+                                    "updated_at",
+                                    "deleted_at",
+                                    "created_at",
+                                    "link",
+                                    "nama_tim",
+                                    "logo_tim",
+                                    "brand",
+                                    "deskripsi",
+                                    "alamat",
+                                    "kodepos",
+                                    "pengirim",
+                                    "no_pengirim",
+                                    "no_penerima",
+                                    "penerima",
+                                    "resi"
 ];
 
 protected bool $allowEmptyInserts = false;
@@ -48,7 +68,7 @@ protected $afterDelete    = [];
 public function getOrderDetailById($orderId)
     {
         return $this->db->table('order')
-            ->select('order_list.id as id, product.id as product_id,order.id as order_id, order.kode, CONCAT(client.nama_depan, " ", client.nama_belakang) as client_name, product.nama as product_name, order_list.price, order_list.status')
+            ->select('order.*, order_list.id as id, product.id as product_id,order.id as order_id, order.kode, CONCAT(client.nama_depan, " ", client.nama_belakang) as client_name, product.nama as product_name, order_list.price, order_list.status')
             ->join('client', 'client.id = order.id_client')  // Join ke tabel client, gabung nama depan dan nama belakang
             ->join('order_list', 'order_list.id_order = order.id')  // Join ke tabel order_list
             ->join('product', 'product.id = order_list.id_product') // Join ke tabel product
