@@ -143,7 +143,7 @@ function showAddressForm(id) {
 
             // Make AJAX call to save the data
             $.ajax({
-                url: 'updateAddress', // Replace with your server endpoint
+                url: 'home/updateAddress', // Replace with your server endpoint
                 method: 'POST',
                 data: {
                     id: id,      // Send the ID of the item being updated

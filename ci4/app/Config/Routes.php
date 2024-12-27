@@ -129,6 +129,7 @@ $routes->post('/home/getTestimonial', 'Home::getTestimonial');
 $routes->post('/home/getPartner', 'Home::getPartner');
 $routes->post('/home/getOffer', 'Home::getOffer');
 $routes->post('/home/getGroupProduct', 'Home::getGroupProduct');
+$routes->post('/home/updateAddress', 'Home::updateAddress');
 
 $routes->post('/admin/order/getOrder', 'Order::getOrder');
 $routes->post('/admin/order/getOrderSelesai', 'Order::getOrderSelesai');

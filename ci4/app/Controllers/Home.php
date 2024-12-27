@@ -529,7 +529,14 @@ public function exportExcel($orderId)
     $writer->save('php://output');
     exit;
 }
+function updateAddress(){
+    $orderModel = new \App\Models\MdlOrder();
+    $id = $_POST['id'];
+    $data['alamat'] = $_POST['alamat'];
+    $data['kodepos'] = $_POST['kodepos'];
+    
 
+}
 
 
 
