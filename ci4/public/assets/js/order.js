@@ -79,7 +79,7 @@ $(document).ready(function() {
                         <a href="javascript:void(0);" class="btn btn-success btn-sm UbahStatus" id="${row[1]}" status = "${row[6]}">Ubah Status</a>
                         <a href="${base_url}exportExcel/${row[2]}" class="btn btn-success btn-sm">Download Excel</a>
                         <a href="${base_url}invoice/${row[2]}" class="btn btn-success btn-sm">Invoice</a>
-                        <a href="${base_url}shipment/${row[2]}" class="btn btn-success btn-sm">Pengiriman</a>
+                        <a href="javascript:void(0);" onclick="printpengirimanPDF('${row[1]}')" class="btn btn-success btn-sm">Pengiriman</a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm Delete" id="${row[1]}" >Delete</a>`;
             }}
         ],
@@ -272,6 +272,65 @@ $('.tambahOrder').on('click', function () {
 $(document).on('click', '.UbahStatus', function () {
   const orderId = $(this).attr('id');
   const currentStatus = $(this).attr('status'); // Mengambil status saat ini dari elemen
+
+  Swal.fire({
+    title: 'Ubah Status Order',
+    input: 'select',
+    inputOptions: {
+      '0': 'Tidak Aktif',
+      '1': 'DP Masuk (Diproses)',
+      '2': 'Lunas',
+      '3': 'Selesai',
+      '4': 'Batal'
+    },
+    inputValue: currentStatus,  // Mengatur status default sesuai dengan status yang ada
+    // inputPlaceholder: 'Pilih status baru',
+    showCancelButton: true,
+    confirmButtonText: 'Ubah Status',
+    preConfirm: (status) => {
+      if (!status) {
+        Swal.showValidationMessage('Anda harus memilih status');
+      }
+      return status;
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const newStatus = result.value;
+
+      // Kirim permintaan ke server untuk memperbarui status
+      $.ajax({
+        type: 'POST',
+        url: base_url + 'admin/order/ubahStatus', // Ganti dengan endpoint yang sesuai
+        data: {
+          id: orderId,
+          status: newStatus
+        },
+        success: function (response) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Status berhasil diubah',
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          // Reload DataTable untuk merefleksikan perubahan status
+          $('#tabel_serverside').DataTable().ajax.reload();
+        },
+        error: function (xhr) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Terjadi kesalahan saat mengubah status',
+            footer: '<a href="">Why do I have this issue?</a>'
+          });
+        }
+      });
+    }
+  });
+});
+$(document).on('click', '.resi', function () {
+  const orderId = $(this).attr('id');
+  const resi = $(this).attr('resi'); // Mengambil status saat ini dari elemen
 
   Swal.fire({
     title: 'Ubah Status Order',
@@ -802,3 +861,125 @@ $(document).on('click', '.viewOrderDetail', function () {
     // Redirect ke URL di tab baru
     window.open(url, '_blank');
 });
+
+function saveOrderData() {
+  const orderData = {
+      id: $('#orderId').val(), // ID yang akan diupdate
+      kode: $('#kode').val(),
+      id_client: $('#id_client').val(),
+      alamat: $('#alamat').val(),
+      kodepos: $('#kodepos').val(),
+      brand: $('#brand').val(),
+      nama_tim: $('#nama_tim').val(),
+      logo_tim: $('#logo_tim').val(),
+      // Tambahkan field lain sesuai kebutuhan
+  };
+
+  $.ajax({
+      url: 'home/saveOrder',
+      method: 'POST',
+      data: orderData,
+      success: function(response) {
+          if (response.success) {
+              Swal.fire('Sukses', response.message, 'success');
+              // Refresh atau update tampilan jika perlu
+          } else {
+              Swal.fire('Gagal', response.errors.join(', '), 'error');
+          }
+      },
+      error: function() {
+          Swal.fire('Gagal', 'Terjadi kesalahan saat menyimpan data', 'error');
+      }
+  });
+}
+function printpengirimanPDF(id) {
+  // Fetch the order data based on the ID
+  $.ajax({
+      url: `home/getOrder/${id}`, // Adjust the endpoint as necessary
+      method: 'GET',
+      success: function(response) {
+          if (response.success) {
+              const orderData = response.data;
+
+              // Create a new jsPDF instance with A6 size
+              const { jsPDF } = window.jspdf;
+              const doc = new jsPDF({
+                  orientation: "portrait",
+                  unit: "mm",
+                  format: "a6",
+                  putOnlyUsedFonts: true,
+                  floatPrecision: 16 // or "smart", default is 16
+              });
+
+              // Function to add order details to the PDF
+              function addOrderDetails(startY) {
+                  // Set the title
+                  doc.setFontSize(16);
+                  doc.text("Resi Pengiriman", 10, startY);
+
+                  // Add order details as a table
+                  const tableStartY = startY + 10;
+                  const rowHeight = 7;
+                  const columnX = 10;
+                  const labelWidth = 30;
+
+                  const orderDetails = [
+                      // { label: "Kode", value: orderData.kode },
+                      // { label: "Deadline", value: formatTanggalSaja(orderData.deadline) },
+                      // { label: "Status", value: orderData.status },
+                      { label: "Brand", value: orderData.brand },
+                      { label: "Pengirim", value: orderData.pengirim },
+                      { label: "No Pengirim", value: orderData.no_pengirim },
+                      { label: "Nama Tim", value: orderData.nama_tim },
+                      { label: "Penerima", value: orderData.penerima },
+                      { label: "Alamat", value: orderData.alamat },
+                      { label: "Kodepos", value: orderData.kodepos },
+                      { label: "No Penerima", value: orderData.no_penerima },
+
+                  ];
+
+                  doc.setFontSize(12);
+                  orderDetails.forEach((detail, index) => {
+                      const rowY = tableStartY + index * rowHeight;
+                      doc.text(`${detail.label}`, columnX, rowY);
+                      doc.text(`${detail.value}`, columnX + labelWidth, rowY);
+                  });
+
+                  // Add a footer or additional information if necessary
+                  doc.setFontSize(10);
+                  const footerY = tableStartY + orderDetails.length * rowHeight + 10;
+                  doc.text("Terima kasih atas pesanan Anda!", 10, footerY);
+                  doc.text("Harap divideokan saat unboxing", 10, footerY + 10);
+
+                  // Save the PDF
+                  doc.save(`Resi_Pengiriman_${orderData.kode}.pdf`);
+              }
+
+              // Load the logo image if it exists
+              if (orderData.logo_tim) {
+                  const logoImg = new Image();
+                  logoImg.src = orderData.logo_tim; // Assuming logo_tim is a URL to the image
+
+                  logoImg.onload = function() {
+                      // Add the logo to the PDF
+                      doc.addImage(logoImg, 'PNG', 10, 10, 30, 30); // Adjust the position and size as needed
+                      addOrderDetails(50); // Call to add order details after logo is added, starting below the logo
+                  };
+
+                  logoImg.onerror = function() {
+                      // If logo fails to load, just continue without adding it
+                      addOrderDetails(10); // Call to add order details starting from the top
+                  };
+              } else {
+                  // If no logo URL, directly add the order details
+                  addOrderDetails(10); // Call to add order details starting from the top
+              }
+          } else {
+              Swal.fire('Gagal', response.message, 'error');
+          }
+      },
+      error: function() {
+          Swal.fire('Gagal', 'Terjadi kesalahan saat mengambil data', 'error');
+      }
+  });
+}

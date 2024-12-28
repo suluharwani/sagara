@@ -550,47 +550,21 @@ public function getOrder($id)
     }
 
     // Method untuk menyimpan atau memperbarui data order
-    public function saveOrder()
-    {
-        $orderModel = new \App\Models\MdlOrder();
+    public function saveAlamat(){
+        $mdl = new \App\Models\MdlOrder();
         $data = $this->request->getPost();
-
-        // Validasi data yang diterima
-        $validation =  \Config\Services::validation();
-        $validation->setRules([
-            'kode' => 'required',
-            'id_client' => 'required',
-            'alamat' => 'required',
-            'kodepos' => 'required',
-            'brand' => 'required',
-            'nama_tim' => 'required',
-            'logo_tim' => 'required',
-            // Tambahkan aturan validasi lainnya sesuai kebutuhan
-        ]);
-
-        if (!$validation->withRequest($this->request)->run()) {
+        $mdl->update($data['id'], $data);
+        if($mdl->affectedRows() > 0){
             return $this->response->setJSON([
-                'success' => false,
-                'errors' => $validation->getErrors()
+                'success' => true,
+                'message' => 'Data berhasil diperbarui!'
             ]);
-        }
-
-        // Simpan atau perbarui data
-        if (isset($data['id'])) {
-            // Update data
-            $orderModel->update($data['id'], $data);
-            $message = 'Data berhasil diperbarui!';
-        } else {
-            // Insert data baru
-            $orderModel->insert($data);
-            $message = 'Data berhasil disimpan!';
-        }
-
+    }else{
         return $this->response->setJSON([
-            'success' => true,
-            'message' => $message
+            'success' => false,
+            'message' => 'Data gagal diperbarui!'
         ]);
     }
-
+}
 
 }

@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <!-- JS DataTables -->
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <div role="main" class="main">
     <section class="page-header">
         <div class="container">
@@ -74,7 +74,7 @@ $(document).ready(function() {
             },
             { "data": "kode", "title": "Download",
                 "render": function(data, type, row) {
-                    return '<a href="'+base_url+'exportExcel/'+data+'" class="btn btn-success">Pesanan</a> <a href="'+base_url+'exportExcel/'+data+'" class="btn btn-warning">Invoice</a> <a href="'+base_url+'exportExcel/'+data+'" class="btn btn-secondary">Resi</a>';
+                    return '<a href="'+base_url+'exportExcel/'+data+'" class="btn btn-success">Pesanan</a> <a href="'+base_url+'exportExcel/'+data+'" class="btn btn-warning">Invoice</a> <button class="btn btn-primary btn-sm" onclick="printToPDF(' + row.id + ')">Resi</button>';
                 }
             },
             { "data": "deadline", "title": "Deadline",
@@ -164,7 +164,9 @@ function showAddressForm(id) {
 }
 
 function displayForm(data) {
-    Swal.fire({
+    if (data.resi == null||data.resi == '') {
+        // Jika data ditemukan, tampilkan form dengan data yang diterima
+        Swal.fire({
         title: 'Input Alamat dan Kodepos',
         html: `
             <form id="addressForm">
@@ -174,11 +176,11 @@ function displayForm(data) {
                 </div>
                 <div class="form-group">
                     <label for="namaPengirim">Nama Pengirim</label>
-                    <input type="text" id="namaPengirim" class="form-control" placeholder="Masukkan nama pengirim" value="${data.nama_pengirim || ''}">
+                    <input type="text" id="namaPengirim" class="form-control" placeholder="Masukkan nama pengirim" value="${data.pengirim || ''}">
                 </div>
                 <div class="form-group">
                     <label for="noTeleponPengirim">No Telepon Pengirim</label>
-                    <input type="text" id="noTeleponPengirim" class="form-control" placeholder="Masukkan no telepon pengirim" value="${data.no_telepon_pengirim || ''}">
+                    <input type="text" id="noTeleponPengirim" class="form-control" placeholder="Masukkan no telepon pengirim" value="${data.no_pengirim || ''}">
                 </div>
                 <div class="form-group">
                     <label for="alamatTujuan">Alamat Tujuan</label>
@@ -194,7 +196,7 @@ function displayForm(data) {
                 </div>
                 <div class="form-group">
                     <label for="noTeleponPenerima">No Telepon Penerima</label>
-                    <input type="text" id="noTeleponPenerima" class="form-control" placeholder="Masukkan no telepon penerima" value="${data.no_telepon_penerima || ''}">
+                    <input type="text" id="noTeleponPenerima" class="form-control" placeholder="Masukkan no telepon penerima" value="${data.no_penerima || ''}">
                 </div>
                 <input type="hidden" id="orderId" value="${data.id || ''}"> <!-- Menyimpan ID untuk update -->
             </form>
@@ -206,12 +208,12 @@ function displayForm(data) {
             const orderData = {
                 id: document.getElementById('orderId').value,
                 brand: document.getElementById('brand').value,
-                nama_pengirim: document.getElementById('namaPengirim').value,
-                no_telepon_pengirim: document.getElementById('noTeleponPengirim').value,
+                pengirim: document.getElementById('namaPengirim').value,
+                no_pengirim: document.getElementById('noTeleponPengirim').value,
                 alamat: document.getElementById('alamatTujuan').value,
                 penerima: document.getElementById('penerima').value,
                 kodepos: document.getElementById('kodepos').value,
-                no_telepon_penerima: document.getElementById('noTeleponPenerima').value
+                no_penerima: document.getElementById('noTeleponPenerima').value
             };
 
             // Validasi input
@@ -224,7 +226,7 @@ function displayForm(data) {
 
             // Mengirim data ke server
             return $.ajax({
-                url: 'order/save', // Ganti dengan endpoint yang sesuai untuk menyimpan data
+                url: 'home/saveAlamat', // Ganti dengan endpoint yang sesuai untuk menyimpan data
                 method: 'POST',
                 data: orderData
             });
@@ -239,6 +241,11 @@ function displayForm(data) {
             }
         }
     });
+    } else {
+        // Jika data tidak ditemukan, tampilkan form kosong
+        Swal.fire('Resi Sudah Ada', `${data.resi}`, 'success');
+    }
+   
 }
 // Mengambil data order untuk diupdate
 function fetchOrderData(orderId) {
@@ -295,4 +302,97 @@ function saveOrderData() {
         }
     });
 }
+function printToPDF(id) {
+    // Fetch the order data based on the ID
+    $.ajax({
+        url: `home/getOrder/${id}`, // Adjust the endpoint as necessary
+        method: 'GET',
+        success: function(response) {
+            if (response.success) {
+                const orderData = response.data;
+
+                // Create a new jsPDF instance with A6 size
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF({
+                    orientation: "portrait",
+                    unit: "mm",
+                    format: "a6",
+                    putOnlyUsedFonts: true,
+                    floatPrecision: 16 // or "smart", default is 16
+                });
+
+                // Function to add order details to the PDF
+                function addOrderDetails(startY) {
+                    // Set the title
+                    doc.setFontSize(16);
+                    doc.text("Resi Pengiriman", 10, startY);
+
+                    // Add order details as a table
+                    const tableStartY = startY + 10;
+                    const rowHeight = 7;
+                    const columnX = 10;
+                    const labelWidth = 30;
+
+                    const orderDetails = [
+                        // { label: "Kode", value: orderData.kode },
+                        // { label: "Deadline", value: formatTanggalSaja(orderData.deadline) },
+                        // { label: "Status", value: orderData.status },
+                        { label: "Brand", value: orderData.brand },
+                        { label: "Pengirim", value: orderData.pengirim },
+                        { label: "No Pengirim", value: orderData.no_pengirim },
+                        { label: "Nama Tim", value: orderData.nama_tim },
+                        { label: "Penerima", value: orderData.penerima },
+                        { label: "Alamat", value: orderData.alamat },
+                        { label: "Kodepos", value: orderData.kodepos },
+                        { label: "No Penerima", value: orderData.no_penerima },
+
+                    ];
+
+                    doc.setFontSize(12);
+                    orderDetails.forEach((detail, index) => {
+                        const rowY = tableStartY + index * rowHeight;
+                        doc.text(`${detail.label}`, columnX, rowY);
+                        doc.text(`${detail.value}`, columnX + labelWidth, rowY);
+                    });
+
+                    // Add a footer or additional information if necessary
+                    doc.setFontSize(10);
+                    const footerY = tableStartY + orderDetails.length * rowHeight + 10;
+                    doc.text("Terima kasih atas pesanan Anda!", 10, footerY);
+                    doc.text("Harap divideokan saat unboxing", 10, footerY + 10);
+
+                    // Save the PDF
+                    doc.save(`Resi_Pengiriman_${orderData.kode}.pdf`);
+                }
+
+                // Load the logo image if it exists
+                if (orderData.logo_tim) {
+                    const logoImg = new Image();
+                    logoImg.src = orderData.logo_tim; // Assuming logo_tim is a URL to the image
+
+                    logoImg.onload = function() {
+                        // Add the logo to the PDF
+                        doc.addImage(logoImg, 'PNG', 10, 10, 30, 30); // Adjust the position and size as needed
+                        addOrderDetails(50); // Call to add order details after logo is added, starting below the logo
+                    };
+
+                    logoImg.onerror = function() {
+                        // If logo fails to load, just continue without adding it
+                        addOrderDetails(10); // Call to add order details starting from the top
+                    };
+                } else {
+                    // If no logo URL, directly add the order details
+                    addOrderDetails(10); // Call to add order details starting from the top
+                }
+            } else {
+                Swal.fire('Gagal', response.message, 'error');
+            }
+        },
+        error: function() {
+            Swal.fire('Gagal', 'Terjadi kesalahan saat mengambil data', 'error');
+        }
+    });
+}
+
+
 </script>

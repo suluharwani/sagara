@@ -76,10 +76,11 @@ $(document).ready(function() {
                         <a href="javascript:void(0);" class="btn btn-primary btn-sm Pembayaran" id="${row[1]}" >Pembayaran</a>
                         <a href="javascript:void(0);" class="btn btn-info btn-sm PaymentHistory" data-id="${row[1]}">Riwayat Pembayaran</a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm Link" id="${row[1]}" link = "${row[7]}">Link</a>
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm UbahStatus" id="${row[1]}" status = "${row[6]}">Ubah Status</a>
-                        <a href="${base_url}exportExcel/${row[2]}" class="btn btn-success btn-sm">Download Excel</a>
-                        <a href="${base_url}invoice/${row[2]}" class="btn btn-success btn-sm">Invoice</a>
-                        <a href="${base_url}shipment/${row[2]}" class="btn btn-success btn-sm">Pengiriman</a>
+                        <a href="javascript:void(0);" class="btn btn-warning btn-sm UbahStatus" id="${row[1]}" status = "${row[6]}">Ubah Status</a>
+                        <a href="${base_url}exportExcel/${row[2]}" class="btn btn-warning btn-sm">Download Excel</a>
+                        <a href="${base_url}invoice/${row[2]}" class="btn btn-warning btn-sm">Invoice</a>
+                        <a href="javascript:void(0);" class="btn btn-primary btn-sm resi" id="${row[1]}" no_resi ="${row[13]}" ">Resi</a>
+                        <a href="javascript:void(0);" onclick="printpengirimanPDF('${row[1]}')" class="btn btn-primary btn-sm">Pengiriman</a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm Delete" id="${row[1]}" >Delete</a>`;
             }}
         ],
@@ -321,6 +322,63 @@ $(document).on('click', '.UbahStatus', function () {
             icon: 'error',
             title: 'Oops...',
             text: 'Terjadi kesalahan saat mengubah status',
+            footer: '<a href="">Why do I have this issue?</a>'
+          });
+        }
+      });
+    }
+  });
+});
+$(document).on('click', '.resi', function () {
+  const orderId = $(this).attr('id');
+  const resi = $(this).attr('no_resi')|| ""; // Mengambil status saat ini dari elemen
+
+  Swal.fire({
+    title: 'Input Pembayaran',
+    html: `
+      <form id="form_payment">
+        <div class="form-group">
+          <label for="name">Resi</label>
+          <input type="text" id="resi" class="form-control" placeholder="Masukkan resi" value="${resi}" required>
+        </div>
+        
+      </form>
+    `,
+    showCancelButton: true,
+    confirmButtonText: 'Simpan Resi',
+    preConfirm: () => {
+      return {
+        resi: $('#resi').val(),
+      };
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const resiData = result.value;
+
+      // Kirim data pembayaran ke server
+      $.ajax({
+        type: 'POST',
+        url: base_url + 'admin/order/updateResi', // Endpoint untuk menambah pembayaran
+        data: {
+          id: orderId,
+          ...resiData // Spread payment data
+        },
+        success: function (response) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Resi berhasil ditambahkan',
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          // Reload tabel riwayat pembayaran
+          // loadPaymentHistory(orderId);
+        },
+        error: function (xhr) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Terjadi kesalahan saat menambahkan resi',
             footer: '<a href="">Why do I have this issue?</a>'
           });
         }
@@ -802,3 +860,96 @@ $(document).on('click', '.viewOrderDetail', function () {
     // Redirect ke URL di tab baru
     window.open(url, '_blank');
 });
+
+
+function printpengirimanPDF(id) {
+  // Fetch the order data based on the ID
+  $.ajax({
+      url: base_url +`home/getOrder/${id}`, // Adjust the endpoint as necessary
+      method: 'GET',
+      success: function(response) {
+          if (response.success) {
+              const orderData = response.data;
+
+              // Create a new jsPDF instance with A6 size
+              const { jsPDF } = window.jspdf;
+              const doc = new jsPDF({
+                  orientation: "portrait",
+                  unit: "mm",
+                  format: "a6",
+                  putOnlyUsedFonts: true,
+                  floatPrecision: 16 // or "smart", default is 16
+              });
+
+              // Function to add order details to the PDF
+              function addOrderDetails(startY) {
+                  // Set the title
+                  doc.setFontSize(16);
+                  doc.text("Resi Pengiriman", 10, startY);
+
+                  // Add order details as a table
+                  const tableStartY = startY + 10;
+                  const rowHeight = 7;
+                  const columnX = 10;
+                  const labelWidth = 30;
+
+                  const orderDetails = [
+                      // { label: "Kode", value: orderData.kode },
+                      // { label: "Deadline", value: formatTanggalSaja(orderData.deadline) },
+                      // { label: "Status", value: orderData.status },
+                      { label: "Brand", value: orderData.brand },
+                      { label: "Pengirim", value: orderData.pengirim },
+                      { label: "No Pengirim", value: orderData.no_pengirim },
+                      { label: "Nama Tim", value: orderData.nama_tim },
+                      { label: "Penerima", value: orderData.penerima },
+                      { label: "Alamat", value: orderData.alamat },
+                      { label: "Kodepos", value: orderData.kodepos },
+                      { label: "No Penerima", value: orderData.no_penerima },
+
+                  ];
+
+                  doc.setFontSize(12);
+                  orderDetails.forEach((detail, index) => {
+                      const rowY = tableStartY + index * rowHeight;
+                      doc.text(`${detail.label}`, columnX, rowY);
+                      doc.text(`${detail.value}`, columnX + labelWidth, rowY);
+                  });
+
+                  // Add a footer or additional information if necessary
+                  doc.setFontSize(10);
+                  const footerY = tableStartY + orderDetails.length * rowHeight + 10;
+                  doc.text("Terima kasih atas pesanan Anda!", 10, footerY);
+                  doc.text("Harap divideokan saat unboxing", 10, footerY + 10);
+
+                  // Save the PDF
+                  doc.save(`Alamat Pengiriman ${orderData.nama_tim} - brand ${orderData.brand}.pdf`);
+              }
+
+              // Load the logo image if it exists
+              if (orderData.logo_tim) {
+                  const logoImg = new Image();
+                  logoImg.src = orderData.logo_tim; // Assuming logo_tim is a URL to the image
+
+                  logoImg.onload = function() {
+                      // Add the logo to the PDF
+                      doc.addImage(logoImg, 'PNG', 10, 10, 30, 30); // Adjust the position and size as needed
+                      addOrderDetails(50); // Call to add order details after logo is added, starting below the logo
+                  };
+
+                  logoImg.onerror = function() {
+                      // If logo fails to load, just continue without adding it
+                      addOrderDetails(10); // Call to add order details starting from the top
+                  };
+              } else {
+                  // If no logo URL, directly add the order details
+                  addOrderDetails(10); // Call to add order details starting from the top
+              }
+          } else {
+              Swal.fire('Gagal', response.message, 'error');
+          }
+      },
+      error: function() {
+          Swal.fire('Gagal', 'Terjadi kesalahan saat mengambil data', 'error');
+      }
+  });
+}
