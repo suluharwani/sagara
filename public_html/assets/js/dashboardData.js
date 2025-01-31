@@ -3,6 +3,163 @@ var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
 
 
 $(document).ready(function() {
+    
+    function updateOrderData(year) {
+        $.ajax({
+            url: base_url+'admin/order/getOrderData', // Replace with your controller/method URL
+            type: 'POST',
+            data: { year: year },
+            dataType: 'json',
+            success: function(data) {
+                $('#total_order').text(data.total_order);
+                $('#completed_orders').text(data.completed_orders);
+                $('#progress_orders').text(data.progress_orders);
+                $('#total_product').text(data.total_product); // Update logic as needed
+                $('#total_revenue').text(formatRupiah(data.total_revenue));
+                $('#totalProductProgress').text(data.totalProductProgress);
+                $('#totalProductSelesai').text(data.totalProductSelesai);
+
+
+                let optionsPogress  = {
+                    series: [parseInt(data.totalProductSelesai), parseInt(data.totalProductProgress)],
+                    labels: [`Selesai : ${parseInt(data.totalProductSelesai)}` , `Progress :  ${parseInt(data.totalProductProgress)}`],
+                    colors: ['#435ebe','#55c6e8'],
+                    chart: {
+                        type: 'donut',
+                        width: '100%',
+                        height:'350px'
+                    },
+                    legend: {
+                        position: 'bottom'
+                    },
+                    plotOptions: {
+                        pie: {
+                            donut: {
+                                size: '30%'
+                            }
+                        }
+                    }
+                }
+                var chartProgress = new ApexCharts(document.getElementById('chart-progress'), optionsPogress)
+
+            
+                chartProgress.render()
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error("AJAX Error:", textStatus, errorThrown);
+            }
+        });
+    }
+
+
+    // Initial load with current year
+    updateOrderData(new Date().getFullYear());
+
+
+    // Button click to change year
+    $('#changeYearBtn').click(function() {
+        let year = $('#yearInput').val();
+        updateOrderData(year);
+    });
+
+
+
+    // Chart Data
+    var optionsProfileVisit = {
+        annotations: {
+            position: 'back'
+        },
+        dataLabels: {
+            enabled:false
+        },
+        chart: {
+            type: 'bar',
+            height: 300
+        },
+        fill: {
+            opacity:1
+        },
+        plotOptions: {
+        },
+        series: [{
+            name: 'sales',
+            data: [9,20,30,20,10,20,30,20,10,20,30,20]
+        }],
+        colors: '#435ebe',
+        xaxis: {
+            categories: ["Jan","Feb","Mar","Apr","May","Jun","Jul", "Aug","Sep","Oct","Nov","Dec"],
+        },
+    }
+
+    
+    var optionsEurope = {
+        series: [{
+            name: 'series1',
+            data: [310, 800, 600, 430, 540, 340, 605, 805,430, 540, 340, 605]
+        }],
+        chart: {
+            height: 80,
+            type: 'area',
+            toolbar: {
+                show:false,
+            },
+        },
+        colors: ['#5350e9'],
+        stroke: {
+            width: 2,
+        },
+        grid: {
+            show:false,
+        },
+        dataLabels: {
+            enabled: false
+        },
+        xaxis: {
+            type: 'datetime',
+            categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z","2018-09-19T07:30:00.000Z","2018-09-19T08:30:00.000Z","2018-09-19T09:30:00.000Z","2018-09-19T10:30:00.000Z","2018-09-19T11:30:00.000Z"],
+            axisBorder: {
+                show:false
+            },
+            axisTicks: {
+                show:false
+            },
+            labels: {
+                show:false,
+            }
+        },
+        show:false,
+        yaxis: {
+            labels: {
+                show:false,
+            },
+        },
+        tooltip: {
+            x: {
+                format: 'dd/MM/yy HH:mm'
+            },
+        },
+    };
+    
+    let optionsAmerica = {
+        ...optionsEurope,
+        colors: ['#008b75'],
+    }
+    let optionsIndonesia = {
+        ...optionsEurope,
+        colors: ['#dc3545'],
+    }
+    
+    
+    
+    var chartProfileVisit = new ApexCharts(document.querySelector("#chart-profile-visit"), optionsProfileVisit);
+    var chartEurope = new ApexCharts(document.querySelector("#chart-europe"), optionsEurope);
+    var chartAmerica = new ApexCharts(document.querySelector("#chart-america"), optionsAmerica);
+    var chartIndonesia = new ApexCharts(document.querySelector("#chart-indonesia"), optionsIndonesia);
+    
+    chartIndonesia.render();
+    chartAmerica.render();
+    chartEurope.render();
+    chartProfileVisit.render();
     var dataTable = $('#tabel_serverside').DataTable( {
         "processing" : true,
         "oLanguage": {
@@ -81,7 +238,7 @@ $(document).ready(function() {
             "targets": [0],
             "orderable": false
         }],
-    "rowCallback": function( row, data, index ) {
+        "rowCallback": function( row, data, index ) {
             // Mengambil tanggal dari row[4]
             var rowDate = new Date(data[4]);
             var currentDate = new Date();
@@ -106,7 +263,14 @@ $(document).ready(function() {
         }
     });
 });
-
+function formatRupiah(number) {
+    return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2
+    }).format(number);
+}
 
 function formatTanggalIndonesia(datetime) {
     // Cek apakah datetime adalah objek Date
@@ -129,7 +293,7 @@ function formatTanggalIndonesia(datetime) {
     let hariNama = hari[datetime.getDay()];
 
     // Format: Hari, Tanggal Bulan Tahun Jam:Menit:Detik
-    return `${hariNama}, ${tanggal} ${bulanNama} ${tahun} ${jam}:${menit}:${detik}`;
+    return `${hariNama}, ${tanggal} ${bulanNama} ${tahun}`;
 }
 $(document).on('click', '.Link', function () {
     const orderLink = $(this).attr('link'); // Mengambil link dari atribut data-link
@@ -157,3 +321,4 @@ $(document).on('click', '.Link', function () {
     // Redirect ke URL di tab baru
     window.open(url, '_blank');
 });
+

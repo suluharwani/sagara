@@ -148,6 +148,7 @@ $routes->get('/admin/order/getProducts', 'Order::getProducts');        // Rute u
 $routes->post('/admin/order/saveOrderProducts', 'Order::saveOrderProducts'); // Rute untuk menyimpan produk dalam order
 $routes->get('/admin/order/detail/(:num)', 'Order::orderDetail/$1'); // Rute untuk menampilkan detail order berdasarkan ID order
 $routes->post('admin/order/deleteProduct', 'Order::deleteProduct'); // Rute untuk menghapus produk dari order
+$routes->post('admin/order/getOrderData', 'Order::getOrderData'); // Rute untuk menghapus produk dari order
 
 $routes->get('/order/(:any)', 'Home::client/$1'); // Rute untuk menampilkan detail order berdasarkan ID order
 $routes->post('/order/save', 'Home::save'); // Rute untuk menampilkan detail order berdasarkan ID order

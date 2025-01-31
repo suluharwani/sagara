@@ -102,4 +102,28 @@ public function getOrderDetailById($orderId)
     {
         return $this->where('kode', $orderId)->first();
     }
+    public function getTotalProductProgress($year)
+    {
+        $builder = $this->db->table('order');
+        $builder->select('COUNT(ordertable.id) as totalProductProgress');
+        $builder->join('ordertable', 'order.kode = ordertable.id_order');
+        $builder->where('YEAR(order.created_at)', $year);
+        $builder->where('order.status !=', 3); // Bukan selesai
+        $builder->where('order.status !=', 4); // Bukan batal
+        $builder->where('order.status !=', 0); // Bukan tidak aktif
+        return $builder->get()->getRow()->totalProductProgress;
+    }
+
+    /**
+     * Hitung total produk selesai (status = 3)
+     */
+    public function getTotalProductSelesai($year)
+    {
+        $builder = $this->db->table('order');
+        $builder->select('COUNT(ordertable.id) as totalProductSelesai');
+        $builder->join('ordertable', 'order.kode = ordertable.id_order');
+        $builder->where('YEAR(order.created_at)', $year);
+        $builder->where('order.status', 3); // Selesai
+        return $builder->get()->getRow()->totalProductSelesai;
+    }
 }

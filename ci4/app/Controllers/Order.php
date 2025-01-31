@@ -467,6 +467,43 @@ public function updateAddress()
     return view('admin/content/shipment_form', $data);
   }
 
+  public function getOrderData()
+  {
+      $year = $this->request->getPost('year');
+      $orderModel = new \App\Models\MdlOrder;
+      $orderListModel = new \App\Models\MdlOrderList;
+      $orderTable = new \App\Models\MdlOrderTable;
 
+      $orders = $orderModel->where('YEAR(created_at)', $year)->findAll();
+      $totalOrder = $orderModel->where('YEAR(created_at)', $year)->countAllResults();
+      $completedOrders = $orderModel->where(['YEAR(created_at)' => $year, 'status' => 3])->countAllResults();
+      $progressOrders = $orderModel->where(['YEAR(created_at)' => $year, 'status !=' => 3,'status !=' => 4, 'status !=' => 0])->countAllResults();
+      $totalProductProgress = $orderModel->getTotalProductProgress($year);
+      $totalProductSelesai = $orderModel->getTotalProductSelesai($year);
+
+
+      $totalRevenue = 0;
+      foreach ($orders as $order) {
+          if ($order['status'] == 3) {
+
+              $orderLists = $orderListModel->where('id_order', $order['id'])->findAll();
+              foreach ($orderLists as $orderList) {
+                  $totalRevenue += $orderList['price'];
+              }
+          }
+      }
+
+      $data = [
+          'total_order' => $totalOrder,
+          'completed_orders' => $completedOrders,
+          'progress_orders' => $progressOrders,
+          'totalProductProgress' => $totalProductProgress,
+          'totalProductSelesai' => $totalProductSelesai,
+          'total_product' => $totalProductProgress+$totalProductSelesai,
+          'total_revenue' => $totalRevenue,
+      ];
+
+      return $this->response->setJSON($data);
+  }
 }
 
