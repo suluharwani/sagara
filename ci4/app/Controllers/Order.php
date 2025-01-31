@@ -276,7 +276,7 @@ public function ubahStatus()
         $status = $this->request->getPost('status');
 
         // Periksa apakah data valid
-        if (!$orderId || !$status) {
+        if (!$orderId) {
             return $this->response->setStatusCode(400)->setJSON(['message' => 'Data tidak valid']);
         }
 
