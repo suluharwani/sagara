@@ -137,6 +137,7 @@ $routes->get('/admin/order', 'Order::index');
 $routes->get('/admin/orderSelesai', 'Order::orderSelesai');
 $routes->post('/admin/order/tambahOrder', 'Order::tambahOrder');
 $routes->post('/admin/order/ubahStatus', 'Order::ubahStatus');
+$routes->post('/admin/order/updateResi', 'Order::updateResi');
 $routes->post('/admin/order/deleteOrder', 'Order::deleteOrder');
 $routes->post('/admin/order/addPayment', 'Order::addPayment');
 $routes->get('/admin/order/paymentHistory', 'Order::paymentHistory');
@@ -161,3 +162,4 @@ $routes->get('/shipment/(:any)', 'Order::shipment/$1');
 
 $routes->get('home/getOrder/(:num)', 'Home::getOrder/$1');
 $routes->post('home/saveOrder', 'Home::saveOrder');
+$routes->post('home/saveAlamat', 'Home::saveAlamat');

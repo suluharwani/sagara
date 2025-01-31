@@ -114,6 +114,7 @@ class Order extends BaseController
           $row[] = $lists->nama_depan;
           $row[] = $lists->nama_belakang;
           $row[] = $lists->nama_tim;
+          $row[] = $lists->resi;
           $row[] = $MdlOrderTable->where('id_order', $lists->kode)->countAllResults();
 
               $data[] = $row;
@@ -187,6 +188,8 @@ class Order extends BaseController
           $row[] = $lists->nama_depan;
           $row[] = $lists->nama_belakang;
           $row[] = $lists->nama_tim;
+          $row[] = $lists->resi;
+
           $row[] = $MdlOrderTable->where('id_order', $lists->kode)->countAllResults();
 
               $data[] = $row;
@@ -285,7 +288,24 @@ public function ubahStatus()
         return $this->response->setJSON(['message' => 'Status berhasil diubah']);
     }
 
+    public function updateResi()
+    {
+        // Ambil data dari permintaan
+        $orderId = $this->request->getPost('id');
+        $resi = $this->request->getPost('resi');
 
+        // Periksa apakah data valid
+        if (!$orderId || !$resi) {
+            return $this->response->setStatusCode(400)->setJSON(['message' => 'Data tidak valid']);
+        }
+
+        // Ambil model order dan ubah statusnya
+        $orderModel =new \App\Models\MdlOrder();
+        $orderModel->update($orderId, ['resi' => $resi]);
+
+        // Berikan respons sukses
+        return $this->response->setJSON(['message' => 'Status berhasil diubah']);
+    }
     public function deleteOrder()
     {
         // Ambil ID order dari permintaan
