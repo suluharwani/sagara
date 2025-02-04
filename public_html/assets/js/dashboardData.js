@@ -4,11 +4,11 @@ var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
 
 $(document).ready(function() {
     
-    function updateOrderData(year) {
+    function updateOrderData(startDate, endDate) {
         $.ajax({
             url: base_url+'admin/order/getOrderData', // Replace with your controller/method URL
             type: 'POST',
-            data: { year: year },
+            data: {startDate, endDate},
             dataType: 'json',
             success: function(data) {
                 $('#total_order').text(data.total_order);
@@ -57,9 +57,10 @@ $(document).ready(function() {
 
 
     // Button click to change year
-    $('#changeYearBtn').click(function() {
-        let year = $('#yearInput').val();
-        updateOrderData(year);
+    $('#changeDateRangeBtn').click(function() {
+        let startDate = $('#startDate').val();
+        let endDate = $('#endDate').val();
+        updateOrderData(startDate, endDate);
     });
 
 

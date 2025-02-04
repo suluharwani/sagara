@@ -455,10 +455,7 @@ $(document).on('click', '.Pembayaran', function () {
           <label for="name">Nama Pembayar</label>
           <input type="text" id="name" class="form-control" placeholder="Nama pembayar" required>
         </div>
-        <div class="form-group">
-          <label for="price">Jumlah Pembayaran</label>
-          <input type="number" id="price" class="form-control" placeholder="Masukkan jumlah pembayaran" required>
-        </div>
+ 
         <div class="form-group">
           <label for="downpayment">Uang Muka (DP)</label>
           <input type="number" id="downpayment" class="form-control" placeholder="Masukkan jumlah DP">
@@ -545,6 +542,7 @@ function loadPaymentHistory(orderId) {
             <td>${payment.downpayment}</td>
             <td>${payment.completion}</td> <!-- Menampilkan nominal pelunasan -->
             <td>${payment.discount}</td>
+            
             <td>${payment.created_at}</td>
             <td>
               <button class="btn btn-danger btn-sm DeletePayment" data-id="${payment.id}">Hapus</button>
@@ -618,6 +616,7 @@ $(document).on('click', '.PaymentHistory', function () {
                 <th>Uang Muka (DP)</th>
                 <th>Pelunasan</th>
                 <th>Diskon</th>
+                <th>Kurang Bayar</th>
                 <th>Tanggal Pembayaran</th>
                 <th>Aksi</th>
               </tr>
@@ -625,22 +624,31 @@ $(document).on('click', '.PaymentHistory', function () {
             <tbody>
         `;
 
-        // Iterasi untuk setiap pembayaran dalam respons
-        response.payments.forEach(payment => {
+
+        response.payments.forEach((payment, index) => {
+          // Calculate kurangBayar for the first payment
+          if (index === 0) {
+              kurangBayar = payment.price - payment.downpayment - payment.completion - payment.discount;
+          } else {
+              // For subsequent payments, use the previous kurangBayar
+              kurangBayar = kurangBayar - payment.downpayment - payment.completion - payment.discount;
+          }
+
           paymentHistoryHtml += `
-            <tr>
-              <td>${payment.name}</td>
-              <td>${payment.price}</td>
-              <td>${payment.downpayment}</td>
-              <td>${payment.completion}</td>
-              <td>${payment.discount}</td>
-              <td>${payment.created_at}</td>
+              <tr>
+                  <td>${payment.name}</td>
+                  <td>${formatRupiah(index === 0 ? payment.price : parseInt(kurangBayar)+(parseInt(payment.downpayment) + parseInt(payment.completion) + parseInt(payment.discount)))}</td>
+                  <td>${formatRupiah(payment.downpayment)}</td>
+                  <td>${formatRupiah(payment.completion)}</td>
+                  <td>${formatRupiah(payment.discount)}</td>
+                  <td>${formatRupiah(kurangBayar)}</td>
+                                <td>${payment.created_at}</td>
               <td>
                 <button class="btn btn-danger btn-sm DeletePayment" data-id="${payment.id}">Hapus</button>
               </td>
-            </tr>
+              </tr>
           `;
-        });
+      });
 
         paymentHistoryHtml += `
             </tbody>
@@ -654,7 +662,7 @@ $(document).on('click', '.PaymentHistory', function () {
       Swal.fire({
         title: 'Riwayat Pembayaran',
         html: paymentHistoryHtml,
-        width: '800px',
+        width: '1800px',
         showCancelButton: true,
         cancelButtonText: 'Tutup'
       });
@@ -952,4 +960,19 @@ function printpengirimanPDF(id) {
           Swal.fire('Gagal', 'Terjadi kesalahan saat mengambil data', 'error');
       }
   });
+}
+function formatRupiah(number) {
+  // Convert the number to a string and replace any non-digit characters
+  number = number.toString().replace(/[^,\d]/g, '');
+  
+  // Split the number into whole and decimal parts
+  let parts = number.split(',');
+  let wholePart = parts[0];
+  let decimalPart = parts.length > 1 ? ',' + parts[1] : '';
+
+  // Add thousands separators
+  wholePart = wholePart.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  // Return the formatted string with "Rp" prefix
+  return 'Rp ' + wholePart + decimalPart;
 }

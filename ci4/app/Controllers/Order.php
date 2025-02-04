@@ -330,14 +330,35 @@ public function ubahStatus()
     public function addPayment()
     {
         $paymentModel = new \App\Models\MdlPayment();
+        $orderListModel = new \App\Models\MdlOrderList();
         $data = $this->request->getPost();
-
+    
+        // Check if a payment with the same id_order already exists
+        $existingPayment = $paymentModel->where('id_order', $data['id_order'])->first();
+    
+        if ($existingPayment) {
+            // If a payment with the same id_order already exists, set the price to 0
+            $data['price'] = 0;
+        } else {
+            // Calculate the total price from the MdlOrderList table for the given id_order
+            $totalPrice = $orderListModel->selectSum('price')->where('id_order', $data['id_order'])->first()['price'];
+    
+            if ($totalPrice === null) {
+                return $this->response->setStatusCode(400)->setJSON(['message' => 'Tidak ada order dengan id_order ini']);
+            }
+    
+            // Set the price in the data array
+            $data['price'] = $totalPrice;
+        }
+    
+        // Insert the payment data into the MdlPayment table
         if ($paymentModel->insert($data)) {
             return $this->response->setJSON(['message' => 'Pembayaran berhasil ditambahkan']);
         } else {
             return $this->response->setStatusCode(500)->setJSON(['message' => 'Gagal menambahkan pembayaran']);
         }
     }
+    
 
     // Mengambil riwayat pembayaran berdasarkan id_order
     public function paymentHistory()
@@ -469,41 +490,63 @@ public function updateAddress()
 
   public function getOrderData()
   {
-      $year = $this->request->getPost('year');
+      $startDate = $this->request->getPost('startDate');
+      $endDate = $this->request->getPost('endDate');
+  
+      // Ensure the dates are in the correct format and include time
+      $startDateFull = $startDate . ' 00:00:00';
+      $endDateFull = $endDate . ' 23:59:59';
+  
       $orderModel = new \App\Models\MdlOrder;
       $orderListModel = new \App\Models\MdlOrderList;
       $orderTable = new \App\Models\MdlOrderTable;
-
-      $orders = $orderModel->where('YEAR(created_at)', $year)->findAll();
-      $totalOrder = $orderModel->where('YEAR(created_at)', $year)->countAllResults();
-      $completedOrders = $orderModel->where(['YEAR(created_at)' => $year, 'status' => 3])->countAllResults();
-      $progressOrders = $orderModel->where(['YEAR(created_at)' => $year, 'status !=' => 3,'status !=' => 4, 'status !=' => 0])->countAllResults();
-      $totalProductProgress = $orderModel->getTotalProductProgress($year);
-      $totalProductSelesai = $orderModel->getTotalProductSelesai($year);
-
-
+  
+      // Query orders within the specified date range
+      $orders = $orderModel->where('created_at >=', $startDateFull)
+                           ->where('created_at <=', $endDateFull)
+                           ->findAll();
+  
+      $totalOrder = $orderModel->where('created_at >=', $startDateFull)
+                               ->where('created_at <=', $endDateFull)
+                               ->countAllResults();
+  
+      $completedOrders = $orderModel->where('created_at >=', $startDateFull)
+                                    ->where('created_at <=', $endDateFull)
+                                    ->where('status', 3)
+                                    ->countAllResults();
+  
+      $progressOrders = $orderModel->where('created_at >=', $startDateFull)
+                                   ->where('created_at <=', $endDateFull)
+                                   ->where('status !=', 3)
+                                   ->where('status !=', 4)
+                                   ->where('status !=', 0)
+                                   ->countAllResults();
+  
+      $totalProductProgress = $orderModel->getTotalProductProgress($startDateFull, $endDateFull);
+      $totalProductSelesai = $orderModel->getTotalProductSelesai($startDateFull, $endDateFull);
+  
       $totalRevenue = 0;
       foreach ($orders as $order) {
           if ($order['status'] == 3) {
-
               $orderLists = $orderListModel->where('id_order', $order['id'])->findAll();
               foreach ($orderLists as $orderList) {
                   $totalRevenue += $orderList['price'];
               }
           }
       }
-
+  
       $data = [
           'total_order' => $totalOrder,
           'completed_orders' => $completedOrders,
           'progress_orders' => $progressOrders,
           'totalProductProgress' => $totalProductProgress,
           'totalProductSelesai' => $totalProductSelesai,
-          'total_product' => $totalProductProgress+$totalProductSelesai,
+          'total_product' => $totalProductProgress + $totalProductSelesai,
           'total_revenue' => $totalRevenue,
       ];
-
+  
       return $this->response->setJSON($data);
   }
+  
 }
 

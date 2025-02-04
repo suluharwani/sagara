@@ -136,13 +136,14 @@
         </div>
         <div class="col-12 col-lg-3">
             <div class="card">
-                <div class="card-body py-4 px-5">
+                <div class="card-body py-4 px-12">
 
                     <div class="d-flex align-items-center">
                     <div class="col-md-12">
-                <div class="input-group">
-                    <input type="number" id="yearInput" value="2025" class="form-control" style="width: 50%;" />
-                    <button class="btn btn-success btn-sm" id="changeYearBtn" style="width: 50%;">Change Year</button>
+                    <div class="input-group">
+                    <input type="date" id="startDate" class="form-control" />
+                    <input type="date" id="endDate" class="form-control" />
+                    <button class="btn btn-success btn-sm" id="changeDateRangeBtn">Cari</button>
                 </div>
             </div>
 
@@ -170,6 +171,12 @@
         </div>
     </section>
 </div>
+<script>
+        // Set default date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('startDate').value = today;
+        document.getElementById('endDate').value = today;
+    </script>
 <script type="text/javascript" src="<?= base_url('assets') ?>/datatables/datatables.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>/assets/summernote/summernote-lite.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>/assets/summernote/summernote-image-list.min.js"></script>
