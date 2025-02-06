@@ -136,7 +136,7 @@
                             kurangBayar = payment.price - payment.downpayment - payment.completion - payment.discount;
                         } else {
                             // Untuk pembayaran berikutnya, gunakan kurang bayar sebelumnya
-                            kurangBayar -= payment.downpayment + payment.completion + payment.discount;
+                            kurangBayar = kurangBayar - payment.downpayment - payment.completion - payment.discount;
                         }
 
                         const row = document.createElement('tr');
