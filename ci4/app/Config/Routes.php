@@ -155,6 +155,7 @@ $routes->post('/order/save', 'Home::save'); // Rute untuk menampilkan detail ord
 $routes->get('order/showLogo/(:any)', 'Order::showLogo/$1');
 $routes->post('order/deleteListOrder', 'Home::deleteListOrder');
 $routes->get('/home/print/(:any)', 'Home::print/$1');
+$routes->get('/home/invoice/(:any)', 'Home::invoice/$1');
 
 $routes->get('/exportExcel/(:any)', 'Home::exportExcel/$1');
 $routes->post('updateAddress', 'Order::updateAddress');

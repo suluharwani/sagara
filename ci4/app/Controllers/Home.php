@@ -265,6 +265,85 @@ public function print($orderId)
         'totalPrice' => $totalPrice
     ]);
 }
+
+public function invoice($orderId)
+{
+    // Load models
+    $orderModel = new \App\Models\MdlOrder();
+    $orderTableModel = new \App\Models\MdlOrderTable();
+    $mdlSize = new MdlSize();
+    
+    // Fetch sizes from the database
+    $sizes = $mdlSize->findAll();
+    
+    // Initialize the combined size summary array
+    $sizeSummary = [];
+
+    // Initialize size categories and counts
+    foreach ($sizes as $size) {
+        $category = $size['kategori'];
+        $sizeValue = $size['ukuran'];
+
+        // Initialize size summary for each product and category
+        if (!isset($sizeSummary[$category])) {
+            $sizeSummary[$category] = [];
+        }
+
+        if (!isset($sizeSummary[$category][$sizeValue])) {
+            $sizeSummary[$category][$sizeValue] = [
+                'total' => 0,
+                'products' => []
+            ];
+        }
+    }
+ 
+    // Fetch order details
+    $order = $orderModel->getOrderWithPlayers($orderId);
+    $orderDetail = $orderModel->getOrderDetailByCode($orderId); // Order details by product
+
+    // Fetch player list for this order
+    $players = $orderTableModel->getPlayersByOrderId($orderId);
+
+    // Process player data and aggregate size information
+    // var_dump($players);
+    // die();
+    foreach ($players as $player) {
+        $category = $player['size_category'];
+        $size = $player['size_value'];
+        $productId = $player['product_id'];
+        $productName = $player['nama_product'];
+
+        // Update size summary for category and size value
+        if (isset($sizeSummary[$category][$size])) {
+            // Increase the total count for the given category and size
+            $sizeSummary[$category][$size]['total']++;
+
+            // Update the product-specific size count
+            if (!isset($sizeSummary[$category][$size]['products'][$productId])) {
+                $sizeSummary[$category][$size]['products'][$productId] = [
+                    'nama_product' => $productName,
+                    'count' => 0
+                ];
+            }
+
+            $sizeSummary[$category][$size]['products'][$productId]['count']++;
+        }
+    }
+
+    // Calculate the total price
+    $totalPrice = array_sum(array_column($players, 'price'));
+
+    // Pass data to the view
+
+    return view('home/content/invoice', [
+        'order' => $order,
+        'players' => $players,
+        'orderDetail' => $orderDetail,
+        'sizeSummary' => $sizeSummary, // Send combined size summary
+        'totalPrice' => $totalPrice
+    ]);
+}
+
 // public function exportExcel($orderId)
 // {
 //     // Load models

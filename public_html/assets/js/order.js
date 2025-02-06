@@ -78,7 +78,7 @@ $(document).ready(function() {
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm Link" id="${row[1]}" link = "${row[7]}">Link</a>
                         <a href="javascript:void(0);" class="btn btn-warning btn-sm UbahStatus" id="${row[1]}" status = "${row[6]}">Ubah Status</a>
                         <a href="${base_url}exportExcel/${row[2]}" class="btn btn-warning btn-sm">Download Excel</a>
-                        <a href="${base_url}invoice/${row[2]}" class="btn btn-warning btn-sm">Invoice</a>
+                        <a href="${base_url}home/invoice/${row[2]}" class="btn btn-warning btn-sm">Invoice</a>
                         <a href="javascript:void(0);" class="btn btn-primary btn-sm resi" id="${row[1]}" no_resi ="${row[13]}" ">Resi</a>
                         <a href="javascript:void(0);" onclick="printpengirimanPDF('${row[1]}')" class="btn btn-primary btn-sm">Pengiriman</a>
                         <a href="javascript:void(0);" class="btn btn-danger btn-sm Delete" id="${row[1]}" >Delete</a>`;
