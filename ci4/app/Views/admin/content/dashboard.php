@@ -1,7 +1,14 @@
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/datatables/datatables.min.css" />
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/summernote/summernote-image-list.min.css" />
 <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/summernote/summernote-lite.min.css" />
-
+<style>
+        #clock {
+            font-size: 2em;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
 
 <div class="page-content">
     <section class="row">
@@ -84,6 +91,7 @@
                 <div class="col-12 col-xl-12">
                     <div class="card">
                         <div class="card-header">
+                        <div id="clock"></div>
                             <h4>Production Progress</h4>
                         </div>
                         <div class="card-body">
@@ -172,11 +180,40 @@
     </section>
 </div>
 <script>
-        // Set default date to today
-        const today = new Date().toISOString().split('T')[0];
-        document.getElementById('startDate').value = today;
-        document.getElementById('endDate').value = today;
+        // Get today's date
+// Get today's date
+const today = new Date();
+
+// Set startDate to the first day of the current month
+const startDate = new Date(today.getFullYear(), today.getMonth(), 2).toISOString().split('T')[0];
+
+// Set endDate to today's date
+const endDate = today.toISOString().split('T')[0];
+
+// Assign the values to the input fields
+document.getElementById('startDate').value = startDate;
+document.getElementById('endDate').value = endDate;
+
+
+function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    const timeString = `${hours}:${minutes}:${seconds}`;
+
+    document.getElementById('clock').textContent = timeString;
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initialize the clock immediately
+updateClock();
+
+
     </script>
+
 <script type="text/javascript" src="<?= base_url('assets') ?>/datatables/datatables.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>/assets/summernote/summernote-lite.min.js"></script>
 <script type="text/javascript" src="<?= base_url() ?>/assets/summernote/summernote-image-list.min.js"></script>
