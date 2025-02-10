@@ -182,34 +182,49 @@
 <script>
         // Get today's date
 // Get today's date
-const today = new Date();
-
-// Set startDate to the first day of the current month
-const startDate = new Date(today.getFullYear(), today.getMonth(), 2).toISOString().split('T')[0];
-
-// Set endDate to today's date
-const endDate = today.toISOString().split('T')[0];
-
-// Assign the values to the input fields
-document.getElementById('startDate').value = startDate;
-document.getElementById('endDate').value = endDate;
-
+function formatTanggalIndonesia(date) {
+    const bulan = [
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    ];
+    const tanggal = date.getDate();
+    const namaBulan = bulan[date.getMonth()];
+    const tahun = date.getFullYear();
+    return `${tanggal} ${namaBulan} ${tahun}`;
+}
 
 function updateClock() {
     const now = new Date();
     const hours = String(now.getHours()).padStart(2, '0');
     const minutes = String(now.getMinutes()).padStart(2, '0');
     const seconds = String(now.getSeconds()).padStart(2, '0');
-    const timeString = `${hours}:${minutes}:${seconds}`;
+    const tanggalIndonesia = formatTanggalIndonesia(now);
+    const timeString = `${tanggalIndonesia} ${hours}:${minutes}:${seconds}`;
 
     document.getElementById('clock').textContent = timeString;
 }
+
+// Get today's date
+const today = new Date();
+
+// Set startDate to the first day of the current month
+const startDate = new Date(today.getFullYear(), today.getMonth(), 2).toISOString().split('T')[0];
+
+// Set endDate to today's date plus 1 day
+const endDate = new Date(today);
+endDate.setDate(today.getDate() + 1);
+const endDateFormatted = endDate.toISOString().split('T')[0];
+
+// Assign the values to the input fields
+document.getElementById('startDate').value = startDate;
+document.getElementById('endDate').value = endDateFormatted;
 
 // Update the clock every second
 setInterval(updateClock, 1000);
 
 // Initialize the clock immediately
 updateClock();
+
 
 
     </script>
