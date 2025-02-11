@@ -445,84 +445,152 @@ $(document).on('click', '.Delete', function () {
 });
 $(document).on('click', '.Pembayaran', function () {
   const orderId = $(this).attr('id'); // Mengambil ID order dari atribut id
+  $.ajax({
+    type: 'GET',
+    url: base_url + 'admin/order/paymentHistory', // Endpoint untuk mendapatkan riwayat pembayaran
+    data: { id_order: orderId },
+    success: function (response) {
+      let paymentHistoryHtml = '';
 
-  // Munculkan popup input untuk pembayaran
-  Swal.fire({
-    title: 'Input Pembayaran',
-    html: `
-      <form id="form_payment">
-        <div class="form-group">
-          <label for="name">Nama Pembayar</label>
-          <input type="text" id="name" class="form-control" placeholder="Nama pembayar" required>
-        </div>
- 
-        <div class="form-group">
-          <label for="downpayment">Uang Muka (DP)</label>
-          <input type="number" id="downpayment" class="form-control" placeholder="Masukkan jumlah DP">
-        </div>
-        <div class="form-group">
-          <label for="completion">Nominal Pelunasan</label>
-          <input type="number" id="completion" class="form-control" placeholder="Masukkan nominal pelunasan">
-        </div>
-        <div class="form-group">
-          <label for="discount">Diskon (%)</label>
-          <input type="number" id="discount" class="form-control" placeholder="Masukkan diskon (jika ada)">
-        </div>
-        <div class="form-group">
-          <label for="status">Status Pembayaran</label>
-          <select id="status" class="form-control">
-            <option value="1">Lunas</option>
-            <option value="0">Belum Lunas</option>
-          </select>
-        </div>
-      </form>
-    `,
-    showCancelButton: true,
-    confirmButtonText: 'Simpan Pembayaran',
-    preConfirm: () => {
-      return {
-        name: $('#name').val(),
-        price: $('#price').val(),
-        downpayment: $('#downpayment').val(),
-        completion: $('#completion').val(), // Mengambil input pelunasan
-        discount: $('#discount').val(),
-        status: $('#status').val()
-      };
-    }
-  }).then((result) => {
-    if (result.isConfirmed) {
-      const paymentData = result.value;
+      // Cek jika ada pembayaran yang ditemukan
+      if (response.payments.length > 0) {
+        paymentHistoryHtml = `
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Sisa Tagihan</th>
+                <th>Masuk</th>
+                <th>Kurang</th>
 
-      // Kirim data pembayaran ke server
-      $.ajax({
-        type: 'POST',
-        url: base_url + 'admin/order/addPayment', // Endpoint untuk menambah pembayaran
-        data: {
-          id_order: orderId,
-          ...paymentData // Spread payment data
-        },
-        success: function (response) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Pembayaran berhasil ditambahkan',
-            showConfirmButton: false,
-            timer: 1500
-          });
+              </tr>
+            </thead>
+            <tbody>
+        `;
 
-          // Reload tabel riwayat pembayaran
-          loadPaymentHistory(orderId);
-        },
-        error: function (xhr) {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Terjadi kesalahan saat menambahkan pembayaran',
-            footer: '<a href="">Why do I have this issue?</a>'
+
+        response.payments.forEach((payment, index) => {
+          // Calculate kurangBayar for the first payment
+          if (index === 0) {
+              kurangBayar = payment.price - payment.downpayment - payment.completion - payment.discount;
+          } else {
+              // For subsequent payments, use the previous kurangBayar
+              kurangBayar = kurangBayar - payment.downpayment - payment.completion - payment.discount;
+          }
+
+          paymentHistoryHtml += `
+              <tr>
+                  <td>${payment.created_at}</td>
+                  <td>${formatRupiah(index === 0 ? payment.price : parseInt(kurangBayar)+(parseInt(payment.downpayment) + parseInt(payment.completion) + parseInt(payment.discount)))}</td>
+
+                  <td>${formatRupiah(parseInt(payment.downpayment)+parseInt(payment.completion)+parseInt(payment.discount))}</td>
+                  <td>${formatRupiah(kurangBayar)}</td>
+                  
+
+              </tr>
+          `;
+      });
+
+        paymentHistoryHtml += `
+            </tbody>
+          </table>
+        `;
+      } else {
+        paymentHistoryHtml = '<p>Tidak ada riwayat pembayaran ditemukan.</p>';
+      }
+
+      // Tampilkan modal dengan riwayat pembayaran
+
+      Swal.fire({
+        title: 'Input Pembayaran',
+        html: `
+          ${paymentHistoryHtml}
+          <form id="form_payment">
+            <div class="form-group">
+              <label for="name">Nama Pembayar</label>
+              <input type="text" id="name" class="form-control" placeholder="Nama pembayar" required>
+            </div>
+     
+            <div class="form-group">
+              <label for="downpayment">Uang Muka (DP)</label>
+              <input type="number" id="downpayment" class="form-control" placeholder="Masukkan jumlah DP">
+            </div>
+            <div class="form-group">
+              <label for="completion">Nominal Pelunasan</label>
+              <input type="number" id="completion" class="form-control" placeholder="Masukkan nominal pelunasan">
+            </div>
+            <div class="form-group">
+              <label for="discount">Diskon (%)</label>
+              <input type="number" id="discount" class="form-control" placeholder="Masukkan diskon (jika ada)">
+            </div>
+            <div class="form-group">
+              <label for="status">Status Pembayaran</label>
+              <select id="status" class="form-control">
+                <option value="1">Lunas</option>
+                <option value="0">Belum Lunas</option>
+              </select>
+            </div>
+          </form>
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Simpan Pembayaran',
+        preConfirm: () => {
+          return {
+            name: $('#name').val(),
+            price: $('#price').val(),
+            downpayment: $('#downpayment').val(),
+            completion: $('#completion').val(), // Mengambil input pelunasan
+            discount: $('#discount').val(),
+            status: $('#status').val()
+          };
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const paymentData = result.value;
+    
+          // Kirim data pembayaran ke server
+          $.ajax({
+            type: 'POST',
+            url: base_url + 'admin/order/addPayment', // Endpoint untuk menambah pembayaran
+            data: {
+              id_order: orderId,
+              ...paymentData // Spread payment data
+            },
+            success: function (response) {
+              Swal.fire({
+                icon: 'success',
+                title: 'Pembayaran berhasil ditambahkan',
+                showConfirmButton: false,
+                timer: 1500
+              });
+    
+              // Reload tabel riwayat pembayaran
+              loadPaymentHistory(orderId);
+            },
+            error: function (xhr) {
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Terjadi kesalahan saat menambahkan pembayaran',
+                footer: '<a href="">Why do I have this issue?</a>'
+              });
+            }
           });
         }
       });
+    },
+    error: function (xhr) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Terjadi kesalahan saat mengambil riwayat pembayaran',
+        footer: '<a href="">Why do I have this issue?</a>'
+      });
     }
   });
+
+  // Munculkan popup input untuk pembayaran
+
 });
 
 function loadPaymentHistory(orderId) {
