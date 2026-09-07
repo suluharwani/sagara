@@ -30,9 +30,9 @@ $routes->get('reseller/dashboard', 'Reseller::dashboard', ['filter' => 'authCust
 $routes->get('reseller/products', 'Reseller::products', ['filter' => 'authCustomer']);
 $routes->get('reseller/quotes', 'Reseller::quotes', ['filter' => 'authCustomer']);
 $routes->get('reseller/quotes/create', 'Reseller::quoteCreate', ['filter' => 'authCustomer']);
-$routes->post('reseller/quotes', 'Reseller::quoteStore', ['filter' => 'authCustomer,csrf']);
+$routes->post('reseller/quotes', 'Reseller::quoteStore', ['filter' => 'resellerSecure']);
 $routes->get('reseller/quotes/(:num)', 'Reseller::quoteDetail/$1', ['filter' => 'authCustomer']);
-$routes->post('reseller/quotes/(:num)/status', 'Reseller::quoteStatus/$1', ['filter' => 'authCustomer,csrf']);
+$routes->post('reseller/quotes/(:num)/status', 'Reseller::quoteStatus/$1', ['filter' => 'resellerSecure']);
 
 // CART
 $routes->get('cart', 'Cart::index');
@@ -62,7 +62,7 @@ $routes->get('dashboard', 'Dashboard::index', ['filter' => 'authCustomer']);
 $routes->get('dashboard/orders', 'Dashboard::orders', ['filter' => 'authCustomer']);
 $routes->get('dashboard/order/(:any)', 'Dashboard::orderDetail/$1', ['filter' => 'authCustomer']);
 $routes->get('dashboard/profile', 'Dashboard::profile', ['filter' => 'authCustomer']);
-$routes->post('dashboard/profile/update', 'Dashboard::updateProfile', ['filter' => 'authCustomer,csrf']);
+$routes->post('dashboard/profile/update', 'Dashboard::updateProfile', ['filter' => 'resellerSecure']);
 
 // ORDER SELF-SERVICE
 $routes->get('order/create', 'Order::create');

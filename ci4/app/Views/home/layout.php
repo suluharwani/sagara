@@ -1,3 +1,4 @@
+<?php $navCustomer = session()->get('customer'); ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,6 +18,7 @@
     <!-- Custom CSS -->
     <link href="<?= base_url('assets/css/layout.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/auth-sagara.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('assets/css/reseller.css') ?>" rel="stylesheet">
     <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -39,7 +41,7 @@
                     <a class="nav-link" href="<?= base_url() ?>">Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('product') ?>">Custom</a>
+                    <a class="nav-link" href="<?= base_url('portfolio') ?>">Portfolio</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>#ready-title">Siap Pakai</a>
@@ -48,14 +50,14 @@
                     <a class="nav-link" href="<?= base_url('layanan') ?>">Layanan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('tentang-kami') ?>">Tentang Kami</a>
+                    <a class="nav-link" href="<?= base_url('reseller') ?>">Reseller</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('tracking') ?>"><i class="fas fa-location-dot me-1"></i>Lacak Order</a>
                 </li>
                 <li class="nav-item ms-lg-3">
-                    <a class="nav-link btn-login" href="<?= base_url('login') ?>">
-                        <i class="fas fa-user me-1"></i> Masuk
+                    <a class="nav-link btn-login" href="<?= $navCustomer ? base_url(($navCustomer['account_type'] ?? 'customer') === 'reseller' ? 'reseller/dashboard' : 'dashboard') : base_url('login') ?>">
+                        <i class="fas fa-user me-1"></i> <?= $navCustomer ? 'Dashboard' : 'Masuk' ?>
                     </a>
                 </li>
             </ul>
@@ -84,7 +86,8 @@
                 <h5>Jelajahi</h5>
                 <ul>
                     <li><a href="<?= base_url() ?>">Home</a></li>
-                    <li><a href="<?= base_url('product') ?>">Produk Custom</a></li>
+                    <li><a href="<?= base_url('portfolio') ?>">Portfolio</a></li>
+                    <li><a href="<?= base_url('reseller') ?>">Program Reseller</a></li>
                     <li><a href="<?= base_url() ?>#ready-title">Produk Siap Pakai</a></li>
                     <li><a href="<?= base_url('blog') ?>">Blog</a></li>
                     <li><a href="<?= base_url('contact') ?>">Kontak</a></li>

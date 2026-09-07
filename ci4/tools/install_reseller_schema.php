@@ -46,6 +46,8 @@ $statements = [
         ADD COLUMN IF NOT EXISTS available_colors TEXT NULL AFTER lead_time_days,
         ADD COLUMN IF NOT EXISTS available_sizes TEXT NULL AFTER available_colors,
         ADD COLUMN IF NOT EXISTS reseller_image VARCHAR(250) NULL AFTER available_sizes",
+    "CREATE UNIQUE INDEX IF NOT EXISTS client_email_unique ON client (email)",
+    "CREATE UNIQUE INDEX IF NOT EXISTS reseller_product_sku_unique ON product (sku)",
     "CREATE TABLE IF NOT EXISTS resellers (
         id INT UNSIGNED NOT NULL AUTO_INCREMENT,
         client_id INT UNSIGNED NOT NULL,

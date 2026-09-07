@@ -16,8 +16,8 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
                         Mulai dari jersey tim, kaos komunitas, hingga apparel event. Pilih produk, bawa ide Anda, lalu kami bantu wujudkan menjadi seragam yang siap dikenakan.
                     </p>
                     <div class="hero-actions">
-                        <a href="<?= base_url('product') ?>" class="btn-sagara btn-sagara-primary">
-                            Mulai Custom <i class="fas fa-arrow-right ms-2"></i>
+                        <a href="<?= base_url('portfolio') ?>" class="btn-sagara btn-sagara-primary">
+                            Lihat Portfolio <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                         <a href="<?= $whatsappUrl ?>" target="_blank" rel="noopener" class="btn-sagara btn-sagara-ghost">
                             <i class="fab fa-whatsapp me-2"></i>Konsultasi Desain
@@ -25,9 +25,9 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
                     </div>
 
                     <div class="hero-quickbar" aria-label="Akses cepat">
-                        <a href="<?= base_url('product') ?>" class="quick-link">
-                            <i class="fas fa-pen-ruler"></i>
-                            <span><strong>Produk Custom</strong><small>Desain sesuai identitas tim</small></span>
+                        <a href="<?= base_url('reseller') ?>" class="quick-link">
+                            <i class="fas fa-handshake"></i>
+                            <span><strong>Program Reseller</strong><small>Harga dasar dan nota mandiri</small></span>
                         </a>
                         <a href="#ready-title" class="quick-link">
                             <i class="fas fa-bag-shopping"></i>
@@ -55,7 +55,7 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
     <section class="trust-strip" aria-label="Ringkasan Sagara Jersey">
         <div class="container">
             <div class="trust-grid">
-                <div class="trust-item"><span class="trust-number"><?= (int) ($totalProducts ?? 0) ?>+</span><span class="trust-label">Produk Custom</span></div>
+                <div class="trust-item"><span class="trust-number"><?= (int) ($totalProducts ?? 0) ?>+</span><span class="trust-label">Desain Portfolio</span></div>
                 <div class="trust-item"><span class="trust-number"><?= (int) ($totalOrders ?? 0) ?>+</span><span class="trust-label">Order Ditangani</span></div>
                 <div class="trust-item"><span class="trust-number"><?= (int) ($totalProductsSold ?? 0) ?>+</span><span class="trust-label">Produk Terjual</span></div>
             </div>
@@ -93,17 +93,17 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
         <div class="container">
             <div class="product-section-head reveal">
                 <div class="section-heading">
-                    <span class="section-kicker">Koleksi Custom</span>
-                    <h2 class="section-title" id="custom-title">Bangun identitas tim.</h2>
-                    <p class="section-lead">Pilih tipe produk sebagai titik awal, lalu sesuaikan dengan kebutuhan Anda.</p>
+                    <span class="section-kicker">Portfolio Pengerjaan</span>
+                    <h2 class="section-title" id="custom-title">Referensi dari karya nyata.</h2>
+                    <p class="section-lead">Jelajahi desain yang pernah kami kerjakan sebagai inspirasi untuk identitas tim Anda.</p>
                 </div>
-                <a href="<?= base_url('product') ?>" class="section-link">Lihat semua <?= (int) ($totalProducts ?? 0) ?> produk <i class="fas fa-arrow-right ms-1"></i></a>
+                <a href="<?= base_url('portfolio') ?>" class="section-link">Lihat <?= (int) ($totalProducts ?? 0) ?> karya <i class="fas fa-arrow-right ms-1"></i></a>
             </div>
 
             <?php if (!empty($products)): ?>
                 <div class="row g-4">
                     <?php foreach ($products as $product): ?>
-                        <?php $customUrl = base_url('product/' . ($product['slug'] ?? '')); ?>
+                        <?php $customUrl = base_url('portfolio?search=' . rawurlencode($product['nama'] ?? '')); ?>
                         <div class="col-sm-6 col-lg-3 reveal">
                             <article class="sagara-product">
                                 <a href="<?= $customUrl ?>" class="sagara-product-media" aria-label="Lihat <?= esc($product['nama'] ?? 'produk custom') ?>">
@@ -112,10 +112,10 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
                                     <?php else: ?>
                                         <span class="product-placeholder"><i class="fas fa-shirt"></i></span>
                                     <?php endif; ?>
-                                    <span class="product-badge">Custom</span>
+                                    <span class="product-badge">Portfolio</span>
                                 </a>
                                 <div class="sagara-product-body">
-                                    <div class="product-meta"><?= esc($product['material'] ?? 'Apparel custom') ?></div>
+                                    <div class="product-meta">Karya Sagara</div>
                                     <h3><a href="<?= $customUrl ?>"><?= esc($product['nama'] ?? 'Produk Custom') ?></a></h3>
                                     <a href="<?= $customUrl ?>" class="product-card-action"><span>Lihat detail</span><i class="fas fa-arrow-right"></i></a>
                                 </div>
@@ -124,7 +124,7 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
                     <?php endforeach; ?>
                 </div>
             <?php else: ?>
-                <div class="empty-state"><i class="fas fa-shirt"></i>Produk custom sedang disiapkan.</div>
+                <div class="empty-state"><i class="fas fa-images"></i>Portfolio sedang disiapkan.</div>
             <?php endif; ?>
         </div>
     </section>

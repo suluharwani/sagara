@@ -13,8 +13,8 @@ $currentCategoryName = isset($categoryNames[$category]) ? $categoryNames[$catego
     <div class="container">
         <div class="row">
             <div class="col-md-12 order-2 order-md-1 align-self-center p-static">
-                <h1 class="text-8 font-weight-bold">Produk Kami</h1>
-                <span class="text-4">Koleksi Jersey & Kaos Custom Berkualitas</span>
+                <h1 class="text-8 font-weight-bold">Model Produksi Reseller</h1>
+                <span class="text-4">Pilihan produk berdasarkan model, bahan, warna, dan ukuran</span>
             </div>
         </div>
     </div>
@@ -58,8 +58,8 @@ $currentCategoryName = isset($categoryNames[$category]) ? $categoryNames[$catego
                     <div class="card product-card h-100 border-0 shadow-sm">
                         <!-- Thumbnail -->
                         <div class="product-image-wrapper">
-                            <?php if (!empty($product['picture'])): ?>
-                                <img src="<?= base_url('assets/upload/image/' . $product['picture']) ?>" 
+                            <?php if (!empty($product['reseller_image'])): ?>
+                                <img src="<?= base_url('assets/images/reseller/' . rawurlencode($product['reseller_image'])) ?>" 
                                      class="card-img-top" 
                                      alt="<?= esc($product['nama']) ?>"
                                      style="height: 300px; object-fit: cover;">
@@ -92,24 +92,18 @@ $currentCategoryName = isset($categoryNames[$category]) ? $categoryNames[$catego
                                 </a>
                             </h5>
                             <?php if (!empty($product['material'])): ?>
-                                <small class="text-muted"><?= esc($product['material']) ?></small>
+                                <small class="text-muted"><?= esc($product['model_name']) ?> · <?= esc($product['material']) ?></small>
                             <?php endif; ?>
                             <div class="mt-2">
-                                <?php if (!empty($product['sale_price']) && $product['sale_price'] > 0 && $product['sale_price'] < $product['price']): ?>
-                                    <span class="text-danger font-weight-bold fs-5">Rp <?= number_format($product['sale_price'], 0, ',', '.') ?></span>
-                                    <span class="text-muted text-decoration-line-through ms-2">Rp <?= number_format($product['price'], 0, ',', '.') ?></span>
-                                <?php elseif (!empty($product['price']) && $product['price'] > 0): ?>
-                                    <span class="text-primary font-weight-bold fs-5">Rp <?= number_format($product['price'], 0, ',', '.') ?></span>
-                                <?php else: ?>
-                                    <span class="text-muted">Hubungi untuk harga</span>
-                                <?php endif; ?>
+                                <span class="text-dark fw-bold">Harga khusus reseller</span>
+                                <small class="d-block text-muted">Minimal <?= (int) $product['min_order'] ?> pcs · ± <?= (int) $product['lead_time_days'] ?> hari</small>
                             </div>
                         </div>
                         
                         <!-- Card Footer -->
                         <div class="card-footer bg-transparent border-0 pt-0">
-                            <a href="<?= base_url('product/' . $product['slug']) ?>" class="btn btn-outline-primary btn-sm w-100">
-                                <i class="fas fa-shopping-cart me-1"></i> Tambah ke Keranjang
+                            <a href="<?= base_url('reseller/register') ?>" class="btn btn-dark btn-sm w-100">
+                                <i class="fas fa-handshake me-1"></i> Daftar untuk Lihat Harga
                             </a>
                         </div>
                     </div>
@@ -119,8 +113,8 @@ $currentCategoryName = isset($categoryNames[$category]) ? $categoryNames[$catego
             <div class="col-12">
                 <div class="alert alert-info text-center">
                     <i class="fas fa-search fa-2x mb-3"></i>
-                    <h5>Produk Tidak Ditemukan</h5>
-                    <p>Coba ubah kata kunci pencarian atau filter kategori.</p>
+                    <h5>Produk Reseller Sedang Disiapkan</h5>
+                    <p>Admin belum menerbitkan model reseller atau hasil pencarian tidak ditemukan.</p>
                 </div>
             </div>
         <?php endif; ?>

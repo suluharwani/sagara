@@ -9,7 +9,7 @@ class AdminReseller extends BaseController
 {
     public function __construct()
     {
-        helper('form');
+        helper(['form', 'url']);
         (new CheckAccess())->logged();
     }
 
@@ -161,7 +161,7 @@ class AdminReseller extends BaseController
 
     private function imageOptions(): array
     {
-        $files = glob(FCPATH . 'assets/images/reseller/*.{webp,jpg,jpeg,png}', GLOB_BRACE) ?: [];
+        $files = glob(FCPATH . 'assets/images/reseller/model-*.{webp,jpg,jpeg,png}', GLOB_BRACE) ?: [];
         return array_map('basename', $files);
     }
 }

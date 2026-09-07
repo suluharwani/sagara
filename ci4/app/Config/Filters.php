@@ -35,6 +35,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'authCustomer'  => \App\Filters\AuthCustomer::class,
+        'resellerSecure' => [\App\Filters\AuthCustomer::class, CSRF::class],
     ];
 
     /**

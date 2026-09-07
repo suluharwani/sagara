@@ -19,7 +19,11 @@
                     <?php foreach ($portfolioItems as $item): ?>
                         <article class="portfolio-work">
                             <div class="portfolio-work-image">
-                                <img src="<?= base_url('assets/upload/image/' . rawurlencode($item['picture'])) ?>" alt="<?= esc($item['nama'] ?: 'Desain jersey Sagara') ?>" loading="lazy">
+                                <?php if (!empty($item['picture']) && is_file(FCPATH . 'assets/upload/image/' . $item['picture'])): ?>
+                                    <img src="<?= base_url('assets/upload/image/' . rawurlencode($item['picture'])) ?>" alt="<?= esc($item['nama'] ?: 'Desain jersey Sagara') ?>" loading="lazy">
+                                <?php else: ?>
+                                    <span class="portfolio-placeholder"><i class="fas fa-shirt" aria-hidden="true"></i></span>
+                                <?php endif; ?>
                             </div>
                             <div class="portfolio-work-copy">
                                 <span>Karya Sagara</span>

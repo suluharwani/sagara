@@ -39,7 +39,17 @@
             <ul class="list-unstyled">
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('admin/product') ?>">
-                        <i class="fas fa-tshirt"></i> Produk Custom
+                        <i class="fas fa-images"></i> Portfolio Desain
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('admin/reseller-products') ?>">
+                        <i class="fas fa-box-open"></i> Produk Reseller
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('admin/resellers') ?>">
+                        <i class="fas fa-handshake"></i> Reseller
                     </a>
                 </li>
                 <li class="nav-item">

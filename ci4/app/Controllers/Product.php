@@ -59,6 +59,7 @@ class Product extends BaseController
     
     $model->where('deleted_at', null);
     $model->where('status', 1);
+    $model->where('product_type', 'reseller');
     
     if ($search) {
       $model->like('nama', $search);
@@ -98,7 +99,7 @@ class Product extends BaseController
     $groupModel = new \App\Models\MdlProductGroup();
     $sizeModel = new \App\Models\MdlSize();
     
-    $product = $model->where('slug', $slug)->where('deleted_at', null)->first();
+    $product = $model->where('slug', $slug)->where('product_type', 'reseller')->where('deleted_at', null)->first();
     
     if (!$product) {
       throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
@@ -106,7 +107,8 @@ class Product extends BaseController
     
     $data['product'] = $product;
     $data['sizes'] = $sizeModel->where('deleted_at', null)->findAll();
-    $data['related'] = $model->where('id_group', $product['id_group'])
+    $data['related'] = $model->where('product_type', 'reseller')
+                              ->where('id_group', $product['id_group'])
                               ->where('id !=', $product['id'])
                               ->where('deleted_at', null)
                               ->limit(4)

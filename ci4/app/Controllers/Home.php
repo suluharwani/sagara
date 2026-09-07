@@ -26,7 +26,8 @@ class Home extends BaseController
         $serviceModel = new MdlService();
         $galleryModel = new MdlGallery();
         
-        $data['totalProducts'] = $productModel->where('deleted_at', null)->countAllResults();
+        $data['totalProducts'] = $productModel->where('product_type', 'portfolio')->where('deleted_at', null)->countAllResults();
+        $data['totalResellerProducts'] = $productModel->where('product_type', 'reseller')->where('deleted_at', null)->where('status', 1)->countAllResults();
         $data['totalProductsUmum'] = $productUmumModel->where('deleted_at', null)->countAllResults();
         $data['totalOrders'] = $orderModel->where('deleted_at', null)->countAllResults();
         $data['totalProductsSold'] = $orderModel->getTotalProductsSold();
@@ -38,7 +39,7 @@ class Home extends BaseController
         $data['totalGalleries'] = $galleryModel->where('deleted_at', null)->countAllResults();
         
         // Get products for display
-        $data['products'] = $productModel->where('deleted_at', null)->where('status', 1)->limit(4)->findAll();
+        $data['products'] = $productModel->where('product_type', 'portfolio')->where('deleted_at', null)->where('status', 1)->orderBy('created_at', 'DESC')->limit(4)->findAll();
         $data['productsUmum'] = $productUmumModel->where('deleted_at', null)->where('status', 1)->limit(4)->findAll();
         
         // Get testimonials

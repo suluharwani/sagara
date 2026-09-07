@@ -104,7 +104,7 @@ class Auth extends BaseController
         $google_client = new \Google_Client();
         $google_client->setClientId($_ENV['ClientID']);
         $google_client->setClientSecret($_ENV['ClientSecret']);
-        $google_client->setRedirectUri(site_url('login/google'));
+        $google_client->setRedirectUri(site_url('login/google-callback'));
         $google_client->addScope('email');
         $google_client->addScope('profile');
         
@@ -117,7 +117,7 @@ class Auth extends BaseController
         $google_client = new \Google_Client();
         $google_client->setClientId($_ENV['ClientID']);
         $google_client->setClientSecret($_ENV['ClientSecret']);
-        $google_client->setRedirectUri(site_url('login/google'));
+        $google_client->setRedirectUri(site_url('login/google-callback'));
         
         $code = $this->request->getGet('code');
         if (!$code) {
