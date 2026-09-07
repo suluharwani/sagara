@@ -1,5 +1,11 @@
 var loc = window.location;
-var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : "") + "/";
+var base_url = window.APP_BASE_URL || (loc.protocol + "//" + loc.hostname + (loc.port ? ":" + loc.port : "") + "/");
+
+function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>'"]/g, function (character) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' }[character];
+    });
+}
 
 
 $(document).ready(function() {
@@ -44,7 +50,7 @@ $(document).ready(function() {
                 return row[2];
             }},
             { mRender: function (data, type, row) {
-                return `${row[10]} ${row[10]}`;
+                return `${escapeHtml(row[10])} ${escapeHtml(row[11])}`.trim() || '-';
             }},
             { mRender: function (data, type, row) {
                 // Format tanggal Indonesia
@@ -52,35 +58,39 @@ $(document).ready(function() {
             }},
             { mRender: function (data, type, row) {
                 // Format tanggal Indonesia
-                return row[13];
+                return row[13] ? `<span class="badge bg-light-primary">${escapeHtml(row[13])}</span>` : '-';
             }},
             { mRender: function (data, type, row) {
-                if (row[6] == 0) {
-                    status = "Tidak Aktif";
-                } else if (row[6] == 1) {
-                    status = "DP Masuk (Diproses)";
-                } else if (row[6] == 2) {
-                    status = "Lunas";
-                } else if (row[6] == 3) {
-                    status = "Selesai";
-                } else if (row[6] == 4) {
-                    status = "Batal";
-                } else {
-                    status = "Tidak ada";
-                }
-                return status;
+                const statuses = {
+                    0: ['Tidak Aktif', 'bg-secondary'],
+                    1: ['Diproses', 'bg-warning text-dark'],
+                    2: ['Lunas', 'bg-success'],
+                    3: ['Selesai', 'bg-primary'],
+                    4: ['Batal', 'bg-danger']
+                };
+                const status = statuses[row[6]] || ['Tidak diketahui', 'bg-secondary'];
+                return `<span class="badge ${status[1]}">${status[0]}</span>`;
             }},
             { mRender: function (data, type, row) {
-                return `<a href="javascript:void(0);" class="btn btn-success btn-sm Detail" id="${row[1]}" >Add Detail</a>
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm viewOrderDetail" data-id="${row[1]}" >List Detail</a>
-                        <a href="javascript:void(0);" class="btn btn-primary btn-sm Pembayaran" id="${row[1]}" >Pembayaran</a>
-                        <a href="javascript:void(0);" class="btn btn-info btn-sm PaymentHistory" data-id="${row[1]}">Riwayat Pembayaran</a>
-                        <a href="javascript:void(0);" class="btn btn-warning btn-sm Link" id="${row[1]}" link = "${row[7]}">Link</a>
-                        <a href="javascript:void(0);" class="btn btn-success btn-sm UbahStatus" id="${row[1]}" status = "${row[6]}">Ubah Status</a>
-                        <a href="${base_url}exportExcel/${row[2]}" class="btn btn-success btn-sm">Download Excel</a>
-                        <a href="${base_url}invoice/${row[2]}" class="btn btn-success btn-sm">Invoice</a>
-                        <a href="${base_url}shipment/${row[2]}" class="btn btn-success btn-sm">Pengiriman</a>
-                        <a href="javascript:void(0);" class="btn btn-danger btn-sm Delete" id="${row[1]}" >Delete</a>`;
+                const orderId = Number(row[1]);
+                const orderCode = encodeURIComponent(row[2] || '');
+                const orderLink = encodeURIComponent(row[7] || '');
+                return `<div class="btn-group btn-group-sm" role="group" aria-label="Aksi order">
+                    <button type="button" class="btn btn-outline-primary viewOrderDetail" data-id="${orderId}" title="Lihat detail"><i class="fas fa-list"></i></button>
+                    <button type="button" class="btn btn-outline-success UbahStatus" id="${orderId}" status="${Number(row[6])}" title="Ubah status"><i class="fas fa-sync-alt"></i></button>
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false"><span class="visually-hidden">Aksi lainnya</span></button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li><button type="button" class="dropdown-item Detail" id="${orderId}"><i class="fas fa-plus me-2"></i>Tambah produk</button></li>
+                        <li><button type="button" class="dropdown-item Pembayaran" id="${orderId}"><i class="fas fa-wallet me-2"></i>Pembayaran</button></li>
+                        <li><button type="button" class="dropdown-item PaymentHistory" data-id="${orderId}"><i class="fas fa-history me-2"></i>Riwayat pembayaran</button></li>
+                        <li><button type="button" class="dropdown-item Link" data-link="${orderLink}"><i class="fas fa-link me-2"></i>Link pelanggan</button></li>
+                        <li><a class="dropdown-item" href="${base_url}exportExcel/${orderCode}"><i class="fas fa-file-excel me-2"></i>Unduh Excel</a></li>
+                        <li><a class="dropdown-item" href="${base_url}invoice/${orderCode}" target="_blank" rel="noopener"><i class="fas fa-file-invoice me-2"></i>Invoice</a></li>
+                        <li><a class="dropdown-item" href="${base_url}shipment/${orderId}" target="_blank" rel="noopener"><i class="fas fa-truck me-2"></i>Form pengiriman</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button type="button" class="dropdown-item text-danger Delete" id="${orderId}"><i class="fas fa-trash me-2"></i>Hapus order</button></li>
+                    </ul>
+                </div>`;
             }}
         ],
         "columnDefs": [{
@@ -191,12 +201,12 @@ $(document).on('click', '.UbahStatus', function () {
   });
 });
 $(document).on('click', '.Link', function () {
-  const orderLink = $(this).attr('link'); // Mengambil link dari atribut data-link
+  const orderLink = decodeURIComponent($(this).data('link') || '');
 
   // Tampilkan modal dengan SweetAlert
   Swal.fire({
     title: 'Order Link',
-    html: `<a href="${orderLink}" target="_blank">${orderLink}</a>`, // Menampilkan link sebagai elemen klik
+    html: `<a href="${escapeHtml(orderLink)}" target="_blank" rel="noopener">${escapeHtml(orderLink)}</a>`,
     showCancelButton: true,
     cancelButtonText: 'Tutup',
     confirmButtonText: 'Buka Link'
@@ -659,7 +669,7 @@ $(document).on('click', '.viewOrderDetail', function () {
     const orderId = $(this).data('id'); // Mengambil ID order dari tombol
     
     // Membuat URL tujuan
-    const url = base_url+'/admin/order/detail/' + orderId;
+    const url = base_url + 'admin/order/detail/' + orderId;
     
     // Redirect ke URL di tab baru
     window.open(url, '_blank');

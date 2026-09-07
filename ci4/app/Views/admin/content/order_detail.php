@@ -7,11 +7,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container mt-5">
-        <h2>Detail Order</h2>
+    <div class="container py-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4">
+            <div>
+                <h2 class="mb-1">Detail Order</h2>
+                <p class="text-muted mb-0">Produk yang tercatat pada order ini.</p>
+            </div>
+            <button type="button" class="btn btn-outline-secondary" onclick="window.close()"><i class="fas fa-times me-1"></i>Tutup</button>
+        </div>
         <?php if (!empty($orderDetails)): ?>
-            <table class="table table-bordered">
-                <thead>
+            <div class="card border-0 shadow-sm">
+              <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
                     <tr>
                         <th>Kode Order</th>
                         <th>Nama Client</th>
@@ -24,18 +32,20 @@
                 <tbody>
                     <?php  foreach ($orderDetails as $detail): ?>
                         <tr id="order_product_<?= $detail['id'] ?>"> <!-- ID untuk menghapus baris ini setelah penghapusan -->
-                            <td><?= $detail['kode'] ?></td>
-                            <td><?= $detail['client_name'] ?></td>
-                            <td><?= $detail['product_name'] ?></td>
-                            <td><?= number_format($detail['price'], 2) ?></td>
-                            <td><?= $detail['status'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></td>
+                            <td><span class="fw-semibold"><?= esc($detail['kode']) ?></span></td>
+                            <td><?= esc($detail['client_name']) ?></td>
+                            <td><?= esc($detail['product_name']) ?></td>
+                            <td>Rp <?= number_format((float) $detail['price'], 0, ',', '.') ?></td>
+                            <td><span class="badge <?= $detail['status'] == 1 ? 'bg-success' : 'bg-secondary' ?>"><?= $detail['status'] == 1 ? 'Aktif' : 'Tidak Aktif' ?></span></td>
                             <td>
-                                <button class="btn btn-danger btn-sm deleteProduct" data-id="<?= $detail['id'] ?>">Hapus</button> <!-- Tombol hapus -->
+                                <button class="btn btn-outline-danger btn-sm deleteProduct" data-id="<?= $detail['id'] ?>"><i class="fas fa-trash me-1"></i>Hapus</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
-            </table>
+                </table>
+              </div>
+            </div>
         <?php else: ?>
             <p>Detail order tidak ditemukan.</p>
         <?php endif; ?>
@@ -45,8 +55,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        var loc = window.location;
-var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : "") + "/";
+        var base_url = <?= json_encode(rtrim(base_url(), '/') . '/') ?>;
 
       $(document).on('click', '.deleteProduct', function () {
     console.log('Tombol Hapus diklik'); // Pastikan tombol diklik
@@ -69,7 +78,7 @@ var base_url = loc.protocol + "//" + loc.hostname + (loc.port? ":"+loc.port : ""
         if (result.isConfirmed) {
             $.ajax({
                 type: 'POST',
-                url: base_url+'admin/order/deleteProduct', 
+                url: base_url + 'admin/order/deleteProduct',
                 data: { id: productId },
                 success: function (response) {
                     console.log('Produk berhasil dihapus'); // Debug hasil sukses

@@ -16,6 +16,94 @@ $routes->get('/blog/(:any)', 'Blog::content/$1');
 $routes->get('/informations', 'Informations::index');
 $routes->get('/informations/(:any)', 'Informations::info/$1');
 $routes->get('/pages', 'Pages::index');
+
+// PUBLIC PRODUCT & E-COMMERCE
+$routes->get('product', 'Product::catalog');
+$routes->get('product/(:any)', 'Product::detail/$1');
+$routes->get('portfolio', 'Portfolio::index');
+
+// RESELLER PUBLIC & DASHBOARD
+$routes->get('reseller', 'Reseller::index');
+$routes->get('reseller/register', 'Reseller::register');
+$routes->post('reseller/register', 'Reseller::registerStore', ['filter' => 'csrf']);
+$routes->get('reseller/dashboard', 'Reseller::dashboard', ['filter' => 'authCustomer']);
+$routes->get('reseller/products', 'Reseller::products', ['filter' => 'authCustomer']);
+$routes->get('reseller/quotes', 'Reseller::quotes', ['filter' => 'authCustomer']);
+$routes->get('reseller/quotes/create', 'Reseller::quoteCreate', ['filter' => 'authCustomer']);
+$routes->post('reseller/quotes', 'Reseller::quoteStore', ['filter' => 'authCustomer,csrf']);
+$routes->get('reseller/quotes/(:num)', 'Reseller::quoteDetail/$1', ['filter' => 'authCustomer']);
+$routes->post('reseller/quotes/(:num)/status', 'Reseller::quoteStatus/$1', ['filter' => 'authCustomer,csrf']);
+
+// CART
+$routes->get('cart', 'Cart::index');
+$routes->post('cart/add', 'Cart::add');
+$routes->post('cart/update', 'Cart::update');
+$routes->get('cart/remove/(:any)', 'Cart::remove/$1');
+$routes->get('cart/count', 'Cart::count');
+
+// CHECKOUT
+$routes->get('checkout', 'Checkout::index');
+$routes->post('checkout/process', 'Checkout::process');
+$routes->get('checkout/success/(:any)', 'Checkout::success/$1');
+
+// AUTH CUSTOMER
+$routes->get('login', 'Auth::index');
+$routes->post('login/process', 'Auth::process', ['filter' => 'csrf']);
+$routes->get('logout', 'Auth::logout');
+$routes->get('register', 'Register::index');
+$routes->post('register/process', 'Register::process', ['filter' => 'csrf']);
+$routes->get('register/verify/(:any)', 'Register::verify/$1');
+$routes->get('forgot-password', 'Auth::forgot');
+$routes->post('forgot-password/process', 'Auth::forgotProcess', ['filter' => 'csrf']);
+$routes->get('reset-password/(:any)', 'Auth::reset/$1');
+
+// CUSTOMER DASHBOARD
+$routes->get('dashboard', 'Dashboard::index', ['filter' => 'authCustomer']);
+$routes->get('dashboard/orders', 'Dashboard::orders', ['filter' => 'authCustomer']);
+$routes->get('dashboard/order/(:any)', 'Dashboard::orderDetail/$1', ['filter' => 'authCustomer']);
+$routes->get('dashboard/profile', 'Dashboard::profile', ['filter' => 'authCustomer']);
+$routes->post('dashboard/profile/update', 'Dashboard::updateProfile', ['filter' => 'authCustomer,csrf']);
+
+// ORDER SELF-SERVICE
+$routes->get('order/create', 'Order::create');
+$routes->post('order/store', 'Order::store');
+$routes->get('order/confirmation/(:any)', 'Order::confirmation/$1');
+
+// TRACKING
+$routes->get('tracking', 'Tracking::index');
+$routes->post('tracking/search', 'Tracking::search');
+
+// INVOICE
+$routes->get('invoice/(:any)', 'Invoice::index/$1');
+$routes->get('invoice/download/(:any)', 'Invoice::download/$1');
+$routes->post('invoice/email/(:any)', 'Invoice::email/$1');
+
+// DESIGN UPLOAD
+$routes->get('design/upload', 'Design::index');
+$routes->post('design/upload', 'Design::upload');
+$routes->get('design/preview/(:any)', 'Design::preview/$1');
+
+// COUPON
+$routes->post('coupon/apply', 'Coupon::apply');
+$routes->get('coupon/remove', 'Coupon::remove');
+
+// PAYMENT
+$routes->get('payment/(:any)', 'Payment::index/$1');
+$routes->post('payment/pay', 'Payment::pay');
+$routes->post('payment/notification', 'Payment::notification');
+$routes->get('payment/finish', 'Payment::finish');
+$routes->get('payment/unfailed', 'Payment::unfailed');
+$routes->get('payment/error', 'Payment::error');
+
+// SHIPPING API
+$routes->get('api/shipping/provinces', 'Api\Shipping::provinces');
+$routes->get('api/shipping/cities/(:any)', 'Api\Shipping::cities/$1');
+$routes->post('api/shipping/cost', 'Api\Shipping::cost');
+$routes->post('api/shipping/track', 'Api\Shipping::track');
+
+// SITEMAP
+$routes->get('sitemap.xml', 'Sitemap::index');
+
 //product
 $routes->get('/admin/product', 'Product::index');
 $routes->post('/admin/product/tambah_group', 'Product::tambah_group');
@@ -165,3 +253,74 @@ $routes->get('/shipment/(:any)', 'Order::shipment/$1');
 $routes->get('home/getOrder/(:num)', 'Home::getOrder/$1');
 $routes->post('home/saveOrder', 'Home::saveOrder');
 $routes->post('home/saveAlamat', 'Home::saveAlamat');
+
+// ADMIN PRODUCT UMUM (CRUD)
+$routes->get('admin/product-umum', 'ProductUmum::index');
+$routes->post('admin/product-umum/create', 'ProductUmum::create');
+$routes->post('admin/product-umum/update/(:any)', 'ProductUmum::update/$1');
+$routes->get('admin/product-umum/delete/(:any)', 'ProductUmum::delete/$1');
+$routes->get('admin/product-umum/detail/(:any)', 'ProductUmum::detail/$1');
+$routes->post('admin/product-umum/listdata', 'ProductUmum::listdata');
+
+// RESELLER ADMIN
+$routes->get('admin/resellers', 'AdminReseller::index');
+$routes->post('admin/resellers/(:num)/status', 'AdminReseller::updateStatus/$1', ['filter' => 'csrf']);
+$routes->get('admin/reseller-products', 'AdminReseller::products');
+$routes->get('admin/reseller-products/edit/(:num)', 'AdminReseller::products/$1');
+$routes->post('admin/reseller-products', 'AdminReseller::productStore', ['filter' => 'csrf']);
+$routes->post('admin/reseller-products/(:num)', 'AdminReseller::productUpdate/$1', ['filter' => 'csrf']);
+$routes->post('admin/reseller-products/(:num)/delete', 'AdminReseller::productDelete/$1', ['filter' => 'csrf']);
+
+// GOOGLE LOGIN
+$routes->get('login/google', 'Auth::google');
+$routes->get('login/google-callback', 'Auth::googleCallback');
+
+// LAYANAN PAGE
+$routes->get('layanan', 'Home::layanan');
+
+// ABOUT PAGE
+$routes->get('tentang-kami', 'Home::tentangKami');
+
+// ADMIN REPORT ROUTES
+$routes->get('admin/report', 'Report::index');
+$routes->get('admin/report/product', 'Report::product');
+$routes->get('admin/report/order', 'Report::order');
+$routes->get('admin/report/exportExcel', 'Report::exportExcel');
+
+// ADMIN CONTENT ROUTES
+$routes->get('admin/blog', 'Admin::blog');
+$routes->get('admin/informations', 'Admin::informations');
+$routes->get('admin/slider', 'Admin::slider');
+$routes->get('admin/gallery', 'Admin::gallery');
+$routes->get('admin/testimonial', 'Admin::testimonial');
+$routes->get('admin/client', 'Admin::client');
+$routes->get('admin/administrator', 'Admin::administrator');
+$routes->get('admin/changelog', 'Admin::changelog');
+$routes->get('admin/settings', 'Admin::settings');
+
+// ADMIN MENU ROUTES
+$routes->get('admin/slider', 'Admin::slider');
+$routes->get('admin/gallery', 'Admin::gallery');
+$routes->get('admin/testimonial', 'Admin::testimonial');
+$routes->get('admin/blog', 'Admin::blog');
+$routes->get('admin/informations', 'Admin::informations');
+$routes->get('admin/changelog', 'Admin::changelog');
+$routes->get('admin/settings', 'Admin::settings');
+
+// ADMIN CALENDAR ROUTES
+$routes->get('admin/calendar', 'Admin::calendar');
+$routes->post('admin/calendar/add', 'Admin::addCalendarEvent');
+$routes->get('admin/calendar/delete/(:any)', 'Admin::deleteCalendarEvent/$1');
+
+// ADMIN SETTINGS ROUTE
+$routes->get('admin/settings', 'Admin::settings');
+$routes->post('admin/settings', 'Admin::settings');
+
+// HOLIDAY ROUTES
+$routes->get('admin/holiday', 'Holiday::index');
+$routes->post('admin/holiday/add', 'Holiday::add');
+$routes->post('admin/holiday/update/(:any)', 'Holiday::update/$1');
+$routes->get('admin/holiday/delete/(:any)', 'Holiday::delete/$1');
+
+// PRINT CALENDAR
+$routes->get('admin/calendar/print', 'Admin::printCalendar');

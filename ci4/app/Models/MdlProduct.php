@@ -14,7 +14,12 @@ class MdlProduct extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ["id","judul","id_group","nama","picture","slug","text","id_admin","status","updated_at","deleted_at","created_at"];
+    protected $allowedFields    = [
+        "id", "judul", "id_group", "product_type", "sku", "model_name", "nama", "price",
+        "sale_price", "base_price", "min_order", "lead_time_days", "available_colors",
+        "available_sizes", "reseller_image", "description", "material", "picture", "slug",
+        "text", "id_admin", "status", "updated_at", "deleted_at", "created_at"
+    ];
 
     // Dates
     protected $useTimestamps = true;

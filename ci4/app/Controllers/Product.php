@@ -17,7 +17,6 @@ class Product extends BaseController
 
   public function __construct()
   {
-  //   parent::__construct();
     $this->db      = \Config\Database::connect();
     $this->session = session();
     $this->bcrypt = new Bcrypt();
@@ -28,17 +27,95 @@ class Product extends BaseController
     $this->userValidation = new \App\Controllers\LoginValidation();
     $this->changelog = new \App\Controllers\Changelog();
 
-    //if sesion habis
-
+    // Only check login for admin methods
+    $path = ltrim($this->uri->getPath(), '/');
+    $publicPaths = ['product', 'product/'];
+    
+    foreach ($publicPaths as $publicPath) {
+      if (str_starts_with($path, $publicPath)) {
+        return; // Allow public access
+      }
+    }
+    
     $check = new \App\Controllers\CheckAccess();
-    $check->logged();  
+    $check->logged();
   }
   public function index()
   {
       $this->access('operator');
     $data['content']=view('admin/content/product');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }
+
+  // PUBLIC PRODUCT CATALOG
+  public function catalog()
+  {
+    $model = new \App\Models\MdlProduct();
+    $groupModel = new \App\Models\MdlProductGroup();
+    
+    $search = $this->request->getGet('search');
+    $category = $this->request->getGet('category');
+    $sort = $this->request->getGet('sort') ?? 'newest';
+    
+    $model->where('deleted_at', null);
+    $model->where('status', 1);
+    
+    if ($search) {
+      $model->like('nama', $search);
+    }
+    
+    if ($category) {
+      $model->where('id_group', $category);
+    }
+    
+    switch ($sort) {
+      case 'cheapest':
+        $model->orderBy('price', 'ASC');
+        break;
+      case 'expensive':
+        $model->orderBy('price', 'DESC');
+        break;
+      case 'newest':
+      default:
+        $model->orderBy('created_at', 'DESC');
+        break;
+    }
+    
+    $data['products'] = $model->paginate(12);
+    $data['pager'] = $model->pager;
+    $data['groups'] = $groupModel->where('deleted_at', null)->findAll();
+    $data['search'] = $search;
+    $data['category'] = $category;
+    $data['sort'] = $sort;
+    
+    $data['content'] = view('home/content/product-catalog', $data);
+    return view('home/layout', $data);
+  }
+  
+  public function detail($slug)
+  {
+    $model = new \App\Models\MdlProduct();
+    $groupModel = new \App\Models\MdlProductGroup();
+    $sizeModel = new \App\Models\MdlSize();
+    
+    $product = $model->where('slug', $slug)->where('deleted_at', null)->first();
+    
+    if (!$product) {
+      throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+    }
+    
+    $data['product'] = $product;
+    $data['sizes'] = $sizeModel->where('deleted_at', null)->findAll();
+    $data['related'] = $model->where('id_group', $product['id_group'])
+                              ->where('id !=', $product['id'])
+                              ->where('deleted_at', null)
+                              ->limit(4)
+                              ->findAll();
+    
+    $data['content'] = view('home/content/product-detail', $data);
+    return view('home/layout', $data);
+  }
+
   public function manage(){
     
   }
@@ -528,3 +605,5 @@ public function updateImage()
 
 
 }
+
+

@@ -14,7 +14,11 @@ class MdlClient extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    =["id","nama_depan","nama_belakang","password","email","profile_picture","status","updated_at","deleted_at","created_at"];
+    protected $allowedFields    = [
+        "id", "name", "nama_depan", "nama_belakang", "password", "email", "phone",
+        "account_type", "verification_token", "reset_token", "profile_picture", "status",
+        "updated_at", "deleted_at", "created_at"
+    ];
 
     // Dates
     protected $useTimestamps = true;

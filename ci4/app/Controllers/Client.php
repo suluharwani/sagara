@@ -61,7 +61,7 @@ class Client extends BaseController
   {
     if ($this->access()) {
       $data['content'] = view('home/content/dashboard');
-      $view = view('home/index', $data);
+      $view = view('home/layout', $data);
     }else{
     $view = $this->loginForm();
     }
@@ -326,7 +326,7 @@ class Client extends BaseController
         //configure email settings
         $email = \Config\Services::email();
 
-        $email->setFrom($from_email, 'Cendrawasih Digikarya Pertama');
+        $email->setFrom($from_email, 'Sagara Jersey');
         $email->setTo($to_email);
 // $email->setCC('another@another-example.com');
 // $email->setBCC('them@their-example.com');
@@ -357,14 +357,14 @@ function verify($hash=null){
       }
   }
   $data['content'] = view('home/content/verifikasi');
-  return view('home/index', $data);
+  return view('home/layout', $data);
 }
 function verifikasi($email = null){
    if ($email != null) {
      $this->sendEmail($email);
    }
    $data['content'] = view('home/content/verifikasi');
-   return view('home/index', $data);
+   return view('home/layout', $data);
  }
  function getOrder(){
   $userInfo = $_SESSION['auth'];
@@ -373,3 +373,4 @@ function verifikasi($email = null){
  }
 
     }
+

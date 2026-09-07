@@ -67,10 +67,20 @@ function logged(){
   }
   else
   {
+    // Only redirect if not already on a public page
+    $uri = service('uri');
+    $path = $uri->getPath();
+    $publicPages = ['product', 'product/', 'cart', 'checkout', 'login', 'register', 'tracking'];
+    
+    foreach ($publicPages as $page) {
+      if (str_starts_with($path, $page)) {
+        return; // Allow access to public pages
+      }
+    }
+    
     header('Location: '.base_url('/admin/login'));
     exit(); 
-
-}  
+  }
 }
 function clientLogged(){
   if (isset($_SESSION['logged']))
@@ -85,3 +95,5 @@ function clientLogged(){
 }  
 }
 }
+
+

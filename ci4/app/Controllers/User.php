@@ -58,7 +58,7 @@ public function user($jenis=null){
         $data['content']="";
 
     }
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
 }
 public function listdata_user(){
   $this->access('administrator');
@@ -353,3 +353,5 @@ return json_encode($output);
 
 
 }
+
+

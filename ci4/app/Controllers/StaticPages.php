@@ -37,12 +37,12 @@ class StaticPages extends BaseController
   {
       // echo"ok";
       // $data['content']=view('admin/content/page');
-      // return view('admin/index', $data);
+      // return view('admin/layout', $data);
   }
   public function manage(){
     $this->access('operator');
     $data['content']=view('admin/content/static_page');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }
   // function logoutAdmin(){
   //     return "adad";
@@ -337,31 +337,31 @@ function manage_static_page($static){
   if ($static == 'contact-us') {
     $mdl = new \App\Models\MdlContactUs();
     $data['content']=view('admin/content/static/contact_us');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else if ($static == 'slider') {
     $mdl = new \App\Models\MdlSlider();
     $data['content']=view('admin/content/static/slider');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else if ($static == 'service') {
     $mdl = new \App\Models\MdlService();
     $data['content']=view('admin/content/static/service');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else if ($static == 'portfolio') {
     $mdl = new \App\Models\MdlPortfolio();
     $data['content']=view('admin/content/static/portfolio');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else if ($static == 'testimonial') {
     $mdl = new \App\Models\MdlTestimonial();
     $data['content']=view('admin/content/static/testimonial');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else if ($static == 'partner') {
     $mdl = new \App\Models\MdlPartner();
     $data['content']=view('admin/content/static/partner');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else if ($static == 'offer') {
     $mdl = new \App\Models\MdlOffer();
     $data['content']=view('admin/content/static/offer');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
   }else{
    throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
  }
@@ -456,4 +456,6 @@ function select_produk(){
   return json_encode($data);
 }
 }
+
+
 

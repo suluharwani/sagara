@@ -4,10 +4,10 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Gallery extends Model
+class MdlGallery extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'galleries';
+    protected $table            = 'gallery';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;

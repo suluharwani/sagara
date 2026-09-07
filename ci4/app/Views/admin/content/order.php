@@ -7,8 +7,8 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Pages</h3>
-                <p class="text-subtitle text-muted">Manage Halaman</p>
+                <h3>Order Aktif</h3>
+                <p class="text-subtitle text-muted">Kelola pesanan yang sedang berjalan</p>
             </div>
             <div class="col-12 col-md-6 order-md-2 order-first">
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -22,18 +22,17 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-              <div class="card-header">
-              <div class="text-center">
-              <h3>ORDER</h3>
-            </div>
-                <button type="button" class="btn btn-primary tambahOrder">Tambah </button>
-                <div class="float-lg-end">
+              <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                <div>
+                  <h5 class="mb-1">Daftar Order Aktif</h5>
+                  <small class="text-muted">Gunakan menu aksi untuk mengelola setiap pesanan.</small>
                 </div>
+                <button type="button" class="btn btn-primary tambahOrder"><i class="fas fa-plus me-1"></i> Tambah Order</button>
             </div>
             <div class="card-body">
                           <!-- table -->
           <div class="table-responsive">
-            <table id="tabel_serverside" class="table table-bordered display text-left" cellspacing="0" width="100%">
+            <table id="tabel_serverside" class="table table-hover align-middle display text-left" cellspacing="0" width="100%">
               <thead>
                 <tr  class="text-center">
                   <th style="width: 5%; text-align: center;">NO</th>
@@ -43,22 +42,9 @@
                   <th style="width: 5%; text-align: center;">DEADLINE</th>
                   <th style="width: 5%; text-align: center;">QTY</th>
                   <th style="width: 5%; text-align: center;">STATUS</th>
-                  <th style="width: 20%; text-align: center;">ACTION</th>
+                  <th style="width: 14%; text-align: center;">AKSI</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr class="text-center">
-                  <th style="width: 5%; text-align: center;">NO</th>
-                  <th style="width: 5%; text-align: center;">TEAM</th>
-                  <th style="width: 5%; text-align: center;">KODE</th>
-                  <th style="width: 5%; text-align: center;">CUSTOMER</th>
-                  <th style="width: 5%; text-align: center;">DEADLINE</th>
-                  <th style="width: 5%; text-align: center;">QTY</th>
-                  <th style="width: 5%; text-align: center;">STATUS</th>
-                  <th style="width: 20%; text-align: center;">ACTION</th>
-                </tr>
-              </tr>
-            </tfoot>
           </table>
         </div>
         <!-- table -->
@@ -111,6 +97,7 @@
 
 <!-- modal -->
 <script type="text/javascript" src="<?=base_url('assets')?>/datatables/datatables.min.js"></script>
+<script>window.APP_BASE_URL = <?= json_encode(rtrim(base_url(), '/') . '/') ?>;</script>
 <script type="text/javascript" src="<?=base_url()?>/assets/js/order.js"></script>
 <script type="text/javascript" src="<?=base_url()?>/assets/summernote/summernote-lite.min.js"></script>
 <script type="text/javascript" src="<?=base_url()?>/assets/summernote/summernote-image-list.min.js"></script>

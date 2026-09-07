@@ -2,16 +2,53 @@
 
 namespace App\Controllers;
 use App\Models\MdlSize;
+use App\Models\MdlProduct;
+use App\Models\MdlProductUmum;
+use App\Models\MdlOrder;
+use App\Models\MdlClient;
+use App\Models\MdlPortfolio;
+use App\Models\MdlTestimonial;
+use App\Models\MdlSlider;
+use App\Models\MdlService;
+use App\Models\MdlGallery;
 class Home extends BaseController
 {
-    //   public function index()
-    // {
-    //     return view('welcome_message');
-    // }
     public function index()
     {
-        $data['content']=view('home/content/homepage');
-        return view('home/index', $data);
+        // Get real statistics from database
+        $productModel = new MdlProduct();
+        $productUmumModel = new MdlProductUmum();
+        $orderModel = new MdlOrder();
+        $clientModel = new MdlClient();
+        $portfolioModel = new MdlPortfolio();
+        $testimonialModel = new MdlTestimonial();
+        $sliderModel = new MdlSlider();
+        $serviceModel = new MdlService();
+        $galleryModel = new MdlGallery();
+        
+        $data['totalProducts'] = $productModel->where('deleted_at', null)->countAllResults();
+        $data['totalProductsUmum'] = $productUmumModel->where('deleted_at', null)->countAllResults();
+        $data['totalOrders'] = $orderModel->where('deleted_at', null)->countAllResults();
+        $data['totalProductsSold'] = $orderModel->getTotalProductsSold();
+        $data['totalClients'] = $clientModel->where('deleted_at', null)->countAllResults();
+        $data['totalPortfolios'] = $portfolioModel->where('deleted_at', null)->countAllResults();
+        $data['totalTestimonials'] = $testimonialModel->where('deleted_at', null)->countAllResults();
+        $data['totalSliders'] = $sliderModel->where('deleted_at', null)->countAllResults();
+        $data['totalServices'] = $serviceModel->where('deleted_at', null)->countAllResults();
+        $data['totalGalleries'] = $galleryModel->where('deleted_at', null)->countAllResults();
+        
+        // Get products for display
+        $data['products'] = $productModel->where('deleted_at', null)->where('status', 1)->limit(4)->findAll();
+        $data['productsUmum'] = $productUmumModel->where('deleted_at', null)->where('status', 1)->limit(4)->findAll();
+        
+        // Get testimonials
+        $data['testimonials'] = $testimonialModel->where('deleted_at', null)->limit(3)->findAll();
+        
+        // Get galleries
+        $data['galleries'] = $galleryModel->where('deleted_at', null)->limit(6)->findAll();
+        
+        $data['content'] = view('home/content/homepage', $data);
+        return view('home/layout', $data);
     }
   function menu(){
       $model = new \App\Models\MdlPages();
@@ -37,7 +74,7 @@ class Home extends BaseController
         //content
        $data['content']=view('home/content/single_page');
       }
-        return view('home/index', $data);
+        return view('home/layout', $data);
     }
   function get_menu_array(){
       $pages = new \App\Models\MdlPages();
@@ -646,4 +683,15 @@ public function getOrder($id)
     }
 }
 
+public function layanan()
+    {
+        $data['content'] = view('home/content/layanan');
+        return view('home/layout', $data);
+    }
+    public function tentangKami()
+    {
+        $data['content'] = view('home/content/tentang-kami');
+        return view('home/layout', $data);
+    }
 }
+

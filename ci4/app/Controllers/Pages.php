@@ -37,12 +37,12 @@ class Pages extends BaseController
     {
         // echo"ok";
         // $data['content']=view('admin/content/page');
-        // return view('admin/index', $data);
+        // return view('admin/layout', $data);
     }
     public function manage(){
     $this->access('operator');
    $data['content']=view('admin/content/page');
-        return view('admin/index', $data);
+        return view('admin/layout', $data);
     }
     // function logoutAdmin(){
     //     return "adad";
@@ -326,3 +326,5 @@ return json_encode($output);
      } 
 
 }
+
+

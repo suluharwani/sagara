@@ -50,12 +50,12 @@ class Order extends BaseController
     {
         $this->access('administrator');
           $data['content']=view('admin/content/order');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
     }
     public function orderSelesai(){
          $this->access('administrator');
           $data['content']=view('admin/content/order_selesai');
-    return view('admin/index', $data);
+    return view('admin/layout', $data);
     }
 
               public function getOrderSelesai()
@@ -549,4 +549,6 @@ public function updateAddress()
   }
   
 }
+
+
 

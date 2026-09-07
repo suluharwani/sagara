@@ -1,0 +1,328 @@
+================================================================================
+  DAFTAR PENGEMBANGAN WEB - SAGARA (PERCETAKAN KAOS & JERSEY)
+================================================================================
+
+Website: Sagara Jersey (Percetakan Kaos & Jersey Custom)
+URL: http://127.0.0.1:8000/
+Framework: CodeIgniter 4.5.5 + PHP 8.5 + MariaDB 12.3
+
+================================================================================
+  FITUR YANG SUDAH ADA (IMPLEMENTED)
+================================================================================
+
+✅ ADMIN PANEL
+   - Dashboard admin dengan statistik
+   - Manajemen produk (CRUD, grup, ukuran, upload gambar)
+   - Manajemen order (buat, edit, hapus, tracking status)
+   - Detail order (nama pemain, nomor, ukuran, keeper/player)
+   - Manajemen pembayaran (tambah/hapus payment)
+   - Manajemen user (Admin & Client)
+   - Manajemen halaman dinamis (TinyMCE editor)
+   - Manajemen blog/artikel
+   - Manajemen slider homepage
+   - Manajemen portfolio/testimonial/partner
+   - Manajemen galeri & kategori
+   - Export Excel (PhpSpreadsheet)
+   - Tracking pengiriman (resi)
+   - Activity logging (changelog)
+   - Login manual + Google OAuth
+   - reCAPTCHA validation
+
+✅ PUBLIC SITE
+   - Homepage dengan slider
+   - Halaman blog
+   - Halaman kontak
+   - Halaman informasi
+   - Halaman dinamis (pages)
+   - Client dashboard (login Google)
+   - Invoice view
+   - Print view
+   - Verifikasi email
+
+================================================================================
+  FITUR YANG PERLU DITAMBAHKAN (ROADMAP PENGEMBANAN)
+================================================================================
+
+🔴 PRIORITAS TINGGI (HIGH) - E-Commerce Core
+
+1. 🛒 KERANJANG BELANJA (SHOPPING CART)
+   - Tambah/hapus produk dari keranjang
+   - Update jumlah/qty per item
+   - Simpan keranjang per session/user
+   - Tampilkan ringkasan total harga
+   - Estimasi ongkos kirim
+
+2. 💰 SISTEM HARGA & PRODUK
+   - Field harga jual di tabel product
+   - Field harga grosir (diskon quantity)
+   - Field biaya cetak (sablon/digital)
+   - Tampilkan harga di halaman produk
+   - Format mata uang (Rp)
+
+3. 📄 HALAMAN PRODUK PUBLIK
+   - Detail produk individual (slug-based)
+   - Gallery gambar produk (zoom)
+   - Pilihan ukuran (S/M/L/XL/XXL)
+   - Pilihan warna jersey
+   - Tombol "Tambah ke Keranjang"
+   - Tombol "Beli via WhatsApp"
+   - Share ke social media
+
+4. 🔍 PENCARIAN & FILTER PRODUK
+   - Search by nama produk
+   - Filter by kategori/grup
+   - Filter by rentang harga
+   - Filter by ukuran
+   - Sorting (terbaru, termurah, terlaris)
+   - Pagination
+
+5. 🛍️ CHECKOUT & ORDER SELF-SERVICE
+   - Form checkout (nama, alamat, telepon)
+   - Pilihan pengiriman (JNE, J&T, SiCepat, dll)
+   - Kalkulasi ongkir (API RajaOngkir)
+   - Ringkasan order + total
+   - Upload desain custom (opsional)
+   - Catatan/order notes
+
+6. 💳 PAYMENT GATEWAY
+   - Integrasi Midtrans/Xendit
+   - Virtual Account (BCA, Mandiri, BNI)
+   - E-Wallet (GoPay, OVO, Dana, LinkAja)
+   - Credit Card
+   - Notifikasi pembayaran otomatis
+   - Konfirmasi pembayaran manual
+
+7. 👤 REGISTRASI CUSTOMER MANUAL
+   - Form registrasi (email, password)
+   - Verifikasi email
+   - Login manual (selain Google OAuth)
+   - Lupa password (reset via email)
+   - Profil customer (edit data)
+
+8. 📧 NOTIFIKASI ORDER
+   - Email notifikasi order baru
+   - Email notifikasi status berubah
+   - Email notifikasi pembayaran
+   - Email notifikasi pengiriman
+   - Template email yang profesional
+
+🟡 PRIORITAS MEDIUM (MEDIUM) - Customer Experience
+
+9. 🎨 UPLOAD DESAIN CUSTOM
+   - Upload gambar desain (PNG, JPG, PDF)
+   - Preview desain sebelum order
+   - Validasi ukuran file & format
+   - Simpan desain per order
+
+10. 👁️ MOCKUP/PREVIEW JERSEY
+    - Template jersey kosong
+    - Overlay desain customer
+    - Preview real-time
+    - Download mockup
+
+11. 📦 TRACKING ORDER PUBLIK
+    - Input nomor order + email
+    - Tampilkan status terkini
+    - Riwayat status order
+    - Estimasi sampai
+
+12. 🚚 INTEGRASI ONGKOS KIRIM
+    - API RajaOngkir (Starter/Pro)
+    - Pilihan kurir (JNE, J&T, SiCepat, dll)
+    - Kalkulasi berat/volume
+    - Resi otomatis via API
+
+13. 📄 INVOICE PDF
+    - Generate PDF invoice
+    - Download/print invoice
+    - Template profesional
+    - Kirim via email
+
+14. 💬 WHATSAPP INTEGRATION
+    - Tombol "Order via WhatsApp"
+    - Template pesan otomatis
+    - Redirect ke WhatsApp dengan data order
+    - CS WhatsApp button (floating)
+
+15. 📊 LAPORAN KEUANGAN
+    - Laporan pendapatan harian/bulanan
+    - Laporan order (status, produk)
+    - Laporan customer (top buyer)
+    - Export PDF/Excel
+
+16. 🏷️ DISCOUNT/COUPON SYSTEM
+    - Kode kupon diskon
+    - Diskon persen/nominal
+    - Minimum belanja
+    - Batas penggunaan
+    - Tanggal expired
+
+🟢 PRIORITAS LOW (LOW) - Enhancement
+
+17. 📱 RESPONSIVE & MOBILE
+    - Optimasi tampilan mobile
+    - Touch-friendly navigation
+    - Fast loading (lazy load images)
+    - PWA (Progressive Web App)
+
+18. 🔗 SEO OPTIMIZATION
+    - Meta title & description per halaman
+    - Open Graph tags (Facebook, WhatsApp)
+    - Sitemap.xml
+    - robots.txt
+    - Schema markup (Product, Organization)
+
+19. 📲 API FOR MOBILE APP
+    - REST API (CodeIgniter Shield)
+    - Authentication (JWT/OAuth)
+    - Endpoint produk, order, user
+    - API documentation
+
+20. 🖼️ IMAGE OPTIMIZATION
+    - Auto resize upload
+    - Compress gambar
+    - WebP format
+    - CDN integration
+
+21. 💾 BACKUP SYSTEM
+    - Auto backup database (daily)
+    - Download backup
+    - Restore backup
+    - Cloud storage (Google Drive)
+
+22. 🔐 SECURITY ENHANCEMENT
+    - Rate limiting
+    - CSRF protection
+    - XSS filtering
+    - SQL injection prevention
+    - 2FA (Two-Factor Auth)
+
+23. 📈 ANALYTICS
+    - Google Analytics integration
+    - Facebook Pixel
+    - Heatmap (Hotjar)
+    - Conversion tracking
+
+24. 🌐 MULTI-LANGUAGE
+    - Bahasa Indonesia
+    - English
+    - Language switcher
+
+================================================================================
+  SARAN ARSITEKTUR & TEKNOLOGI
+================================================================================
+
+📋 REKOMENDASI STACK:
+   - Frontend: Bootstrap 5 + jQuery (sudah ada)
+   - Payment: Midtrans (populer di Indonesia)
+   - Shipping: RajaOngkir API
+   - Email: PHPMailer/SMTP
+   - PDF: DomPDF or TCPDF
+   - Export: PhpSpreadsheet (sudah ada)
+   - Search: Elasticsearch (untuk data besar)
+
+📋 STRUKTUR TABEL BARU YANG DIBUTUHKAN:
+   - cart (keranjang belanja)
+   - coupons (kupon diskon)
+   - shipping_address (alamat pengiriman)
+   - order_status_history (riwayat status)
+   - notifications (notifikasi)
+   - settings (pengaturan umum)
+
+📋 WORKFLOW ORDER YANG DISARANKAN:
+   1. Customer pilih produk → tambah keranjang
+   2. Checkout → isi data + alamat
+   3. Pilih kurir → kalkulasi ongkir
+   4. Pilih metode pembayaran
+   5. Bayar → konfirmasi
+   6. Admin proses → update status
+   7. Kirim resi → customer tracking
+   8. Selesai → review/testimonial
+
+================================================================================
+  TARGET MARKET & FITUR UNGGULAN
+================================================================================
+
+🎯 TARGET:
+   - Komunitas (klub futsal, sekolah, kampus)
+   - Perusahaan (seragam kantor, event)
+   - Personal (kaos custom satuan)
+   - Reseller/Dropshipper
+
+✨ FITUR UNGGULAN YANG HARUS ADA:
+   1. Desain custom (upload desain sendiri)
+   2. Harga grosir (semakin banyak semakin murah)
+   3. Minimum order rendah (1-12 pcs)
+   4. Pilihan bahan (polyester, cotton, dll)
+   5. Proses cepat (3-7 hari)
+   6. Garansi cetak
+   7. Free desain (untuk order tertentu)
+   8. Sample gratis (untuk reseller)
+
+================================================================================
+  ESTIMASI TIMBANGAN PENGEMBANGAN
+================================================================================
+
+FASE 1 (2-3 Minggu) - E-Commerce Core:
+   ✅ Sistem harga & produk
+   ✅ Keranjang belanja
+   ✅ Checkout & order self-service
+   ✅ Registrasi customer manual
+   ✅ Notifikasi email
+
+FASE 2 (2-3 Minggu) - Payment & Shipping:
+   ✅ Payment gateway (Midtrans)
+   ✅ Integrasi ongkir (RajaOngkir)
+   ✅ Invoice PDF
+   ✅ WhatsApp integration
+
+FASE 3 (1-2 Minggu) - Enhancement:
+   ✅ Upload desain custom
+   ✅ Mockup/preview jersey
+   ✅ Tracking order publik
+   ✅ Laporan keuangan
+
+FASE 4 (1-2 Minggu) - Marketing & SEO:
+   ✅ SEO optimization
+   ✅ Social sharing
+   ✅ Analytics
+   ✅ Coupon system
+
+================================================================================
+  CATATAN PENTING
+================================================================================
+
+⚠️  Sebelum development:
+   - Backup database existing
+   - Buat branch Git baru untuk fitur e-commerce
+   - Test di local terlebih dahulu
+   - Gunakan migration untuk tabel baru
+
+⚠️  Best Practices:
+   - Validasi semua input user
+   - Gunakan CSRF token
+   - Hash password (bcrypt)
+   - Rate limiting untuk API
+   - Log semua aktivitas penting
+
+⚠️  Testing:
+   - Unit test untuk model
+   - Feature test untuk controller
+   - Browser test untuk UI
+   - Payment sandbox testing
+
+================================================================================
+  DOKUMENTASI & REFERENSI
+================================================================================
+
+📚 CodeIgniter 4: https://codeigniter.com/user_guide/
+📚 Midtrans: https://docs.midtrans.com/
+📚 RajaOngkir: https://rajaongkir.com/dokumentasi
+📚 Bootstrap 5: https://getbootstrap.com/docs/
+📚 PHP 8.5: https://www.php.net/manual/
+
+================================================================================
+  Dibuat oleh: GitHub Copilot
+  Tanggal: 2026-09-06
+  Proyek: Sagara Jersey Printing Website
+================================================================================

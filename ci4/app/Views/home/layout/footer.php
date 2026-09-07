@@ -1,16 +1,52 @@
-<footer id="footer" >
-				<div class="container">
-
-					<div class="row">
-						<div class="col-lg-2 align-self-center text-center mb-5 mb-lg-0">
-					
-						</div>
-	
-			
-					</div>
-				</div>
-
-			</footer>
+<footer id="footer" class="footer-dark" style="background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <h5 class="text-white">Sagara Jersey</h5>
+                <p class="mt-3 text-white" style="opacity: 0.9;">Percetakan jersey dan kaos custom berkualitas tinggi. Desain bebas, bahan premium, pengiriman ke seluruh Indonesia.</p>
+                <ul class="social-icons">
+                    <li class="social-icons-facebook"><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                    <li class="social-icons-instagram"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li class="social-icons-whatsapp"><a href="https://wa.me/6281327341834" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h5 class="text-white">Menu</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="<?= base_url() ?>">Home</a></li>
+                    <li><a href="<?= base_url('product') ?>">Produk</a></li>
+                    <li><a href="<?= base_url('blog') ?>">Blog</a></li>
+                    <li><a href="<?= base_url('contact') ?>">Kontak</a></li>
+                    <li><a href="<?= base_url('tracking') ?>">Tracking</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="text-white">Layanan</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">Jersey Custom</a></li>
+                    <li><a href="#">Kaos Custom</a></li>
+                    <li><a href="#">Seragam Kerja</a></li>
+                    <li><a href="#">Jacket Custom</a></li>
+                    <li><a href="#">Hoodie Custom</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h5 class="text-white">Kontak</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><i class="fas fa-map-marker-alt me-2"></i> Penganten, Klambu, Grobogan</li>
+                    <li><i class="fas fa-phone me-2"></i> +62 813-2734-1834</li>
+                    <li><i class="fas fa-envelope me-2"></i> info@sagarajersey.com</li>
+                </ul>
+            </div>
+        </div>
+        <hr style="border-color: rgba(255,255,255,0.3);">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="text-white mb-0">&copy; 2026 Sagara Jersey. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
 		</div>
 
 		<!-- Vendor -->
@@ -42,20 +78,48 @@
 		<!-- Theme Initialization Files -->
 		<script async src="<?=base_url('assets/HTML')?>/js/theme.init.js"></script>
 
-		<!-- Examples -->
-		<script src="<?=base_url('assets/HTML')?>/js/examples/examples.lightboxes.js"></script>
-
-		<!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information.
-		<script>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-			ga('create', 'UA-12345678-1', 'auto');
-			ga('send', 'pageview');
-		</script>
-		 -->
-
 	</body>
 </html>
+
+<style>
+.footer-dark {
+    padding: 60px 0 30px;
+    color: #fff;
+}
+.footer-dark h5 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+.footer-links li {
+    margin-bottom: 10px;
+}
+.footer-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover {
+    color: #ffc107;
+}
+.footer-dark .social-icons {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+.footer-dark .social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+.footer-dark .social-icons a:hover {
+    background: #ffc107;
+    color: #1a1a2e;
+}
+</style>

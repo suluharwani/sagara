@@ -15,6 +15,17 @@ class MdlOrder extends Model
     protected $allowedFields    = ["id",
                                     "kode",
                                     "id_client",
+                                    "customer_id",
+                                    "order_number",
+                                    "name",
+                                    "phone",
+                                    "email",
+                                    "total",
+                                    "grand_total",
+                                    "shipping_cost",
+                                    "courier",
+                                    "payment_method",
+                                    "note",
                                     "deadline",
                                     "id_order_list",
                                     "status",
@@ -125,5 +136,40 @@ public function getOrderDetailById($orderId)
         $builder->where('YEAR(order.created_at)', $year);
         $builder->where('order.status', 3); // Selesai
         return $builder->get()->getRow()->totalProductSelesai;
+    }
+
+    /**
+     * Hitung unit produk dari seluruh order yang ditangani.
+     *
+     * Order lama menyimpan satu baris per jersey di `ordertable`, sedangkan
+     * order baru menyimpan jumlah unit di `order_list.quantity`. Order baru
+     * hanya dijumlahkan saat tidak mempunyai roster agar tidak terhitung dua kali.
+     */
+    public function getTotalProductsSold(): int
+    {
+        $sql = <<<'SQL'
+            SELECT
+                (
+                    SELECT COUNT(*)
+                    FROM ordertable AS ot
+                    INNER JOIN `order` AS legacy_order ON legacy_order.kode = ot.id_order
+                    WHERE legacy_order.deleted_at IS NULL
+                ) + (
+                    SELECT COALESCE(SUM(COALESCE(ol.quantity, 1)), 0)
+                    FROM order_list AS ol
+                    INNER JOIN `order` AS modern_order ON modern_order.id = ol.id_order
+                    WHERE modern_order.deleted_at IS NULL
+                        AND ol.deleted_at IS NULL
+                        AND NOT EXISTS (
+                            SELECT 1
+                            FROM ordertable AS existing_roster
+                            WHERE existing_roster.id_order = modern_order.kode
+                        )
+                ) AS total_products_sold
+            SQL;
+
+        $result = $this->db->query($sql)->getRowArray();
+
+        return (int) ($result['total_products_sold'] ?? 0);
     }
 }
