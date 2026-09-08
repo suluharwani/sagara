@@ -49,10 +49,20 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); font-family: var(--font-display); fo
     background: rgba(7, 17, 31, .96); border-bottom: 1px solid rgba(255, 255, 255, .08);
     backdrop-filter: blur(18px); transition: padding var(--transition), box-shadow var(--transition);
 }
+.navbar-custom > .container {
+    min-height: 50px;
+}
 .navbar-custom.is-scrolled { padding: .5rem 0; box-shadow: 0 12px 35px rgba(0, 0, 0, .18); }
 .navbar-custom .navbar-brand, .footer-brand {
     display: inline-flex; align-items: center; gap: .65rem; color: #fff;
     font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; letter-spacing: .01em;
+}
+.navbar-custom .navbar-brand {
+    flex: 0 0 auto;
+    padding: 0;
+}
+.navbar-custom .navbar-nav {
+    min-width: 0;
 }
 .brand-mark {
     display: inline-grid; width: 2.15rem; height: 2.15rem; place-items: center;
@@ -62,7 +72,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); font-family: var(--font-display); fo
 .brand-logo {
     width: auto;
     height: 2.45rem;
+    max-height: 2.45rem;
     object-fit: contain;
+    flex: 0 0 auto;
 }
 .brand-name strong { color: var(--lime); }
 .navbar-custom .nav-link {
@@ -80,6 +92,36 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); font-family: var(--font-display); fo
 .navbar-toggler { border: 1px solid rgba(255, 255, 255, .25); }
 .navbar-toggler:focus { box-shadow: 0 0 0 .2rem rgba(199, 240, 0, .2); }
 .navbar-toggler-icon { filter: invert(1); }
+
+@media (min-width: 992px) {
+    .navbar-custom .navbar-collapse {
+        min-width: 0;
+    }
+    .navbar-custom .navbar-nav {
+        flex-wrap: nowrap;
+    }
+    .navbar-custom .nav-link {
+        white-space: nowrap;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .navbar-custom .navbar-brand, .footer-brand {
+        gap: .5rem;
+        font-size: 1.18rem;
+    }
+    .brand-logo {
+        height: 2.1rem;
+        max-height: 2.1rem;
+    }
+    .navbar-custom .nav-link {
+        padding: .48rem .46rem !important;
+        font-size: .8rem;
+    }
+    .navbar-custom .btn-login {
+        padding-inline: .8rem !important;
+    }
+}
 
 main { min-height: 60vh; overflow: hidden; }
 .home-shell { background: var(--paper); }
