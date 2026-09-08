@@ -1,0 +1,25 @@
+# Hostinger root redirect for CodeIgniter 4.
+# Place this file beside promp.txt so the domain document root points to ci4/public.
+
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{HTTP_HOST} ^darkviolet-mole-512674\.hostingersite\.com$ [NC]
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    RewriteRule ^$ ci4/public/ [L]
+
+    RewriteRule ^(.*)$ ci4/public/$1 [L,QSA]
+
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+    ErrorDocument 404 /ci4/public/index.php
+</IfModule>
+
+ServerSignature Off
