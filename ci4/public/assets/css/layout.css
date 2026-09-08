@@ -203,6 +203,22 @@ main { min-height: 60vh; overflow: hidden; }
 .section-lead { max-width: 610px; margin-top: 1rem; color: var(--muted); }
 .bg-ink .section-lead { color: rgba(255, 255, 255, .62); }
 
+.page-header,
+.cta-section {
+    color: #fff;
+}
+.page-header h1,
+.page-header h2,
+.page-header h3,
+.page-header span,
+.page-header p,
+.cta-section h1,
+.cta-section h2,
+.cta-section h3,
+.cta-section p {
+    color: #fff;
+}
+
 .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .service-tile {
     min-height: 260px; padding: 1.6rem; display: flex; flex-direction: column; border: 1px solid var(--line);

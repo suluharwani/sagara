@@ -321,6 +321,7 @@
 .auth-panel-content { position: relative; z-index: 1; }
 .auth-panel-kicker { margin: 0 0 .75rem; color: var(--auth-lime); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
 .auth-panel-title { max-width: 23rem; margin: 0 0 1rem; font-family: "Barlow Condensed", sans-serif; font-size: clamp(2.4rem, 4vw, 3.7rem); font-weight: 800; line-height: .95; letter-spacing: -.02em; text-transform: uppercase; }
+.auth-panel-title { color: #fff; }
 .auth-panel-copy { max-width: 26rem; margin: 0 0 1.5rem; color: #aeb9c5; font-size: .88rem; line-height: 1.7; }
 .auth-panel-points { display: grid; gap: .7rem; }
 .auth-panel-point { gap: .7rem; color: #eef2f4; font-size: .8rem; font-weight: 700; }
