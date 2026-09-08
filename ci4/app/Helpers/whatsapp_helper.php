@@ -29,7 +29,7 @@ if (!function_exists('waProductLink')) {
     function waProductLink(array $product): string
     {
         $message = "Halo Sagara, saya tertarik dengan produk: {$product['nama']}. Apakah masih tersedia?";
-        $phone = env('WHATSAPP_NUMBER', '6281234567890');
+        $phone = env('WHATSAPP_NUMBER', '6282137300307');
         return waLink($phone, $message);
     }
 }
@@ -45,7 +45,7 @@ if (!function_exists('waOrderLink')) {
         if (!empty($orderData['note'])) {
             $message .= "Catatan: {$orderData['note']}";
         }
-        $phone = env('WHATSAPP_NUMBER', '6281234567890');
+        $phone = env('WHATSAPP_NUMBER', '6282137300307');
         return waLink($phone, $message);
     }
 }
@@ -53,7 +53,7 @@ if (!function_exists('waOrderLink')) {
 if (!function_exists('waFloatButton')) {
     function waFloatButton(): string
     {
-        $phone = env('WHATSAPP_NUMBER', '6281234567890');
+        $phone = env('WHATSAPP_NUMBER', '6282137300307');
         $message = urlencode('Halo Sagara, saya ingin bertanya tentang produk jersey...');
         return "https://wa.me/{$phone}?text={$message}";
     }

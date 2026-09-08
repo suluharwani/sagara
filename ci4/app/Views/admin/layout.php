@@ -66,6 +66,8 @@
             
             <div class="menu-label">Manajemen</div>
             <ul class="list-unstyled">
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/custom-designs') ?>"><i class="fas fa-palette"></i> Desain Custom</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?= base_url('admin/design-templates') ?>"><i class="fas fa-swatchbook"></i> Template Desain</a></li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('admin/manage/pages') ?>">
                         <i class="fas fa-file-alt"></i> Halaman

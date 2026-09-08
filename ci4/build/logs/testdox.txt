@@ -1,0 +1,26 @@
+Design Management
+ [x] Admin pages require admin session
+ [x] Administrator can open both managers and template editor
+ [x] Disabled admin loses access
+ [x] Only published templates and no private designs are public
+ [x] Save publish archive and prevent stale admin updates
+ [x] Customer submission is stored privately and can be reviewed
+ [x] Rejects malformed document and unsafe images without insert
+ [x] State changes require csrf
+
+Design Studio
+ [x] Studio is public and contains editor and exports
+ [x] Custom alias uses same studio
+ [x] Existing upload page links to studio
+
+Example Database
+ [x] Model find all
+ [x] Soft delete leaves row
+
+Example Session
+ [x] Session simple
+
+Health
+ [x] Is defined app path
+ [x] Base url has been set
+

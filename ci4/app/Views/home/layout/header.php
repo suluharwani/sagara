@@ -17,7 +17,7 @@
 								<span class="d-none d-sm-flex align-items-center ms-4">
 									<i class="fas fa-phone text-warning me-1"></i>
 									&nbsp;
-									<a href="tel:+6281327341834" class="text-white">+62 813-2734-1834</a>
+									<a href="tel:+6282137300307" class="text-white">+62 821-3730-0307</a>
 								</span>
 							</div>
 							<div class="header-column justify-content-end">
@@ -34,7 +34,7 @@
 										<a href="http://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
 									</li>
 									<li class="social-icons-whatsapp">
-										<a href="https://wa.me/6281327341834" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+										<a href="https://wa.me/6282137300307" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
 									</li>
 								</ul>
 							</div>
@@ -46,7 +46,7 @@
 						<div class="header-column justify-content-start">
 							<div class="header-logo">
 								<a href="<?= base_url() ?>">
-									Sagara Jersey
+									<img src="<?= base_url('assets/logo/logo.png') ?>" alt="Sagara Jersey" style="height: 54px; width: auto;">
 								</a>
 							</div>
 						</div>

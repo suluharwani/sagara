@@ -41,7 +41,7 @@
     <div class="col-lg-5 col-12">
         <div id="auth-left">
 <!--             <div class="auth-logo">
-                <a href="index.html"><img src="<?=base_url('assets/template/dist')?>/assets/images/logo/logo.svg" alt="Logo"></a>
+                <a href="<?= base_url() ?>"><img src="<?=base_url('assets/logo/logo.png')?>" alt="Sagara Jersey"></a>
             </div> -->
             <h1 class="auth-title">Sign Up</h1>
             <p class="auth-subtitle mb-5">Input your data to register to our website.</p>

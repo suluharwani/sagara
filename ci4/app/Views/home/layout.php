@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagara Jersey - Custom Wear untuk Tim Anda</title>
-    <meta name="description" content="Jersey, kaos, dan apparel custom untuk tim, komunitas, dan event. Jelajahi produk atau konsultasikan desain Anda bersama Sagara Jersey.">
+    <title><?= esc($pageTitle ?? 'Sagara Jersey - Custom Wear untuk Tim Anda') ?></title>
+    <meta name="description" content="<?= esc($pageDescription ?? 'Jersey, kaos, dan apparel custom untuk tim, komunitas, dan event. Jelajahi produk atau konsultasikan desain Anda bersama Sagara Jersey.', 'attr') ?>">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="<?= base_url() ?>" aria-label="Sagara Jersey, kembali ke beranda">
-            <span class="brand-mark">S</span>
+            <img class="brand-logo" src="<?= base_url('assets/logo/logo.png') ?>" alt="" aria-hidden="true">
             <span class="brand-name">Sagara <strong>Jersey</strong></span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -42,6 +42,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('portfolio') ?>">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('design') ?>">Desain Custom</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url() ?>#ready-title">Siap Pakai</a>
@@ -74,12 +77,12 @@
     <div class="container">
         <div class="row g-4">
             <div class="col-lg-4">
-                <a class="footer-brand" href="<?= base_url() ?>"><span class="brand-mark">S</span> Sagara Jersey</a>
+                <a class="footer-brand" href="<?= base_url() ?>"><img class="brand-logo" src="<?= base_url('assets/logo/logo.png') ?>" alt="" aria-hidden="true"> Sagara Jersey</a>
                 <p class="footer-intro">Apparel custom yang membantu identitas tim Anda terlihat solid - dari ide sampai siap dikenakan.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Facebook Sagara Jersey"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" aria-label="Instagram Sagara Jersey"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/6281327341834" target="_blank" rel="noopener" aria-label="WhatsApp Sagara Jersey"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/6282137300307" target="_blank" rel="noopener" aria-label="WhatsApp Sagara Jersey"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="col-lg-2">
@@ -87,6 +90,7 @@
                 <ul>
                     <li><a href="<?= base_url() ?>">Home</a></li>
                     <li><a href="<?= base_url('portfolio') ?>">Portfolio</a></li>
+                    <li><a href="<?= base_url('design') ?>">Desain Custom</a></li>
                     <li><a href="<?= base_url('reseller') ?>">Program Reseller</a></li>
                     <li><a href="<?= base_url() ?>#ready-title">Produk Siap Pakai</a></li>
                     <li><a href="<?= base_url('blog') ?>">Blog</a></li>
@@ -106,7 +110,7 @@
                 <h5>Kontak</h5>
                 <ul class="text-white-50">
                     <li><i class="fas fa-map-marker-alt me-2"></i> Penganten, Klambu, Grobogan</li>
-                    <li><i class="fas fa-phone me-2"></i> +62 813-2734-1834</li>
+                    <li><i class="fas fa-phone me-2"></i> +62 821-3730-0307</li>
                     <li><i class="fas fa-envelope me-2"></i> info@sagarajersey.com</li>
                 </ul>
             </div>

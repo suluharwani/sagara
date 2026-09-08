@@ -20,6 +20,7 @@
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
         <a class="navbar-brand" href="<?= base_url() ?>">
+            <img class="brand-logo" src="<?= base_url('assets/logo/logo.png') ?>" alt="" aria-hidden="true">
             Sagara <span>Jersey</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -69,7 +70,7 @@
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/6281327341834"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://wa.me/6282137300307"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="col-lg-2">
@@ -94,7 +95,7 @@
                 <h5>Kontak</h5>
                 <ul class="text-white-50">
                     <li><i class="fas fa-map-marker-alt me-2"></i> Penganten, Klambu, Grobogan</li>
-                    <li><i class="fas fa-phone me-2"></i> +62 813-2734-1834</li>
+                    <li><i class="fas fa-phone me-2"></i> +62 821-3730-0307</li>
                     <li><i class="fas fa-envelope me-2"></i> info@sagarajersey.com</li>
                 </ul>
             </div>

@@ -23,7 +23,7 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="logo">
-                            <a href="<?=base_url('admin')?>"><img src="<?=base_url('assets/template/dist')?>/assets/images/logo/logo.svg" alt="Logo"></a>
+                            <a href="<?=base_url('admin')?>"><img src="<?=base_url('assets/logo/logo.png')?>" alt="Sagara Jersey"></a>
                         </div>
                         <div class="header-top-right">
 

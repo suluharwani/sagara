@@ -1,5 +1,6 @@
 <div class="container py-4">
     <h2 class="mb-4"><i class="fas fa-upload me-2"></i> Upload Desain Custom</h2>
+    <p>Belum punya desain? <a class="text-primary" href="<?= base_url('design') ?>">Buat langsung di Sagara Design Studio &rarr;</a></p>
     
     <div class="row">
         <div class="col-md-8">

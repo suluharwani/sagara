@@ -104,7 +104,7 @@
                         <i class="fas fa-phone fa-2x text-warning"></i>
                     </div>
                     <h5>Telepon</h5>
-                    <p class="text-muted">+62 813-2734-1834</p>
+                    <p class="text-muted">+62 821-3730-0307</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -126,7 +126,7 @@
         <h2 class="display-5 fw-bold mb-4">Siap Bekerja Sama?</h2>
         <p class="lead mb-4">Hubungi kami sekarang untuk konsultasi gratis dan dapatkan harga spesial!</p>
         <div class="d-flex gap-3 justify-content-center flex-wrap">
-            <a href="https://wa.me/6281327341834" class="btn btn-warning btn-lg px-4">
+            <a href="https://wa.me/6282137300307" class="btn btn-warning btn-lg px-4">
                 <i class="fab fa-whatsapp me-2"></i> Chat WhatsApp
             </a>
             <a href="<?= base_url('product') ?>" class="btn btn-outline-light btn-lg px-4">

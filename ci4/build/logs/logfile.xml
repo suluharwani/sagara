@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="C:\Users\suluh\Documents\GitHub\sagara\ci4\phpunit.xml.dist" tests="16" assertions="70" errors="0" failures="0" skipped="0" time="0.315193">
+    <testsuite name="App" tests="16" assertions="70" errors="0" failures="0" skipped="0" time="0.315193">
+      <testsuite name="ExampleDatabaseTest" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\database\ExampleDatabaseTest.php" tests="2" assertions="3" errors="0" failures="0" skipped="0" time="0.081337">
+        <testcase name="testModelFindAll" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\database\ExampleDatabaseTest.php" line="17" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" assertions="1" time="0.059808"/>
+        <testcase name="testSoftDeleteLeavesRow" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\database\ExampleDatabaseTest.php" line="28" class="ExampleDatabaseTest" classname="ExampleDatabaseTest" assertions="2" time="0.021529"/>
+      </testsuite>
+      <testsuite name="DesignManagementTest" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" tests="8" assertions="45" errors="0" failures="0" skipped="0" time="0.206791">
+        <testcase name="testAdminPagesRequireAdminSession" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="68" class="DesignManagementTest" classname="DesignManagementTest" assertions="6" time="0.057444"/>
+        <testcase name="testAdministratorCanOpenBothManagersAndTemplateEditor" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="75" class="DesignManagementTest" classname="DesignManagementTest" assertions="4" time="0.030075"/>
+        <testcase name="testDisabledAdminLosesAccess" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="82" class="DesignManagementTest" classname="DesignManagementTest" assertions="2" time="0.005840"/>
+        <testcase name="testOnlyPublishedTemplatesAndNoPrivateDesignsArePublic" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="88" class="DesignManagementTest" classname="DesignManagementTest" assertions="9" time="0.031947"/>
+        <testcase name="testSavePublishArchiveAndPreventStaleAdminUpdates" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="103" class="DesignManagementTest" classname="DesignManagementTest" assertions="9" time="0.032101"/>
+        <testcase name="testCustomerSubmissionIsStoredPrivatelyAndCanBeReviewed" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="120" class="DesignManagementTest" classname="DesignManagementTest" assertions="8" time="0.026781"/>
+        <testcase name="testRejectsMalformedDocumentAndUnsafeImagesWithoutInsert" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="134" class="DesignManagementTest" classname="DesignManagementTest" assertions="4" time="0.011720"/>
+        <testcase name="testStateChangesRequireCsrf" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignManagementTest.php" line="145" class="DesignManagementTest" classname="DesignManagementTest" assertions="3" time="0.010884"/>
+      </testsuite>
+      <testsuite name="DesignStudioTest" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignStudioTest.php" tests="3" assertions="18" errors="0" failures="0" skipped="0" time="0.023625">
+        <testcase name="testStudioIsPublicAndContainsEditorAndExports" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignStudioTest.php" line="10" class="DesignStudioTest" classname="DesignStudioTest" assertions="13" time="0.008865"/>
+        <testcase name="testCustomAliasUsesSameStudio" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignStudioTest.php" line="28" class="DesignStudioTest" classname="DesignStudioTest" assertions="2" time="0.007339"/>
+        <testcase name="testExistingUploadPageLinksToStudio" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\feature\DesignStudioTest.php" line="35" class="DesignStudioTest" classname="DesignStudioTest" assertions="3" time="0.007421"/>
+      </testsuite>
+      <testsuite name="ExampleSessionTest" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\session\ExampleSessionTest.php" tests="1" assertions="1" errors="0" failures="0" skipped="0" time="0.000815">
+        <testcase name="testSessionSimple" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\session\ExampleSessionTest.php" line="11" class="ExampleSessionTest" classname="ExampleSessionTest" assertions="1" time="0.000815"/>
+      </testsuite>
+      <testsuite name="HealthTest" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\unit\HealthTest.php" tests="2" assertions="3" errors="0" failures="0" skipped="0" time="0.002625">
+        <testcase name="testIsDefinedAppPath" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\unit\HealthTest.php" line="13" class="HealthTest" classname="HealthTest" assertions="1" time="0.000798"/>
+        <testcase name="testBaseUrlHasBeenSet" file="C:\Users\suluh\Documents\GitHub\sagara\ci4\tests\unit\HealthTest.php" line="18" class="HealthTest" classname="HealthTest" assertions="2" time="0.001826"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

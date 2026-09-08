@@ -7,7 +7,7 @@
                 <ul class="social-icons">
                     <li class="social-icons-facebook"><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                     <li class="social-icons-instagram"><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li class="social-icons-whatsapp"><a href="https://wa.me/6281327341834" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                    <li class="social-icons-whatsapp"><a href="https://wa.me/6282137300307" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
                 </ul>
             </div>
             <div class="col-lg-2">
@@ -34,7 +34,7 @@
                 <h5 class="text-white">Kontak</h5>
                 <ul class="list-unstyled footer-links">
                     <li><i class="fas fa-map-marker-alt me-2"></i> Penganten, Klambu, Grobogan</li>
-                    <li><i class="fas fa-phone me-2"></i> +62 813-2734-1834</li>
+                    <li><i class="fas fa-phone me-2"></i> +62 821-3730-0307</li>
                     <li><i class="fas fa-envelope me-2"></i> info@sagarajersey.com</li>
                 </ul>
             </div>

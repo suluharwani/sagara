@@ -1,5 +1,5 @@
 <?php
-$waNumber = env('WHATSAPP_NUMBER', '6281234567890');
+$waNumber = env('WHATSAPP_NUMBER', '6282137300307');
 $waMessage = "Halo Sagara, saya tertarik dengan produk: {$product['nama']}. Apakah masih tersedia?";
 $waLink = "https://wa.me/{$waNumber}?text=" . urlencode($waMessage);
 ?>

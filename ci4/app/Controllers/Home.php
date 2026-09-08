@@ -177,7 +177,7 @@ class Home extends BaseController
     } else {
         // Jika file tidak ditemukan, tampilkan gambar default
         header("Content-Type: image/png");
-        readfile(FCPATH . 'images/default-logo.png'); // Tempatkan gambar default di public/images
+        readfile(FCPATH . 'assets/logo/logo.png');
         exit;
     }
 }

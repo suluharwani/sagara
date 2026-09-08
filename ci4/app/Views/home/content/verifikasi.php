@@ -49,7 +49,7 @@
 											<h3 class="font-weight-bold text-4 mb-0">Phone Number</h3>
 										</div>
 										<span class="d-block">
-											<a href="tel:+1234567890">(123) 456-7890</a> - <a href="tel:+1234567890">(123) 456-7890</a>
+											<a href="tel:+6282137300307">+62 821-3730-0307</a>
 										</span>
 									</div>
 								</div>

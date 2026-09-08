@@ -59,6 +59,11 @@ h1, h2, h3, h4, h5, h6 { color: var(--ink); font-family: var(--font-display); fo
     background: var(--lime); color: var(--ink); font-family: var(--font-display);
     font-size: 1.35rem; font-weight: 800; transform: skew(-8deg);
 }
+.brand-logo {
+    width: auto;
+    height: 2.45rem;
+    object-fit: contain;
+}
 .brand-name strong { color: var(--lime); }
 .navbar-custom .nav-link {
     position: relative; margin: 0 .1rem; padding: .55rem .75rem !important; border-radius: .6rem;

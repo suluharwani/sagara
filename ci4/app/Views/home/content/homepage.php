@@ -1,6 +1,6 @@
 <?php
 $whatsappMessage = rawurlencode('Halo Sagara Jersey, saya ingin konsultasi desain apparel custom.');
-$whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
+$whatsappUrl = 'https://wa.me/6282137300307?text=' . $whatsappMessage;
 ?>
 
 <div class="home-shell">
@@ -16,8 +16,8 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
                         Mulai dari jersey tim, kaos komunitas, hingga apparel event. Pilih produk, bawa ide Anda, lalu kami bantu wujudkan menjadi seragam yang siap dikenakan.
                     </p>
                     <div class="hero-actions">
-                        <a href="<?= base_url('portfolio') ?>" class="btn-sagara btn-sagara-primary">
-                            Lihat Portfolio <i class="fas fa-arrow-right ms-2"></i>
+                        <a href="<?= base_url('design') ?>" class="btn-sagara btn-sagara-primary">
+                            Buat Desain Sendiri <i class="fas fa-arrow-right ms-2"></i>
                         </a>
                         <a href="<?= $whatsappUrl ?>" target="_blank" rel="noopener" class="btn-sagara btn-sagara-ghost">
                             <i class="fab fa-whatsapp me-2"></i>Konsultasi Desain
@@ -145,7 +145,7 @@ $whatsappUrl = 'https://wa.me/6281327341834?text=' . $whatsappMessage;
                     <?php foreach ($productsUmum as $product): ?>
                         <?php
                         $readyMessage = rawurlencode('Halo Sagara Jersey, saya tertarik dengan produk siap pakai: ' . ($product['nama'] ?? 'produk Sagara') . '. Apakah masih tersedia?');
-                        $readyUrl = 'https://wa.me/6281327341834?text=' . $readyMessage;
+                        $readyUrl = 'https://wa.me/6282137300307?text=' . $readyMessage;
                         $hasDiscount = !empty($product['harga_diskon']) && (float) $product['harga_diskon'] > 0 && (float) $product['harga_diskon'] < (float) ($product['harga'] ?? 0);
                         ?>
                         <div class="col-sm-6 col-lg-3 reveal">

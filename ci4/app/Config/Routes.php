@@ -78,7 +78,24 @@ $routes->get('invoice/(:any)', 'Invoice::index/$1');
 $routes->get('invoice/download/(:any)', 'Invoice::download/$1');
 $routes->post('invoice/email/(:any)', 'Invoice::email/$1');
 
-// DESIGN UPLOAD
+// CUSTOM DESIGN STUDIO & UPLOAD
+$routes->get('design', 'Design::studio', ['filter' => 'csrf']);
+$routes->get('design/custom', 'Design::studio', ['filter' => 'csrf']);
+$routes->get('design/templates', 'DesignLibrary::templates');
+$routes->get('design/templates/(:num)', 'DesignLibrary::template/$1');
+$routes->get('design/templates/(:num)/thumbnail', 'DesignLibrary::thumbnail/$1');
+$routes->post('design/submit', 'DesignLibrary::submit', ['filter' => 'csrf']);
+$routes->group('admin', ['filter' => ['designAdmin', 'csrf']], static function ($routes) {
+    $routes->get('custom-designs', 'AdminDesign::index');
+    $routes->get('custom-designs/new', 'AdminDesign::createDesign');
+    $routes->get('custom-designs/(:num)', 'AdminDesign::editDesign/$1');
+    $routes->get('design-templates', 'AdminDesign::templates');
+    $routes->get('design-templates/new', 'AdminDesign::createTemplate');
+    $routes->get('design-templates/(:num)', 'AdminDesign::editTemplate/$1');
+    $routes->get('design-records/(:num)', 'AdminDesign::record/$1');
+    $routes->get('design-records/(:num)/download', 'AdminDesign::download/$1');
+    $routes->post('design-records', 'AdminDesign::save');
+});
 $routes->get('design/upload', 'Design::index');
 $routes->post('design/upload', 'Design::upload');
 $routes->get('design/preview/(:any)', 'Design::preview/$1');

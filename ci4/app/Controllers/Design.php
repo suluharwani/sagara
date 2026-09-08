@@ -4,6 +4,18 @@ namespace App\Controllers;
 
 class Design extends BaseController
 {
+    public function studio()
+    {
+        return view('home/layout', [
+            'pageTitle' => 'Desain Custom | Sagara Jersey',
+            'pageDescription' => 'Buat desain jersey dan kaos sendiri. Pilih template, ubah warna, tambahkan nama, nomor dan logo, lalu unduh hasil desain Anda.',
+            'content' => view('home/content/design-studio', ['studioConfig' => [
+                'templatesUrl' => base_url('design/templates'), 'submitUrl' => base_url('design/submit'),
+                'csrf' => csrf_hash(), 'csrfHeader' => csrf_header(),
+            ]]),
+        ]);
+    }
+
     public function index()
     {
         $data['content'] = view('home/content/upload-design');
